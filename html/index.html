@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FUTU</title>
+    <script src="bower_components/jquery/dist/jquery.slim.min.js"></script>
+    <style type="text/css" rel="bower_components/foundation/css/foundation.min.css"></style>
+    <script src="bower_components/animejs/lib/anime.min.js"></script>
+    <style>
+        .fullscreen {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            margin: 0;
+            padding: 0;
+            background: #ffffff;
+        }
+
+        .dot {
+            height: 50px;
+            width: 50px;
+            background-color: #fcd436;
+            border-radius: 50%;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="fullscreen">
+    <div class="dot">
+
+    </div>
+</div>
+
+<script>
+    jQuery.fn.center = function () {
+        this.css("position", "absolute");
+        this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) +
+            $(window).scrollTop()) + "px");
+        this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
+            $(window).scrollLeft()) + "px");
+        return this;
+    }
+
+    anime({
+        targets: '.dot',
+        keyframes: [
+            {
+                // opacity: ["90%", "100%"],
+                scale: [0.7, 1],
+                easing: 'easeInOutQuad',
+                duration: 500,
+                backgroundColor: "#fcd436"
+            },
+            {
+                // opacity: ["100%", "90%"],
+                scale: [1, 0.7],
+                easing: 'easeInOutQuad',
+                duration: 500,
+                backgroundColor: "#fcd436"
+            }
+        ],
+        loop: true
+    });
+
+    $(window).resize(function () {
+        $('.dot').center();
+    });
+
+    $(document).ready(function (window) {
+        $('.dot').hide('slow');
+    });
+</script>
+
+</body>
+</html>

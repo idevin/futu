@@ -1,0 +1,23 @@
+{
+  "name": "futu.foncepts",
+  "authors": [
+    "Ilya Devin <i.devin@creotech.org>"
+  ],
+  "description": "Web Development",
+  "main": "",
+  "license": "MIT",
+  "homepage": "http://futuconcepts.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "animate-css": "animate.css#>=4.1.1",
+    "animejs": ">=3.2.1",
+    "foundation": "^5.5.3"
+  }
+}
