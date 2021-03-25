@@ -37,8 +37,11 @@
 </div>
 
 <div class="row">
-    <div class="large-block-grid-12">
-        fffff
+    <div class="large-6 columns">
+        1
+    </div>
+    <div class="large-6 columns">
+        2
     </div>
 </div>
 
@@ -54,7 +57,7 @@
 
     $('.dot').center();
 
-    anime({
+    let tl = anime.timeline().add({
         targets: '.dot',
         keyframes: [
             {
@@ -80,12 +83,16 @@
     });
 
     $(document).ready(function () {
-        setTimeout(function () {
+        setTimeout(function(){
             anime({
-                targets: '.fullscreen',
-                opacity: ["100%", "0%"],
-                duration: 4000,
-                loop: 1
+                targets: ".fullscreen",
+                opacity: [1, 0],
+                duration: 500,
+                loop: 1,
+                complete: function() {
+                    tl.pause();
+                    $(".fullscreen").hide();
+                }
             });
         }, 1000);
     });
