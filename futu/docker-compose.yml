@@ -1,1 +1,18 @@
-version: '2'
+version: "3"
+services:
+  web:
+    image: 9c9538248f62
+    deploy:
+      replicas: 5
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "8008:8008"
+    networks:
+      - futu
+networks:
+  futu:
+    external: false
+    ipam:
+      config:
+        - subnet: 127.0.0.0/27

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>FUTU</title>
-    <script src="bower_components/jquery/dist/jquery.slim.min.js"></script>
-    <style type="text/css" rel="bower_components/foundation/css/foundation.min.css"></style>
-    <script src="bower_components/animejs/lib/anime.min.js"></script>
+    <link rel="stylesheet" href="bower_components/foundation/css/normalize.min.css">
+    <link rel="stylesheet" href="bower_components/foundation-sites/dist/css/foundation.min.css">
+    <link rel="stylesheet" href="bower_components/foundation-sites/dist/css/foundation-prototype.min.css">
     <style>
         .fullscreen {
             display: block;
@@ -22,40 +22,147 @@
         }
 
         .dot {
-            height: 50px;
-            width: 50px;
+            height: 4rem;
+            width: 4rem;
             background-color: #fcd436;
             border-radius: 50%;
             display: inline-block;
+        }
+
+        .row {
+            margin: 0 auto;
+            max-width: 82.5rem;
+        }
+
+        @font-face {
+            font-family: 'Raleway Bold';
+            src: url('fonts/Raleway-Bold.woff2') format('woff2'),
+            url('fonts/Raleway-Bold.woff') format('woff'),
+            url('fonts/Raleway-Bold.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Raleway Italic';
+            src: url('fonts/Raleway-Italic.woff2') format('woff2'),
+            url('fonts/Raleway-Italic.woff') format('woff'),
+            url('fonts/Raleway-Italic.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Raleway Light';
+            src: url('fonts/Raleway-Light.woff2') format('woff2'),
+            url('fonts/Raleway-Light.woff') format('woff'),
+            url('fonts/Raleway-Light.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Raleway Regular';
+            src: url('fonts/Raleway-Regular.woff2') format('woff2'),
+            url('fonts/Raleway-Regular.woff') format('woff'),
+            url('fonts/Raleway-Regular.ttf') format('truetype');
+        }
+
+        body {
+            font-family: "Raleway Regular", sans-serif;
+        }
+
+        .top-bar, .top-bar ul {
+            background-color: unset;
+        }
+
+        @keyframes top-bar-link {
+            from {color: #000000;}
+            to {color: #502160;}
+        }
+
+        ul.dropdown.menu li a {
+            color: #000000;
+        }
+
+        ul.dropdown.menu li a:hover {
+            color: #502160;
+            animation-name: top-bar-link;
+            animation-duration: 0.5s;
+        }
+        video {
+            width:100%;
+            max-width:500px;
+            height:auto;
         }
     </style>
 </head>
 <body>
 
-<div class="fullscreen">
+<div class="fullscreen" style="display: none;">
     <div class="dot"></div>
 </div>
 
 <div class="row">
-    <div class="large-6 columns">
-        1
+    <div class="columns large-12">
+        <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+            <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+            <div class="title-bar-title">Menu</div>
+        </div>
+
+        <div class="top-bar" id="responsive-menu">
+            <div class="top-bar-left">
+                <ul class="dropdown menu" data-dropdown-menu>
+                    <li>
+                        <a href="#0">Home</a>
+                    </li>
+                    <li>
+                        <a href="#0">Projects</a>
+                    </li>
+                    <li>
+                        <a href="#0">Express</a>
+                    </li>
+                    <li>
+                        <a href="#0">Contacts</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="top-bar-right">
+                <ul class="menu">
+                    <li>
+                        <img src="img/logo.png" alt="?">
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="large-6 columns">
-        2
+    <!--    <div class="columns large-6">-->
+    <!--        2-->
+    <!--    </div>-->
+</div>
+
+<div class="row">
+    <div class="columns large-12">
+        <video autoplay>
+            <source src="videos/Head_Banner.mp4" type="video/mp4" media="all and (max-width:480px)">
+<!--            <source src="parrots-small.webm" type="video/webm" media="all and (max-width:480px)">-->
+<!--            <source src="parrots.mp4" type="video/mp4">-->
+<!--            <source src="parrots.webm" type="video/webm">-->
+        </video>
     </div>
 </div>
 
+<script src="bower_components/jquery/dist/jquery.slim.min.js"></script>
+<script src="bower_components/foundation-sites/dist/js/foundation.min.js"></script>
+<script src="bower_components/animejs/lib/anime.min.js"></script>
+<script src="bower_components/jquery.fitvids/jquery.fitvids.js"></script>
+
 <script>
+
     jQuery.fn.center = function () {
         this.css("position", "absolute");
-        this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) +
-            $(window).scrollTop()) + "px");
-        this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
-            $(window).scrollLeft()) + "px");
+        this.css("top", Math.max(0, ((jQuery(window).height() - jQuery(this).outerHeight()) / 2) +
+            jQuery(window).scrollTop()) + "px");
+        this.css("left", Math.max(0, ((jQuery(window).width() - jQuery(this).outerWidth()) / 2) +
+            jQuery(window).scrollLeft()) + "px");
         return this;
     }
 
-    $('.dot').center();
+    jQuery('.dot').center();
 
     let tl = anime.timeline().add({
         targets: '.dot',
@@ -78,24 +185,37 @@
         loop: true
     });
 
-    $(window).resize(function () {
-        $('.dot').center();
+    jQuery(window).on('resize', function () {
+        jQuery('.dot').center();
     });
 
-    $(document).ready(function () {
-        setTimeout(function(){
+    jQuery(document).ready(function () {
+        jQuery(".fullscreen").show();
+        setTimeout(function () {
             anime({
                 targets: ".fullscreen",
                 opacity: [1, 0],
                 duration: 500,
                 loop: 1,
-                complete: function() {
+                complete: function () {
                     tl.pause();
-                    $(".fullscreen").hide();
+                    jQuery(".fullscreen").hide();
                 }
             });
         }, 1000);
+
+        $('ul.dropdown.menu li a').on('mouseover', function(){
+
+            /**
+             * top bar animation
+             * anime();
+             */
+        });
+
     });
+
+    $(document).foundation();
+
 </script>
 
 </body>
