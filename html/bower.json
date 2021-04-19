@@ -20,6 +20,7 @@
     "animejs": ">=3.2.1",
     "foundation": "^5.5.3",
     "foundation-sites": "6.6.3",
-    "jquery.fitvids": "1.2.0"
+    "jquery.fitvids": "1.2.0",
+    "in-view": "master"
   }
 }

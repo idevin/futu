@@ -6,99 +6,16 @@
     <link rel="stylesheet" href="bower_components/foundation/css/normalize.min.css">
     <link rel="stylesheet" href="bower_components/foundation-sites/dist/css/foundation.min.css">
     <link rel="stylesheet" href="bower_components/foundation-sites/dist/css/foundation-prototype.min.css">
-    <style>
-        .fullscreen {
-            display: block;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 9999;
-            margin: 0;
-            padding: 0;
-            background: #ffffff;
-            overflow: hidden;
-        }
-
-        .dot {
-            height: 4rem;
-            width: 4rem;
-            background-color: #fcd436;
-            border-radius: 50%;
-            display: inline-block;
-        }
-
-        .row {
-            margin: 0 auto;
-            max-width: 82.5rem;
-        }
-
-        @font-face {
-            font-family: 'Raleway Bold';
-            src: url('fonts/Raleway-Bold.woff2') format('woff2'),
-            url('fonts/Raleway-Bold.woff') format('woff'),
-            url('fonts/Raleway-Bold.ttf') format('truetype');
-        }
-
-        @font-face {
-            font-family: 'Raleway Italic';
-            src: url('fonts/Raleway-Italic.woff2') format('woff2'),
-            url('fonts/Raleway-Italic.woff') format('woff'),
-            url('fonts/Raleway-Italic.ttf') format('truetype');
-        }
-
-        @font-face {
-            font-family: 'Raleway Light';
-            src: url('fonts/Raleway-Light.woff2') format('woff2'),
-            url('fonts/Raleway-Light.woff') format('woff'),
-            url('fonts/Raleway-Light.ttf') format('truetype');
-        }
-
-        @font-face {
-            font-family: 'Raleway Regular';
-            src: url('fonts/Raleway-Regular.woff2') format('woff2'),
-            url('fonts/Raleway-Regular.woff') format('woff'),
-            url('fonts/Raleway-Regular.ttf') format('truetype');
-        }
-
-        body {
-            font-family: "Raleway Regular", sans-serif;
-        }
-
-        .top-bar, .top-bar ul {
-            background-color: unset;
-        }
-
-        @keyframes top-bar-link {
-            from {color: #000000;}
-            to {color: #502160;}
-        }
-
-        ul.dropdown.menu li a {
-            color: #000000;
-        }
-
-        ul.dropdown.menu li a:hover {
-            color: #502160;
-            animation-name: top-bar-link;
-            animation-duration: 0.5s;
-        }
-        video {
-            width:100%;
-            max-width:500px;
-            height:auto;
-        }
-    </style>
+    <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
 
 <div class="fullscreen" style="display: none;">
     <div class="dot"></div>
 </div>
-
-<div class="row">
-    <div class="columns large-12">
+<div class="separator-center">&nbsp;</div>
+<div class="grid-x grid-padding-x align-top">
+    <div class="cell small-12">
         <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
             <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
             <div class="title-bar-title">Menu</div>
@@ -124,25 +41,140 @@
             <div class="top-bar-right">
                 <ul class="menu">
                     <li>
-                        <img src="img/logo.png" alt="?">
+                        <img src="img/logo.svg" alt="?" width="100%" height="100%">
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-    <!--    <div class="columns large-6">-->
-    <!--        2-->
-    <!--    </div>-->
 </div>
 
-<div class="row">
-    <div class="columns large-12">
-        <video autoplay>
-            <source src="videos/Head_Banner.mp4" type="video/mp4" media="all and (max-width:480px)">
-<!--            <source src="parrots-small.webm" type="video/webm" media="all and (max-width:480px)">-->
-<!--            <source src="parrots.mp4" type="video/mp4">-->
-<!--            <source src="parrots.webm" type="video/webm">-->
-        </video>
+<div class="separator-center">&nbsp;</div>
+
+<div class="grid-x grid-padding-x align-top">
+    <div class="cell small-12 video-container"></div>
+</div>
+
+<div class="separator-center">&nbsp;</div>
+
+<div class="grid-x grid-padding-x align-top">
+    <div class="cell small-4">
+        <b>WHO WE ARE</b>
+    </div>
+    <div class="cell small-8">
+        <p>As a Design Studio we strongly believe that every concept creation is way beyond beautiful images and catchy
+            phrases.</p>
+
+        <p>Design is science, where every element is carefully planned based on the ideas it has to represent and then
+            implemented into a concept where every single piece is strategically placed to
+            serve a specific function in making your Brand unique.</p>
+
+        <p>We use an intellectual approach and our Creativity is based on experience and qualifications of our team. Our
+            way of Concept Development is technological, scientific and almost mathematical.
+            Therefore reasoning behind every dot and pixel can be explained.</p>
+
+        </p>Nothing is left to chance and nothing is random.<br/>
+        Every single image serves a purpose.<br/>
+        Every pattern is thoroughly planned.<br/>
+        Every color has a meaning.<br/>
+        Every word is a statement.<br/>
+        </p>
+        Our Projects cover <a href="#">Web Design</a>, <a href="#">Graphic Design</a>, <a href="#">Brand Development</a>,
+        <a href="#">Branding and further support</a>.
+    </div>
+</div>
+
+<div class="separator-center">&nbsp;</div>
+
+<div class="grid-x grid-padding-x">
+    <div class="cell small-4" style="padding: .7rem 1rem;">
+        <b>ALL PROJECTS</b>
+    </div>
+    <div class="cell small-8">
+        <ul class="dropdown menu gray" data-dropdown-menu>
+            <li>
+                <a href="#0">Branding</a>
+            </li>
+            <li>
+                <a href="#0">Web Design</a>
+            </li>
+            <li>
+                <a href="#0">Logo</a>
+            </li>
+            <li>
+                <a href="#0">Advertising</a>
+            </li>
+            <li>
+                <a href="#0">Packaging</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="separator-center">&nbsp;</div>
+
+<div class="grid-x grid-padding-x">
+    <div class="cell small-6 in-view-p">
+        <a href="#" class="grayed">
+            <img src="img/projects/SideHustle_Seltzer_Futu_Packeging.png">
+        </a>
+        <br/> <br/>
+        <b>Side Hustle Brews</b><br/>
+        <b>Brewery. Brooklyn USA</b><br/>
+        <span class="annotation">Packaging Design + Promo Materials</span> <br/>
+        <span class="annotation">2019</span>
+    </div>
+    <div class="cell small-6 in-view-p">
+        <a href="#" class="grayed">
+            <img src="img/projects/IG_gallery.png">
+        </a>
+        <br/> <br/> <b>IG Gallery</b><br/>
+        <b>Art Gallery. Paris FRANCE</b><br/>
+        <span class="annotation">Posters + Promo Materials</span><br/>
+        <span class="annoKation">2016</span>
+    </div>
+</div>
+
+<div class="separator-center">&nbsp;</div>
+
+<div class="grid-x grid-padding-x">
+    <div class="cell small-6 in-view-p">
+        <a href="#" class="grayed">
+            <img src="img/projects/Odin_hospitality.png">
+        </a>
+        <br/> <br/>
+        <b>ODIN Hospitality Solutions</b><br/>
+        <b>Hospitality Solutions Company. Dubai UAE</b><br/>
+        <span class="annotation">Branding Concept</span> <br/>
+        <span class="annotation">2019</span>
+    </div>
+    <div class="cell small-6 in-view-p">
+        <a href="#" class="grayed">
+            <img src="img/projects/Chief_de_sucre.png">
+        </a>
+        <br/> <br/>
+        <b>Chef de Sucre</b><br/>
+        <b> Bakery. KINGDOM OF SAUDI ARABIA</b><br/>
+        <span class="annotation"> Logo + Promo Materials + Branding Concept</span><br/>
+        <span class="annotation">2020</span>
+    </div>
+</div>
+
+<div class="separator-center">&nbsp;</div>
+
+<div class="grid-x grid-padding-x" style="align-items: center;  justify-content: center;">
+    <div class="cell small-6">
+        <a href="#" class="grayed">
+            <img src="img/projects/Die4rocknroll.png">
+        </a>
+        <br/> <br/>
+        <b>die4Rocknroll</b><br/>
+        <b> Publisher. London UK</b><br/>
+        <span class="annotation">Book Covers + Book Layouts + Web Design</span> <br/>
+        <span class="annotation">2015</span>
+    </div>
+    <div class="cell small-6" style="text-align: center;">
+        <b><a href="#" class="gray-link">More Projects</a></b>
     </div>
 </div>
 
@@ -150,19 +182,23 @@
 <script src="bower_components/foundation-sites/dist/js/foundation.min.js"></script>
 <script src="bower_components/animejs/lib/anime.min.js"></script>
 <script src="bower_components/jquery.fitvids/jquery.fitvids.js"></script>
-
+<script src="bower_components/in-view/dist/in-view.min.js"></script>
 <script>
 
-    jQuery.fn.center = function () {
+    $.fn.center = function () {
         this.css("position", "absolute");
-        this.css("top", Math.max(0, ((jQuery(window).height() - jQuery(this).outerHeight()) / 2) +
-            jQuery(window).scrollTop()) + "px");
-        this.css("left", Math.max(0, ((jQuery(window).width() - jQuery(this).outerWidth()) / 2) +
-            jQuery(window).scrollLeft()) + "px");
+        this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) +
+            $(window).scrollTop()) + "px");
+        this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
+            $(window).scrollLeft()) + "px");
         return this;
     }
 
-    jQuery('.dot').center();
+    inView('.in-view-p').on('enter', function(e, h){
+        console.log(e);
+    });
+
+    $('.dot').center();
 
     let tl = anime.timeline().add({
         targets: '.dot',
@@ -185,12 +221,13 @@
         loop: true
     });
 
-    jQuery(window).on('resize', function () {
-        jQuery('.dot').center();
+    $(window).on('resize', function () {
+        $('.dot').center();
     });
 
-    jQuery(document).ready(function () {
-        jQuery(".fullscreen").show();
+    $(document).ready(function () {
+        $(".fullscreen").show();
+        $("#thing-with-videos").fitVids();
         setTimeout(function () {
             anime({
                 targets: ".fullscreen",
@@ -199,22 +236,38 @@
                 loop: 1,
                 complete: function () {
                     tl.pause();
-                    jQuery(".fullscreen").hide();
+                    $(".fullscreen").hide();
                 }
             });
         }, 1000);
 
-        $('ul.dropdown.menu li a').on('mouseover', function(){
+        $('ul.dropdown.menu li a').on('mouseover', function () {
 
             /**
              * top bar animation
              * anime();
              */
         });
+        $(".video-container").fitVids();
+        $(document).foundation();
+
+        var video = $('<video />', {
+            id: 'video',
+            class: 'video-props'
+        }).prop({
+            muted: true,
+            autoplay: true,
+            loop: true,
+        });
+
+        $('<source />', {
+            type: 'video/mp4',
+            src: 'videos/Head_Banner.mp4'
+        }).appendTo(video);
+
+        video.appendTo('.video-container');
 
     });
-
-    $(document).foundation();
 
 </script>
 

@@ -1,0 +1,172 @@
+.fullscreen {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.dot {
+    height: 4rem;
+    width: 4rem;
+    background-color: #fcd436;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.row {
+    margin: 0 auto;
+    max-width: 82.5rem;
+}
+
+@font-face {
+    font-family: 'Raleway Bold';
+    src: url('../fonts/Raleway-Bold.woff2') format('woff2'),
+    url('../fonts/Raleway-Bold.woff') format('woff'),
+    url('../fonts/Raleway-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Raleway Italic';
+    src: url('../fonts/Raleway-Italic.woff2') format('woff2'),
+    url('../fonts/Raleway-Italic.woff') format('woff'),
+    url('../fonts/Raleway-Italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Raleway Light';
+    src: url('../fonts/Raleway-Light.woff2') format('woff2'),
+    url('../fonts/Raleway-Light.woff') format('woff'),
+    url('../fonts/Raleway-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Raleway Regular';
+    src: url('../fonts/Raleway-Regular.woff2') format('woff2'),
+    url('../fonts/Raleway-Regular.woff') format('woff'),
+    url('../fonts/Raleway-Regular.ttf') format('truetype');
+}
+
+body {
+    font-family: "Raleway Regular", sans-serif;
+}
+
+.top-bar, .top-bar ul {
+    background-color: unset;
+}
+
+@keyframes top-bar-link {
+    from {
+        color: #e601fe;
+    }
+    to {
+        color: #502160;
+    }
+}
+
+@keyframes gray-image {
+    from {
+        filter: grayscale(100%);
+    }
+    to {
+        filter: grayscale(0%);
+    }
+}
+
+@keyframes gray-image-out {
+    from {
+        filter: grayscale(0%);
+    }
+    to {
+        filter: grayscale(100%);
+    }
+}
+
+ul.dropdown.menu li a {
+    color: #000000;
+}
+
+ul.dropdown.menu li:first-child a {
+    padding-left: 0;
+}
+
+ul.dropdown.menu li a:hover {
+    color: #502160;
+    animation-name: top-bar-link;
+    animation-duration: 0.5s;
+    text-decoration: none;
+}
+
+ul.dropdown.menu.gray li a {
+    color: #AAAAAA;
+    text-decoration: none;
+}
+
+.gray-link {
+    color: #AAAAAA;
+    text-decoration: none;
+}
+
+ul.dropdown.menu.gray li a:hover {
+    color: #502160;
+    animation-name: top-bar-link;
+    animation-duration: 0.5s;
+    text-decoration: none;
+}
+
+.top-bar {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.separator-left::after, .separator-right::after, .separator-center::after {
+    border-bottom-color: #efefef;
+}
+
+video {
+    pointer-events: none;
+}
+
+.video-props {
+    width: 100%;
+}
+
+
+body {
+    padding: 0 40px;
+    text-align: justify;
+}
+
+a {
+    color: #502160;
+}
+
+a:hover {
+    color: #502160;
+    text-decoration: underline;
+    animation-name: top-bar-link;
+    animation-duration: 0.5s;
+}
+
+.annotation {
+    color: #AAAAAA;
+    font-size: 0.8rem;
+}
+
+a.grayed img {
+    animation-name: gray-image-out;
+    animation-duration: 0.3s;
+    filter: grayscale(100%);
+}
+
+a.grayed:hover img {
+    animation-name: gray-image;
+    animation-duration: 0.3s;
+    filter: grayscale(0%);
+}
