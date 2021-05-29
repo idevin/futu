@@ -6,7 +6,7 @@
   "description": "Web Development",
   "main": "",
   "license": "MIT",
-  "homepage": "http://futuconcepts.com",
+  "homepage": "https://futuconcepts.com",
   "private": true,
   "ignore": [
     "**/.*",
@@ -18,6 +18,9 @@
   "dependencies": {
     "animate-css": "animate.css#>=4.1.1",
     "animejs": ">=3.2.1",
-    "foundation": "^5.5.3"
+    "foundation": "^5.5.3",
+    "foundation-sites": "6.6.3",
+    "jquery.fitvids": "1.2.0",
+    "in-view": "master"
   }
 }
