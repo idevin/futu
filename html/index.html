@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="initial-scale =1.0,maximum-scale = 1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>FUTU</title>
     <link rel="stylesheet" href="bower_components/foundation/css/normalize.min.css">
@@ -268,6 +268,122 @@
     </div>
 </div>
 
+<div class="separator-center">&nbsp;</div>
+<div class="separator-center">&nbsp;</div>
+
+<div class="grid-x align-center">
+    <div class="cell large-6 small-6">
+        <div class="grid-x grid-margin-x">
+            <div class="cell auto">
+                <ul class="footer bold">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Projects</a></li>
+                    <li>
+                        <a href="#">Express</a>
+                    </li>
+                    <li>
+                        <a href="#">Contacts</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="cell auto">
+                <ul class="footer">
+                    <li>
+                        <a href="#">Branding</a>
+                    </li>
+                    <li>
+                        <a href="#">Web Design</a></li>
+                    <li>
+                        <a href="#">Logo</a>
+                    </li>
+                    <li>
+                        <a href="#">Advertising</a>
+                    </li>
+                    <li>
+                        <a href="#">Packaging</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="cell auto">
+                <ul class="footer">
+                    <li>
+                        <a href="#">Careers</a>
+                    </li>
+                    <li>
+                        <a href="#">Privacy & Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="cell large-6 small-6">
+        <div class="grid-x">
+            <div class="cell auto">
+                <ul class="footer email-links">
+                    <li>
+                        GENERAL INFO:
+                        <div>
+                            <a href="mailto:info@futuconcepts.com">info@futuconcepts.com</a>
+                        </div>
+                    </li>
+                    <li>
+                        CONSULTATION:
+                        <div>
+                            <a href="mailto:anastasiya@futuconcepts.com">anastasiya@futuconcepts.com</a>
+                        </div>
+                        <div>
+                            <a href="mailto:george@futuconcepts.com">george@futuconcepts.com</a>
+                        </div>
+                    </li>
+                    <li>
+                        CURRENT ACCOUNTS:
+                        <div>
+                            <a href="mailto:michelle@futuconcepts.com">michelle@futuconcepts.com</a>
+                        </div>
+                    </li>
+                    <li>
+                        CRAZY STUFF AND OFFFERS: <br/>
+                        <div>
+                            <a href="mailto:john@futuconcepts.com">john@futuconcepts.com</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="cell auto text-right">
+                FUTU Concepts <br>
+                Dubai Design District - Dubai - United Arab Emirates
+                <br/><br/>
+                <img src="img/Whatsup.svg" style="width: 8em;">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="grid-x">
+    <div class="cell auto copyright">
+        Copyright © 2020 FUTU Concepts
+    </div>
+    <div class="cell auto socials">
+        <ul>
+            <li>
+                <img src="img/instagram.svg">
+            </li>
+            <li>
+                <img src="img/facebook.svg">
+            </li>
+            <li>
+                <img src="img/linkedin.svg">
+            </li>
+            <li>
+                <img src="img/behance.svg">
+            </li>
+        </ul>
+    </div>
+    <div class="cell auto text-right">
+        <div class="dot-footer"></div>
+    </div>
+</div>
 <script src="bower_components/jquery/dist/jquery.slim.min.js"></script>
 <script src="bower_components/foundation-sites/dist/js/foundation.min.js"></script>
 <script src="bower_components/animejs/lib/anime.min.js"></script>
@@ -284,24 +400,22 @@
     return this;
   }
 
-  inView('.in-view-p').on('enter', function (e, h) {
-    console.log(e);
+  inView('.in-view-p').on('enter', function (e) {
+    // console.log(e);
   });
 
   $('.dot').center();
-
+  $('.fullscreen').center();
   let tl = anime.timeline().add({
     targets: '.dot',
     keyframes: [
       {
-        // opacity: ["90%", "100%"],
         scale: [0.7, 1],
         easing: 'easeInOutQuad',
         duration: 500,
         backgroundColor: "#fcd436"
       },
       {
-        // opacity: ["100%", "90%"],
         scale: [1, 0.7],
         easing: 'easeInOutQuad',
         duration: 500,
@@ -316,7 +430,7 @@
   });
 
   $(document).ready(function () {
-    $(".fullscreen").show();
+    $(".fullscreen").center().show();
     $("#thing-with-videos").fitVids();
     setTimeout(function () {
       anime({
@@ -341,7 +455,7 @@
     $(".video-container").fitVids();
     $(document).foundation();
 
-    var video = $('<video />', {
+    const video = $('<video />', {
       id: 'video',
       class: 'video-props'
     }).prop({
