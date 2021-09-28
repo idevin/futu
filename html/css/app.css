@@ -270,3 +270,17 @@ ul.footer.email-links li {
    display: inline-block;
 }
 
+.fixed {
+    position: fixed;
+    transition: padding 5s ease;
+    width: 100%;
+}
+
+.top-menu {
+    transition: padding .25s ease;
+    background: #FFFFFF;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #dedede;
+}

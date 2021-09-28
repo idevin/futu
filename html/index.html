@@ -15,36 +15,42 @@
     <div class="dot"></div>
 </div>
 <div class="separator-center">&nbsp;</div>
-<div class="grid-x grid-padding-x align-top">
-    <div class="cell small-12">
-        <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
-            <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
-            <div class="title-bar-title">Menu</div>
-        </div>
 
-        <div class="top-bar" id="responsive-menu">
-            <div class="top-bar-left">
-                <ul class="dropdown menu" data-dropdown-menu>
-                    <li>
-                        <a href="#0">Home</a>
-                    </li>
-                    <li>
-                        <a href="#0">Projects</a>
-                    </li>
-                    <li>
-                        <a href="#0">Express</a>
-                    </li>
-                    <li>
-                        <a href="#0">Contacts</a>
-                    </li>
-                </ul>
+<div id="top"></div>
+
+<div data-sticky-container>
+    <div class="grid-x grid-padding-x align-top top-menu" data-sticky data-options="marginTop:0;"
+         data-top-anchor="top" data-stick-to="top">
+        <div class="cell small-12">
+            <div data-responsive-toggle="responsive-menu" data-hide-for="medium">
+                <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+                <div class="title-bar-title">Menu</div>
             </div>
-            <div class="top-bar-right">
-                <ul class="menu">
-                    <li>
-                        <img src="img/logo.svg" alt="?" width="100%" height="100%">
-                    </li>
-                </ul>
+
+            <div class="top-bar" id="responsive-menu">
+                <div class="top-bar-left">
+                    <ul class="dropdown menu" data-dropdown-menu>
+                        <li>
+                            <a href="#0">Home</a>
+                        </li>
+                        <li>
+                            <a href="#0">Projects</a>
+                        </li>
+                        <li>
+                            <a href="#0">Express</a>
+                        </li>
+                        <li>
+                            <a href="#0">Contacts</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="top-bar-right">
+                    <ul class="menu">
+                        <li>
+                            <img src="img/logo.svg" alt="?" width="100%" height="100%">
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -395,87 +401,95 @@
 <script src="bower_components/in-view/dist/in-view.min.js"></script>
 <script>
 
-  $.fn.center = function () {
-    this.css("position", "absolute");
-    this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) +
-      $(window).scrollTop()) + "px");
-    this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
-      $(window).scrollLeft()) + "px");
-    return this;
-  }
+    $.fn.center = function () {
+        this.css("position", "absolute");
+        this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) +
+            $(window).scrollTop()) + "px");
+        this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
+            $(window).scrollLeft()) + "px");
+        return this;
+    }
 
-  inView('.in-view-p').on('enter', function (e) {
-    // console.log(e);
-  });
+    inView('.in-view-p').on('enter', function (e) {
+        // console.log(e);
+    });
 
-  $('.dot').center();
-  $('.fullscreen').center();
-  let tl = anime.timeline().add({
-    targets: '.dot',
-    keyframes: [
-      {
-        scale: [0.7, 1],
-        easing: 'easeInOutQuad',
-        duration: 500,
-        backgroundColor: "#fcd436"
-      },
-      {
-        scale: [1, 0.7],
-        easing: 'easeInOutQuad',
-        duration: 500,
-        backgroundColor: "#fcd436"
-      }
-    ],
-    loop: true
-  });
-
-  $(window).on('resize', function () {
     $('.dot').center();
-  });
-
-  $(document).ready(function () {
-    $(".fullscreen").center().show();
-    $("#thing-with-videos").fitVids();
-    setTimeout(function () {
-      anime({
-        targets: ".fullscreen",
-        opacity: [1, 0],
-        duration: 500,
-        loop: 1,
-        complete: function () {
-          tl.pause();
-          $(".fullscreen").hide();
-        }
-      });
-    }, 1000);
-
-    $('ul.dropdown.menu li a').on('mouseover', function () {
-
-      /**
-       * top bar animation
-       * anime();
-       */
-    });
-    $(".video-container").fitVids();
-    $(document).foundation();
-
-    const video = $('<video />', {
-      id: 'video',
-      class: 'video-props'
-    }).prop({
-      muted: true,
-      autoplay: true,
-      loop: true,
+    $('.fullscreen').center();
+    let tl = anime.timeline().add({
+        targets: '.dot',
+        keyframes: [
+            {
+                scale: [0.7, 1],
+                easing: 'easeInOutQuad',
+                duration: 500,
+                backgroundColor: "#fcd436"
+            },
+            {
+                scale: [1, 0.7],
+                easing: 'easeInOutQuad',
+                duration: 500,
+                backgroundColor: "#fcd436"
+            }
+        ],
+        loop: true
     });
 
-    $('<source />', {
-      type: 'video/mp4',
-      src: 'videos/Head_Banner.mp4'
-    }).appendTo(video);
+    $(window).on('resize', function () {
+        $('.dot').center();
+    });
 
-    video.appendTo('.video-container');
+    $(document).ready(function () {
+        $(".fullscreen").center().show();
+        $("#thing-with-videos").fitVids();
+        setTimeout(function () {
+            anime({
+                targets: ".fullscreen",
+                opacity: [1, 0],
+                duration: 500,
+                loop: 1,
+                complete: function () {
+                    tl.pause();
+                    $(".fullscreen").hide();
+                }
+            });
+        }, 1000);
 
-  });
+        $('ul.dropdown.menu li a').on('mouseover', function () {
+
+            /**
+             * top bar animation
+             * anime();
+             */
+        });
+        $(".video-container").fitVids();
+        $(document).foundation();
+
+        const video = $('<video />', {
+            id: 'video',
+            class: 'video-props'
+        }).prop({
+            muted: true,
+            autoplay: true,
+            loop: true,
+        });
+
+        $('<source />', {
+            type: 'video/mp4',
+            src: 'videos/Head_Banner.mp4'
+        }).appendTo(video);
+
+        video.appendTo('.video-container');
+
+        $(document).on('scroll', function () {
+            if (window.scrollY > 170) {
+                $('.top-menu').addClass('border-bottom');
+            } else {
+                $('.top-menu').removeClass('border-bottom');
+            }
+        });
+
+    });
 
 </script>
 
