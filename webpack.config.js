@@ -9,7 +9,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 module.exports = {
     mode: 'production',
     entry: {
-        app: path.resolve(__dirname, 'src/js/app.js'),
+        app: path.resolve(__dirname, 'src/js/app.js')
     },
     output: {
         filename: 'dist/js/[name].js',
@@ -56,6 +56,18 @@ module.exports = {
                 }
             },
             {
+                test: /\.(woff2|woff|ttf|eot|svg)?$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: "url-loader",
+                    options: {
+                        limit: 100000,
+                        mimetype: "application/font-woff",
+                        name: "dist/fonts/[name].[ext]",
+                    }
+                },
+            },
+            {
                 test: /\.s[ca]ss$/i,
                 use: [
                     MiniCssExtractPlugin.loader,
@@ -82,7 +94,7 @@ module.exports = {
             filename: 'dist/css/[name].css',
         }),
         new WebpackAssetsManifest({
-            merge: true,
+            merge: false,
             output: path.resolve(__dirname, 'dist/manifest.json'),
             publicPath: path.resolve(__dirname, 'dist/')
         }),

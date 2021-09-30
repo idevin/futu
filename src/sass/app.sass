@@ -1,5 +1,9 @@
 @import 'node_modules/foundation-sites/scss/foundation'
 @import 'node_modules/motion-ui/motion-ui'
+@import 'fonts'
+@include foundation-everything()
+@include motion-ui-animations()
+@include motion-ui-transitions()
 
 .fullscreen
   display: block
@@ -20,6 +24,7 @@
   width: 4rem
   background-color: #fcd436
   border-radius: 50%
+  z-index: 1000
   display: inline-block
 
 
@@ -35,35 +40,6 @@
 .row
   margin: 0 auto
   max-width: 82.5rem
-
-
-@font-face
-  font-family: 'Raleway Bold'
-  src: local('Releway Bold')
-  src: url('//Raleway-Bold.woff2') format('woff2')
-  src: url('//Raleway-Bold.woff') format('woff')
-  src: url('//Raleway-Bold.ttf') format('truetype')
-
-
-//@font-face
-//  font-family: 'Raleway Italic'
-//  src: url('fonts/Raleway-Italic.woff2') format('woff2'),
-//  url('fonts/Raleway-Italic.woff') format('woff'),
-//  url('fonts/Raleway-Italic.ttf') format('truetype')
-//
-//
-//@font-face
-//  font-family: 'Raleway Light'
-//  src: url('fonts/Raleway-Light.woff2') format('woff2'),
-//  url('fonts/Raleway-Light.woff') format('woff'),
-//  url('fonts/Raleway-Light.ttf') format('truetype')
-//
-//
-//@font-face
-//  font-family: 'Raleway Regular'
-//  src: url('fonts/Raleway-Regular.woff2') format('woff2'),
-//  url('fonts/Raleway-Regular.woff') format('woff'),
-//  url('fonts/Raleway-Regular.ttf') format('truetype')
 
 body
   font-family: "Raleway Regular", sans-serif

@@ -1,16 +1,18 @@
 import jQuery from 'jquery-slim'
-import('foundation-sites')
-import('fitvids')
-import('motion-ui')
+import Foundation from 'foundation-sites'
+import 'fitvids'
+import 'motion-ui'
+import inView from 'in-view'
+import anime from 'animejs'
 
 import('../sass/app.sass')
 
-$.fn.center = function () {
+jQuery.fn.center = function () {
     this.css("position", "absolute");
-    this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) +
-        $(window).scrollTop()) + "px");
-    this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
-        $(window).scrollLeft()) + "px");
+    this.css("top", Math.max(0, ((jQuery(window).height() - jQuery(this).outerHeight()) / 2) +
+        jQuery(window).scrollTop()) + "px");
+    this.css("left", Math.max(0, ((jQuery(window).width() - jQuery(this).outerWidth()) / 2) +
+        jQuery(window).scrollLeft()) + "px");
     return this;
 }
 
@@ -18,8 +20,8 @@ inView('.in-view-p').on('enter', function (e) {
     // console.log(e);
 });
 
-$('.dot').center();
-$('.fullscreen').center();
+jQuery('.dot').center();
+jQuery('.fullscreen').center();
 let tl = anime.timeline().add({
     targets: '.dot',
     keyframes: [
@@ -39,13 +41,14 @@ let tl = anime.timeline().add({
     loop: true
 });
 
-$(window).on('resize', function () {
-    $('.dot').center();
+jQuery(window).on('resize', function () {
+    jQuery('.dot').center();
 });
 
-$(document).ready(function () {
-    $(".fullscreen").center().show();
-    $("#thing-with-videos").fitVids();
+jQuery(document).ready(function () {
+
+    jQuery(".fullscreen").center().show();
+
     setTimeout(function () {
         anime({
             targets: ".fullscreen",
@@ -54,22 +57,23 @@ $(document).ready(function () {
             loop: 1,
             complete: function () {
                 tl.pause();
-                $(".fullscreen").hide();
+                jQuery(".fullscreen").hide();
             }
         });
     }, 1000);
 
-    $('ul.dropdown.menu li a').on('mouseover', function () {
+    jQuery('ul.dropdown.menu li a').on('mouseover', function () {
 
         /**
          * top bar animation
          * anime();
          */
     });
-    $(".video-container").fitVids();
-    $(document).foundation();
-
-    const video = $('<video />', {
+     jQuery(".video-container").fitVids();
+    // fitvids(".video-container");
+    // jQuery(document).foundation();
+    console.log(fitvids(".video-container"));
+    const video = jQuery('<video />', {
         id: 'video',
         class: 'video-props'
     }).prop({
@@ -78,14 +82,14 @@ $(document).ready(function () {
         loop: true,
     });
 
-    $('<source />', {
+    jQuery('<source />', {
         type: 'video/mp4',
-        src: 'videos/Head_Banner.mp4'
+        src: 'src/videos/Head_Banner.mp4'
     }).appendTo(video);
 
     // video.appendTo('.video-container');
 
-    $(document).on('scroll', function () {
+    jQuery(document).on('scroll', function () {
         let animeObject = false;
         if (!(window.scrollY < 170) && !(window.scrollY > 180)) {
 
@@ -101,16 +105,16 @@ $(document).ready(function () {
                     easing: 'easeInOutQuad',
                     complete: function () {
                         // tl.pause();
-                        // $(".fullscreen").hide();
+                        // jQuery(".fullscreen").hide();
                     }
                 });
             }
             animeObject = true;
             // }, 1000);
-            $('.top-menu').addClass('border-bottom');
+            jQuery('.top-menu').addClass('border-bottom');
         } else {
             // animeObject = true;
-            $('.top-menu').removeClass('border-bottom');
+            jQuery('.top-menu').removeClass('border-bottom');
         }
     });
 
