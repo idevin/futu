@@ -1,9 +1,6 @@
-import jQuery from 'jquery-slim'
-import Foundation from 'foundation-sites'
-import 'fitvids'
-import 'motion-ui'
 import inView from 'in-view'
 import anime from 'animejs'
+import Foundation from 'foundation-sites'
 
 import('../sass/app.sass')
 
@@ -17,11 +14,40 @@ jQuery.fn.center = function () {
 }
 
 inView('.in-view-p').on('enter', function (e) {
-    // console.log(e);
+    return anime({
+        targets: e,
+        opacity: [0, 1],
+        duration: 500,
+        loop: 1,
+        translateX: [-500, 0],
+        backgroundColor: '#FFF',
+        easing: 'easeInOutQuad',
+        complete: function () {
+        }
+    });
 });
 
 jQuery('.dot').center();
 jQuery('.fullscreen').center();
+
+let foundation = Foundation;
+
+let topMenu = jQuery('.top-menu');
+
+let animateTopmenu = function (from, to) {
+    return anime({
+        targets: ".top-menu.sticky",
+        opacity: [0, 1],
+        duration: 500,
+        loop: 1,
+        translateY: [-from, to],
+        backgroundColor: '#FFF',
+        easing: 'easeInOutQuad',
+        complete: function () {
+        }
+    });
+}
+
 let tl = anime.timeline().add({
     targets: '.dot',
     keyframes: [
@@ -47,6 +73,8 @@ jQuery(window).on('resize', function () {
 
 jQuery(document).ready(function () {
 
+    jQuery(document).foundation();
+
     jQuery(".fullscreen").center().show();
 
     setTimeout(function () {
@@ -69,10 +97,7 @@ jQuery(document).ready(function () {
          * anime();
          */
     });
-     jQuery(".video-container").fitVids();
-    // fitvids(".video-container");
-    // jQuery(document).foundation();
-    console.log(fitvids(".video-container"));
+
     const video = jQuery('<video />', {
         id: 'video',
         class: 'video-props'
@@ -87,35 +112,21 @@ jQuery(document).ready(function () {
         src: 'src/videos/Head_Banner.mp4'
     }).appendTo(video);
 
-    // video.appendTo('.video-container');
+    video.appendTo('.video-container');
+
+    let animeObject = false;
 
     jQuery(document).on('scroll', function () {
-        let animeObject = false;
-        if (!(window.scrollY < 170) && !(window.scrollY > 180)) {
-
+        if (!(window.scrollY < 170)) {
             if (animeObject === false) {
-                // setTimeout(function () {
-                anime({
-                    targets: ".top-menu.sticky",
-                    opacity: [0, 1],
-                    duration: 500,
-                    loop: 1,
-                    backgroundColor: '#FFF',
-                    // borderBottomRadius: ['0%', '10%'],
-                    easing: 'easeInOutQuad',
-                    complete: function () {
-                        // tl.pause();
-                        // jQuery(".fullscreen").hide();
-                    }
-                });
+                topMenu.addClass('border-bottom');
+                animateTopmenu(topMenu.height(), 0);
             }
             animeObject = true;
-            // }, 1000);
-            jQuery('.top-menu').addClass('border-bottom');
         } else {
-            // animeObject = true;
-            jQuery('.top-menu').removeClass('border-bottom');
+            animeObject = false;
+            topMenu.removeClass('border-bottom');
+            animateTopmenu(topMenu.height(), 0);
         }
     });
-
 });

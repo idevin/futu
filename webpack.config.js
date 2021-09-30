@@ -5,6 +5,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const WebpackAssetsManifest = require('webpack-assets-manifest');
 const WebpackRequireFrom = require("webpack-require-from");
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const webpack = require("webpack");
 
 module.exports = {
     mode: 'production',
@@ -89,6 +90,12 @@ module.exports = {
             },
         ],
     },
+    resolve: {
+        alias: {
+            jquery: "jquery/dist/jquery",
+            index: path.resolve(__dirname, 'src/js/app.js')
+        }
+    },
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'dist/css/[name].css',
@@ -105,6 +112,10 @@ module.exports = {
             dry: false,
             cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, 'dist/**')],
             verbose: true
-        })
+        }),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+        }),
     ]
 };

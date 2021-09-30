@@ -14,7 +14,6 @@
     "css-loader": "^6.3.0",
     "css-minimizer-webpack-plugin": "^3.0.2",
     "file-loader": "^6.2.0",
-    "fitvids": "^2.1.1",
     "foundation": "^4.2.1-1",
     "foundation-sites": "^6.7.3",
     "grunt-babel": "^8.0.0",
