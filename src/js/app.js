@@ -13,18 +13,67 @@ jQuery.fn.center = function () {
     return this;
 }
 
-inView('.in-view-p').on('enter', function (e) {
-    return anime({
+let lastScrollTop = 0;
+let scroll = 'down';
+
+$(window).scroll(function (event) {
+    let st = $(this).scrollTop();
+    if (st > lastScrollTop) {
+        scroll = 'down';
+    } else {
+        scroll = 'up';
+    }
+    lastScrollTop = st;
+});
+
+inView('.in-view-x').on('enter', function (e) {
+    let from = $(e).data('from');
+    let to = $(e).data('to');
+
+    let t = $(e).data('translate');
+
+    if (typeof from === 'undefined') {
+        from = -500;
+    }
+
+    if (typeof to === 'undefined') {
+        to = 0;
+    }
+
+    let translate = [from, to];
+
+    let params = {
         targets: e,
-        opacity: [0, 1],
-        duration: 500,
+        opacity: [0.5, 1],
+        duration: 800,
         loop: 1,
-        translateX: [-500, 0],
         backgroundColor: '#FFF',
-        easing: 'easeInOutQuad',
+        easing: 'easeOutExpo',
         complete: function () {
+            this.animatables.forEach(
+                e => console.log(jQuery(e.target).addClass('gray-image'))
+            );
         }
-    });
+    };
+
+    if (typeof t === 'undefined') {
+        t = 'X';
+    }
+
+
+    if (scroll === 'down') {
+        if (t === 'Y' && translate[0] > 0) {
+            translate[0] = -translate[0];
+        }
+    } else {
+        if (t === 'Y' && translate[0] < 0) {
+            translate[0] = Math.abs(translate[0]);
+        }
+    }
+
+    params['translate' + t] = translate;
+
+    return anime(params);
 });
 
 jQuery('.dot').center();
@@ -67,13 +116,98 @@ let tl = anime.timeline().add({
     loop: true
 });
 
+let resize = false;
+
+function showMenu() {
+
+    resize = true;
+
+    let wWidth = jQuery(window).width();
+    console.log(wWidth);
+
+    let params2 = {
+        targets: '.off-c',
+        left: [-20, 0],
+        opacity: [0, 1],
+        duration: 800,
+        loop: 1,
+        easing: 'easeOutExpo',
+        complete: function () {
+        }
+    };
+
+    let params3 = {
+        targets: '.off-c',
+        left: [0, -20],
+        opacity: [1, 0],
+        duration: 900,
+        loop: 1,
+        easing: 'easeInExpo',
+        complete: function () {
+        }
+    };
+
+    if (wWidth < 651) {
+        setTimeout(function () {
+            anime(params2);
+        }, 1000);
+
+    } else {
+        anime(params3);
+    }
+}
+
 jQuery(window).on('resize', function () {
     jQuery('.dot').center();
 });
 
 jQuery(document).ready(function () {
 
+    showMenu();
+
     jQuery(document).foundation();
+    let offCannvas = $('.off-canvas');
+    offCannvas.on('opened.zf.offCanvas', function () {
+        console.log('opened.zf.offCanvas', this);
+
+        jQuery(this).addClass();
+
+        let options = {
+            targets: '.off-c',
+            left: [jQuery(this).width()-20, jQuery(this).width() - 1],
+            backgroundColor: [ '#4f1e61', '#4f1e61'],
+            opacity: [0, 1],
+            duration: 500,
+            loop: 1,
+            easing: 'easeInExpo',
+            complete: function () {
+            }
+        };
+
+        anime(options);
+    });
+
+    offCannvas.on('close.zf.offCanvas', function () {
+        console.log('close.zf.offCanvas', this);
+
+        let options = {
+            targets: '.off-c',
+            left: [jQuery(this).width(), 0],
+            backgroundColor: '#fcd436',
+            duration: 500,
+            opacity: [0, 1],
+            loop: 1,
+            easing: 'easeInExpo',
+            complete: function () {
+            }
+        };
+
+        anime(options);
+    });
+
+    offCannvas.on('openedEnd.zf.offCanvas', function () {
+        console.log('openedEnd.zf.offCanvas');
+    });
 
     jQuery(".fullscreen").center().show();
 
@@ -128,5 +262,21 @@ jQuery(document).ready(function () {
             topMenu.removeClass('border-bottom');
             animateTopmenu(topMenu.height(), 0);
         }
+    });
+
+    let dotFooter = jQuery('.dot-footer');
+
+    dotFooter.hover(function () {
+        $(this).css('cursor', 'pointer');
+
+    }, function () {
+        $(this).css('cursor', 'default')
+    });
+
+    dotFooter.click(function () {
+        jQuery([document.documentElement, document.body]).animate(
+            {scrollTop: jQuery('#top').offset().top},
+            500);
+        return false;
     });
 });
