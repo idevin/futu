@@ -1,0 +1,233 @@
+$yellow-color: #ffc412;
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.goTop {
+    border-radius: 5px;
+    background-color: rgb(1, 14, 27);
+    cursor: pointer;
+    position: fixed;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    right: 15px;
+    bottom: 15px;
+    border: none;
+    opacity: 0.7;
+    color: #fff;
+    text-align: center;
+
+    .goTop__arrow {
+        display: block;
+        margin: auto;
+    }
+
+    svg {
+        width: 15px;
+        vertical-align: -5px;
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+
+footer {
+
+
+    a {
+        color: #000;
+        transition: all ease .3s;
+
+        &:hover {
+            color: $yellow-color;
+            text-decoration: none;
+        }
+    }
+
+    .telegram-icon, .viber-icon {
+        width: 18px;
+        display: inline-block;
+        margin: 0 5px;
+    }
+
+    background: #ececec;
+    padding: 30px 0 30px 0;
+    color: rgba(0, 0, 0, .6);
+}
+
+.copyright {
+    font-size: 24px
+}
+
+.copyright-text{
+    display: block;
+}
+
+.currency{
+    line-height: 38px;
+}
+
+.footerTitle {
+    text-align: center;
+    font-weight: bold;
+    font-family: "Raleway", sans-serif;
+    color: #000;
+    font-size: 16px;
+    padding-bottom: 30px;
+}
+
+.footerContentBlock {
+    text-align: center;
+    line-height: 2;
+    margin-bottom: 70px;
+}
+
+.footerRightLine {
+    padding: 10px 20px 10px 0;
+}
+
+.logotypeFooter img {
+    width: 100%;
+    max-width: 247px;
+}
+
+.copyright {
+    padding: 20px 0;
+}
+
+.sitemapLink a {
+    color: #f2d47c;
+}
+
+.footerLinks {
+    margin-bottom: 20px
+}
+
+button.subscribeBut {
+    background: transparent;
+    border: 1px solid #f3d57d;
+    border-radius: 5px;
+    color: #f3d57d;
+    outline: none;
+    cursor: pointer;
+    transition: all ease .3s;
+    padding: 3px 20px;
+    margin-top: 10px;
+}
+
+button.subscribeBut:hover {
+    background: #f3d57d;
+    color: #000
+}
+
+input.subscribeBut {
+    padding: 3px 20px;
+    border: 1px solid #d8d8d8;
+    outline: none;
+    margin-top: 10px;
+}
+
+.footerSubscribeTitle {
+    color: #e8e8e8;
+}
+
+.footerSubscribe {
+    padding-bottom: 30px;
+    border-bottom: 1px dashed #ffffff;
+}
+
+.footerPayment img {
+    width: 100%;
+    max-width: 275px;
+}
+
+.footerPayment {
+    text-align: center;
+}
+
+
+.footerSocialBlock {
+    display: flex;
+    justify-content: space-around;
+
+    a {
+        color: #2f2f2f;
+        padding: 5px;
+        border-radius: 4px;
+    }
+
+    a:hover {
+        color: $yellow-color;
+    }
+}
+
+.footerMenuBottom.footerMenuCenter {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+    padding: 0 70px;
+}
+
+.copyrightBlock {
+    padding: 10px 0;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 1);
+    background: #ececec;
+}
+
+.linksColor a {
+    color: rgba(0, 0, 0, 1);
+}
+
+.footerMenuBottom {
+    line-height: 1.5;
+    text-align: center
+}
+
+.footerMenuBottom a {
+    margin-right: 6px;
+}
+
+@media (min-width: 768px) {
+
+    .text-md-right {
+        text-align: right;
+    }
+
+    .text-md-left {
+        text-align: left !important;
+    }
+
+    .copyright-text{
+        display: inline;
+    }
+
+    .footerTopBlock {
+        border-bottom: 1px solid #b0b0b0;
+    }
+
+    .footerBottomBlock {
+        display: flex;
+        justify-content: space-around;
+        height: 54px;
+        padding-top: 20px;
+    }
+    .footerMenuBottom {
+        display: flex;
+        justify-content: space-around;
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+    .footerMenuBottom a {
+        display: block;
+    }
+    .footerMenuLeft, .footerMenuRight {
+        padding: 13px 0
+    }
+
+}

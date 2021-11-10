@@ -1,0 +1,43 @@
+.btn-link {
+    &.text-danger {
+        color: #a94442;
+
+        &:hover,
+        &:focus {
+            color: #843534;
+        }
+    }
+}
+
+.button {
+    background: #ffd961;
+    border-radius: 10px;
+    padding: 5px 20px;
+    position: absolute;
+    top: -3px;
+    right: 0;
+    border: none;
+
+    &:hover {
+        background: #ffd14d;
+        cursor: pointer;
+    }
+
+    svg {
+        margin-right: 10px;
+    }
+}
+
+.search-icon {
+    height: 38px;
+    width: 34px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+        fill: #0a0302;
+        width: 17px;
+        height: 17px;
+    }
+}

@@ -1,0 +1,36 @@
+.carousel-cell {
+    width: 100%; /* full width */
+    margin-right: 10px;
+}
+
+.carousel-cell .card-small-image {
+    display: block;
+    height: 250px;
+}
+
+.carousel-cell .card-small-image img {
+    height: 250px;
+    width: 100%;
+}
+
+@include media-breakpoint-up(sm) {
+    .carousel-cell {
+        width: 100%; /* full width */
+        margin-right: 10px;
+    }
+}
+@include media-breakpoint-up(md) {
+    .carousel-cell {
+        width: 50%; /* full width */
+        margin-right: 10px;
+    }
+}
+@include media-breakpoint-up(lg) {
+    .carousel-cell {
+        width: 33%; /* full width */
+        margin-right: 10px;
+    }
+}
+@include media-breakpoint-up(xl) {
+
+}

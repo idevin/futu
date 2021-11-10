@@ -1,0 +1,39 @@
+server {
+	listen 80;
+
+	root /home/id/SunnyBlog/public;
+
+	index index.php;
+
+	server_name sunny.blog;
+
+	try_files $uri $uri/ =404;
+
+	location / {
+               try_files $uri $uri/ /index.php$is_args$args;
+        }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		fastcgi_pass unix:/var/run/php/sunny.blog.sock;
+                fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+                include        fastcgi_params;
+	}
+
+    rewrite ^/(.*)/$ /$1 permanent;
+
+    location ~* \.(?:css(\.map)?|js(\.map)?|jpe?g|png|gif|ico|cur|heic|webp|tiff?|mp3|m4a|aac|ogg|midi?|wav|mp4|mov|webm|mpe?g|avi|ogv|flv|wmv)$ {
+        add_header Cache-Control public;
+
+        expires 7d;
+        access_log off;
+    }
+
+    location ~* \.(?:svgz?|svg|ttf|ttc|otf|eot|woff|woff2?)$ {
+        add_header Access-Control-Allow-Origin "*";
+        add_header Cache-Control public;
+
+        expires 1y;
+        access_log off;
+    }
+}

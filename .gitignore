@@ -130,5 +130,5 @@ dmypy.json
 .pyre/
 node_modules
 psd
-vendor
-.env*
+.env.example
+/vendor/

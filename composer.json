@@ -1,0 +1,80 @@
+{
+    "name": "guillaumebriday/laravel-blog",
+    "description": "Laravel 8.0 blog.",
+    "keywords": ["framework", "laravel", "blog", "example"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": "^8.0",
+        "aaronddm/xml-builder": "^2.0",
+        "barryvdh/laravel-debugbar": "^3",
+        "dipeshsukhia/laravel-html-minify": "^1.1",
+        "doctrine/dbal": "^3.1",
+        "fideloper/proxy": "^4",
+        "fruitcake/laravel-cors": "^2",
+        "laravel/framework": "^8",
+        "laravel/horizon": "^5",
+        "laravel/socialite": "^6",
+        "laravel/tinker": "^2.6",
+        "laravel/ui": "^3",
+        "laravelcollective/html": "^6",
+        "nunomaduro/collision": "^5",
+        "predis/predis": "^1",
+        "pusher/pusher-php-server": "^4",
+        "spatie/laravel-backup": "^6",
+        "spatie/laravel-medialibrary": "^9",
+        "spatie/laravel-tags": "^4.0",
+        "spatie/laravel-translatable": "^5.0",
+        "vicklr/materialized-model": "~1.0"
+    },
+    "require-dev": {
+        "filp/whoops": "^2",
+        "fzaninotto/faker": "^1",
+        "laravel/homestead": "^11",
+        "laravel/telescope": "^4",
+        "mockery/mockery": "^1",
+        "phpunit/phpunit": "^9"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        },
+        "files": [
+            "app/Helpers/date.php",
+            "app/Helpers/route.php",
+            "app/Helpers/utils.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": [
+            ]
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate"
+        ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
