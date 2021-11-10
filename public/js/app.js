@@ -1,6 +1,50 @@
 /******/ (function(modules) { // webpackBootstrap
+/******/ 	// install a JSONP callback for chunk loading
+/******/ 	function webpackJsonpCallback(data) {
+/******/ 		var chunkIds = data[0];
+/******/ 		var moreModules = data[1];
+/******/
+/******/
+/******/ 		// add "moreModules" to the modules object,
+/******/ 		// then flag all "chunkIds" as loaded and fire callback
+/******/ 		var moduleId, chunkId, i = 0, resolves = [];
+/******/ 		for(;i < chunkIds.length; i++) {
+/******/ 			chunkId = chunkIds[i];
+/******/ 			if(Object.prototype.hasOwnProperty.call(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 				resolves.push(installedChunks[chunkId][0]);
+/******/ 			}
+/******/ 			installedChunks[chunkId] = 0;
+/******/ 		}
+/******/ 		for(moduleId in moreModules) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
+/******/ 				modules[moduleId] = moreModules[moduleId];
+/******/ 			}
+/******/ 		}
+/******/ 		if(parentJsonpFunction) parentJsonpFunction(data);
+/******/
+/******/ 		while(resolves.length) {
+/******/ 			resolves.shift()();
+/******/ 		}
+/******/
+/******/ 	};
+/******/
+/******/
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
+/******/
+/******/ 	// object to store loaded and loading chunks
+/******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 	// Promise = chunk loading, 0 = chunk loaded
+/******/ 	var installedChunks = {
+/******/ 		"/js/app": 0
+/******/ 	};
+/******/
+/******/
+/******/
+/******/ 	// script path function
+/******/ 	function jsonpScriptSrc(chunkId) {
+/******/ 		return __webpack_require__.p + "" + ({}[chunkId]||chunkId) + ".js"
+/******/ 	}
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -26,6 +70,67 @@
 /******/ 		return module.exports;
 /******/ 	}
 /******/
+/******/ 	// This file contains only the entry chunk.
+/******/ 	// The chunk loading function for additional chunks
+/******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
+/******/ 		var promises = [];
+/******/
+/******/
+/******/ 		// JSONP chunk loading for javascript
+/******/
+/******/ 		var installedChunkData = installedChunks[chunkId];
+/******/ 		if(installedChunkData !== 0) { // 0 means "already installed".
+/******/
+/******/ 			// a Promise means "currently loading".
+/******/ 			if(installedChunkData) {
+/******/ 				promises.push(installedChunkData[2]);
+/******/ 			} else {
+/******/ 				// setup Promise in chunk cache
+/******/ 				var promise = new Promise(function(resolve, reject) {
+/******/ 					installedChunkData = installedChunks[chunkId] = [resolve, reject];
+/******/ 				});
+/******/ 				promises.push(installedChunkData[2] = promise);
+/******/
+/******/ 				// start chunk loading
+/******/ 				var script = document.createElement('script');
+/******/ 				var onScriptComplete;
+/******/
+/******/ 				script.charset = 'utf-8';
+/******/ 				script.timeout = 120;
+/******/ 				if (__webpack_require__.nc) {
+/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 				}
+/******/ 				script.src = jsonpScriptSrc(chunkId);
+/******/
+/******/ 				// create error before stack unwound to get useful stacktrace later
+/******/ 				var error = new Error();
+/******/ 				onScriptComplete = function (event) {
+/******/ 					// avoid mem leaks in IE.
+/******/ 					script.onerror = script.onload = null;
+/******/ 					clearTimeout(timeout);
+/******/ 					var chunk = installedChunks[chunkId];
+/******/ 					if(chunk !== 0) {
+/******/ 						if(chunk) {
+/******/ 							var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+/******/ 							var realSrc = event && event.target && event.target.src;
+/******/ 							error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
+/******/ 							error.name = 'ChunkLoadError';
+/******/ 							error.type = errorType;
+/******/ 							error.request = realSrc;
+/******/ 							chunk[1](error);
+/******/ 						}
+/******/ 						installedChunks[chunkId] = undefined;
+/******/ 					}
+/******/ 				};
+/******/ 				var timeout = setTimeout(function(){
+/******/ 					onScriptComplete({ type: 'timeout', target: script });
+/******/ 				}, 120000);
+/******/ 				script.onerror = script.onload = onScriptComplete;
+/******/ 				document.head.appendChild(script);
+/******/ 			}
+/******/ 		}
+/******/ 		return Promise.all(promises);
+/******/ 	};
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
@@ -78,6 +183,16 @@
 /******/
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "/";
+/******/
+/******/ 	// on error function for async loading
+/******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
+/******/
+/******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
+/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
+/******/ 	jsonpArray.push = webpackJsonpCallback;
+/******/ 	jsonpArray = jsonpArray.slice();
+/******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
+/******/ 	var parentJsonpFunction = oldJsonpFunction;
 /******/
 /******/
 /******/ 	// Load entry module and return exports
@@ -33577,16 +33692,275 @@ new vue__WEBPACK_IMPORTED_MODULE_3___default.a({
 
 /***/ }),
 
+/***/ "./src/js/app.js":
+/*!***********************!*\
+  !*** ./src/js/app.js ***!
+  \***********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'in-view'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'animejs'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'foundation-sites'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+
+
+
+__webpack_require__.e(/*! import() */ 0).then(__webpack_require__.t.bind(null, /*! ../sass/app.sass */ "./src/sass/app.sass", 7));
+
+jQuery.fn.center = function () {
+  this.css("position", "absolute");
+  this.css("top", Math.max(0, (jQuery(window).height() - jQuery(this).outerHeight()) / 2 + jQuery(window).scrollTop()) + "px");
+  this.css("left", Math.max(0, (jQuery(window).width() - jQuery(this).outerWidth()) / 2 + jQuery(window).scrollLeft()) + "px");
+  return this;
+};
+
+var lastScrollTop = 0;
+var scroll = 'down';
+$(window).scroll(function (event) {
+  var st = $(this).scrollTop();
+
+  if (st > lastScrollTop) {
+    scroll = 'down';
+  } else {
+    scroll = 'up';
+  }
+
+  lastScrollTop = st;
+});
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'in-view'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())('.in-view-x').on('enter', function (e) {
+  var from = $(e).data('from');
+  var to = $(e).data('to');
+  var t = $(e).data('translate');
+
+  if (typeof from === 'undefined') {
+    from = -500;
+  }
+
+  if (typeof to === 'undefined') {
+    to = 0;
+  }
+
+  var translate = [from, to];
+  var params = {
+    targets: e,
+    opacity: [0.5, 1],
+    duration: 800,
+    loop: 1,
+    backgroundColor: '#FFF',
+    easing: 'easeOutExpo',
+    complete: function complete() {
+      this.animatables.forEach(function (e) {
+        return console.log(jQuery(e.target).addClass('gray-image'));
+      });
+    }
+  };
+
+  if (typeof t === 'undefined') {
+    t = 'X';
+  }
+
+  if (scroll === 'down') {
+    if (t === 'Y' && translate[0] > 0) {
+      translate[0] = -translate[0];
+    }
+  } else {
+    if (t === 'Y' && translate[0] < 0) {
+      translate[0] = Math.abs(translate[0]);
+    }
+  }
+
+  params['translate' + t] = translate;
+  return !(function webpackMissingModule() { var e = new Error("Cannot find module 'animejs'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(params);
+});
+jQuery('.dot').center();
+jQuery('.fullscreen').center();
+var foundation = !(function webpackMissingModule() { var e = new Error("Cannot find module 'foundation-sites'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+var topMenu = jQuery('.top-menu');
+
+var animateTopmenu = function animateTopmenu(from, to) {
+  return !(function webpackMissingModule() { var e = new Error("Cannot find module 'animejs'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({
+    targets: ".top-menu.sticky",
+    opacity: [0, 1],
+    duration: 500,
+    loop: 1,
+    translateY: [-from, to],
+    backgroundColor: '#FFF',
+    easing: 'easeInOutQuad',
+    complete: function complete() {}
+  });
+};
+
+var tl = !(function webpackMissingModule() { var e = new Error("Cannot find module 'animejs'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()).timeline().add({
+  targets: '.dot',
+  keyframes: [{
+    scale: [0.7, 1],
+    easing: 'easeInOutQuad',
+    duration: 500,
+    backgroundColor: "#fcd436"
+  }, {
+    scale: [1, 0.7],
+    easing: 'easeInOutQuad',
+    duration: 500,
+    backgroundColor: "#fcd436"
+  }],
+  loop: true
+});
+var resize = false;
+
+function showMenu() {
+  resize = true;
+  var wWidth = jQuery(window).width();
+  console.log(wWidth);
+  var params2 = {
+    targets: '.off-c',
+    left: [-20, 0],
+    opacity: [0, 1],
+    duration: 800,
+    loop: 1,
+    easing: 'easeOutExpo',
+    complete: function complete() {}
+  };
+  var params3 = {
+    targets: '.off-c',
+    left: [0, -20],
+    opacity: [1, 0],
+    duration: 900,
+    loop: 1,
+    easing: 'easeInExpo',
+    complete: function complete() {}
+  };
+
+  if (wWidth < 651) {
+    setTimeout(function () {
+      !(function webpackMissingModule() { var e = new Error("Cannot find module 'animejs'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(params2);
+    }, 1000);
+  } else {
+    !(function webpackMissingModule() { var e = new Error("Cannot find module 'animejs'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(params3);
+  }
+}
+
+jQuery(window).on('resize', function () {
+  jQuery('.dot').center();
+});
+jQuery(document).ready(function () {
+  showMenu();
+  jQuery(document).foundation();
+  offCannvas.on('opened.zf.offCanvas', function () {
+    console.log('opened.zf.offCanvas', this);
+    jQuery(this).addClass();
+    var options = {
+      targets: '.off-c',
+      left: [jQuery(this).width() - 20, jQuery(this).width() - 1],
+      backgroundColor: ['#4f1e61', '#4f1e61'],
+      opacity: [0, 1],
+      duration: 500,
+      loop: 1,
+      easing: 'easeInExpo',
+      complete: function complete() {}
+    };
+    !(function webpackMissingModule() { var e = new Error("Cannot find module 'animejs'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(options);
+  });
+  var offCannvas = $('.off-canvas');
+  var menu = $('[data-dropdown-menu]');
+  menu.on('show.zf.dropdownMenu', function () {});
+  offCannvas.on('close.zf.offCanvas', function () {
+    console.log('close.zf.offCanvas', this);
+    var options = {
+      targets: '.off-c',
+      left: [jQuery(this).width(), 0],
+      backgroundColor: '#fcd436',
+      duration: 500,
+      opacity: [0, 1],
+      loop: 1,
+      easing: 'easeInExpo',
+      complete: function complete() {}
+    };
+    !(function webpackMissingModule() { var e = new Error("Cannot find module 'animejs'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(options);
+  });
+  offCannvas.on('openedEnd.zf.offCanvas', function () {
+    console.log('openedEnd.zf.offCanvas');
+  });
+  jQuery(".fullscreen").center().show();
+  setTimeout(function () {
+    !(function webpackMissingModule() { var e = new Error("Cannot find module 'animejs'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({
+      targets: ".fullscreen",
+      opacity: [1, 0],
+      duration: 500,
+      loop: 1,
+      complete: function complete() {
+        tl.pause();
+        jQuery(".fullscreen").hide();
+      }
+    });
+  }, 1000);
+  jQuery('ul.dropdown.menu li a').on('mouseover', function () {
+    /**
+     * top bar animation
+     * anime();
+     */
+  });
+  var video = jQuery('<video />', {
+    id: 'video',
+    "class": 'video-props'
+  }).prop({
+    muted: true,
+    autoplay: true,
+    loop: true
+  });
+  jQuery('<source />', {
+    type: 'video/mp4',
+    src: 'src/videos/Head_Banner.mp4'
+  }).appendTo(video);
+  video.appendTo('.video-container');
+  var animeObject = false;
+  jQuery(document).on('scroll', function () {
+    console.log(window.scrollY);
+
+    if (!(window.scrollY < 20)) {
+      if (animeObject === false) {
+        topMenu.addClass('border-bottom');
+        animateTopmenu(topMenu.height(), 0);
+        animeObject = true;
+        topMenu.css('padding-top', 0);
+      }
+    } else {
+      animeObject = false;
+      topMenu.removeClass('border-bottom');
+      animateTopmenu(topMenu.height(), 0);
+      topMenu.css('padding-top', '24px');
+    }
+  });
+  var dotFooter = jQuery('.dot-footer');
+  dotFooter.hover(function () {
+    $(this).css('cursor', 'pointer');
+  }, function () {
+    $(this).css('cursor', 'default');
+  });
+  dotFooter.click(function () {
+    jQuery([document.documentElement, document.body]).animate({
+      scrollTop: jQuery('#top').offset().top
+    }, 500);
+    return false;
+  });
+});
+
+/***/ }),
+
 /***/ 0:
-/*!*****************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/admin.scss ***!
-  \*****************************************************************************************/
+/*!****************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./src/js/app.js ./resources/sass/app.scss ./src/sass/app.scss ./src/sass/_fonts.scss ./resources/sass/admin.scss ***!
+  \****************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/id/SunnyBlog/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/id/SunnyBlog/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /home/id/SunnyBlog/resources/sass/admin.scss */"./resources/sass/admin.scss");
+__webpack_require__(/*! /home/id/Futu/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/id/Futu/src/js/app.js */"./src/js/app.js");
+__webpack_require__(/*! /home/id/Futu/resources/sass/app.scss */"./resources/sass/app.scss");
+!(function webpackMissingModule() { var e = new Error("Cannot find module '/home/id/Futu/src/sass/app.scss'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+!(function webpackMissingModule() { var e = new Error("Cannot find module '/home/id/Futu/src/sass/_fonts.scss'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+module.exports = __webpack_require__(/*! /home/id/Futu/resources/sass/admin.scss */"./resources/sass/admin.scss");
 
 
 /***/ })

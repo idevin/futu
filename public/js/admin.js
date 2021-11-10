@@ -22936,7 +22936,7 @@ if (apiToken) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/id/SunnyBlog/resources/js/admin.js */"./resources/js/admin.js");
+module.exports = __webpack_require__(/*! /home/id/Futu/resources/js/admin.js */"./resources/js/admin.js");
 
 
 /***/ })
