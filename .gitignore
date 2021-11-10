@@ -134,3 +134,4 @@ psd
 /vendor/*
 /public/js/*
 /public/css/*
+public/manifest.json
