@@ -132,5 +132,5 @@ node_modules
 psd
 .env.example
 /vendor/*
-/public/js/
-/public/css/
+/public/js/*
+/public/css/*
