@@ -130,3 +130,5 @@ dmypy.json
 .pyre/
 node_modules
 psd
+vendor
+.env*
