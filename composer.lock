@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "687bdcaa4acb6a53272ae55de53e1f5a",
+    "content-hash": "37e6d94c71ed7cb0972b45666b120933",
     "packages": [
         {
             "name": "aaronddm/xml-builder",
@@ -321,6 +321,53 @@
                 }
             ],
             "time": "2021-05-24T07:46:03+00:00"
+        },
+        {
+            "name": "designcise/manifest-json",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/designcise/manifest-json.git",
+                "reference": "845b3f9ee0ad085cc6f93917a3a7fcf644eebf9e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/designcise/manifest-json/zipball/845b3f9ee0ad085cc6f93917a3a7fcf644eebf9e",
+                "reference": "845b3f9ee0ad085cc6f93917a3a7fcf644eebf9e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=8.0"
+            },
+            "require-dev": {
+                "phpmd/phpmd": "@stable",
+                "phpstan/phpstan": "*",
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Designcise\\ManifestJson\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniyal Hamid",
+                    "homepage": "https://www.designcise.com/"
+                }
+            ],
+            "description": "manifest.json parser/loader for PHP",
+            "support": {
+                "issues": "https://github.com/designcise/manifest-json/issues",
+                "source": "https://github.com/designcise/manifest-json/tree/v2.0.1"
+            },
+            "time": "2021-10-17T01:48:04+00:00"
         },
         {
             "name": "dipeshsukhia/laravel-html-minify",

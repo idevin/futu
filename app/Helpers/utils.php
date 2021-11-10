@@ -3,7 +3,7 @@
 
 function parseSlug($slug): string
 {
-    $v = \DB::select("SELECT VERSION()");
+    $v = DB::select("SELECT VERSION()");
     $v = (int)array_values((array)$v[0])[0];
 
     if ($v >= 8) {
@@ -92,4 +92,19 @@ function blogPrefix($js = true): string
         return $js == true ? '"/blog";' : '/blog';
     }
     return $js == true ? '"";' : '';
+}
+
+/**
+ * @throws JsonException
+ */
+function parseMix($type): array
+{
+    $files = (new Designcise\ManifestJson\ManifestJson(getenv('DOCUMENT_ROOT')))->getAllByType($type);
+
+    foreach ($files as &$file) {
+        $file = preg_replace('/public/', '', $file);
+
+    }
+
+    return $files;
 }

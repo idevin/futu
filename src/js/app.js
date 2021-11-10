@@ -16,7 +16,7 @@ jQuery.fn.center = function () {
 let lastScrollTop = 0;
 let scroll = 'down';
 
-$(window).scroll(function (event) {
+$(window).scroll(function () {
     let st = $(this).scrollTop();
     if (st > lastScrollTop) {
         scroll = 'down';
@@ -167,6 +167,11 @@ jQuery(document).ready(function () {
 
     jQuery(document).foundation();
 
+    let offCannvas = $('.off-canvas');
+    let menu = $('[data-dropdown-menu]');
+
+    console.log(menu, offCannvas, '------------------------');
+
     offCannvas.on('opened.zf.offCanvas', function () {
         console.log('opened.zf.offCanvas', this);
 
@@ -187,8 +192,6 @@ jQuery(document).ready(function () {
         anime(options);
     });
 
-    let offCannvas = $('.off-canvas');
-    let menu = $('[data-dropdown-menu]');
 
     menu.on('show.zf.dropdownMenu', function () {
 
@@ -250,7 +253,7 @@ jQuery(document).ready(function () {
 
     jQuery('<source />', {
         type: 'video/mp4',
-        src: 'src/videos/Head_Banner.mp4'
+        src: '/videos/Head_Banner.mp4'
     }).appendTo(video);
 
     video.appendTo('.video-container');

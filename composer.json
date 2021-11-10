@@ -8,6 +8,7 @@
         "php": "^8.0",
         "aaronddm/xml-builder": "^2.0",
         "barryvdh/laravel-debugbar": "^3",
+        "designcise/manifest-json": "^2.0",
         "dipeshsukhia/laravel-html-minify": "^1.1",
         "doctrine/dbal": "^3.1",
         "fideloper/proxy": "^4",

@@ -103,7 +103,8 @@ module.exports = {
         new WebpackAssetsManifest({
             merge: false,
             output: path.resolve(__dirname, 'public/manifest.json'),
-            publicPath: path.resolve(__dirname, 'public/')
+            publicPath: false,
+            sortManifest: false
         }),
         new WebpackRequireFrom({
             path: "/"
