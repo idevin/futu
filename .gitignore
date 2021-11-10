@@ -132,6 +132,7 @@ node_modules
 psd
 .env.example
 /vendor/*
+vendor
 /public/js/*
 /public/css/*
 public/manifest.json
