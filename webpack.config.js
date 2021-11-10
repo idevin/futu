@@ -13,7 +13,7 @@ module.exports = {
         app: path.resolve(__dirname, 'src/js/app.js')
     },
     output: {
-        filename: 'dist/js/[name].js',
+        filename: 'public/js/[name].js',
         path: path.resolve(__dirname)
     },
     optimization: {
@@ -64,7 +64,7 @@ module.exports = {
                     options: {
                         limit: 100000,
                         mimetype: "application/font-woff",
-                        name: "dist/fonts/[name].[ext]",
+                        name: "public/fonts/[name].[ext]",
                     }
                 },
             },
@@ -93,24 +93,27 @@ module.exports = {
     resolve: {
         alias: {
             jquery: "jquery/dist/jquery",
-            index: path.resolve(__dirname, 'src/js/app.js')
+            index: path.resolve(__dirname, 'public/js/app.js')
         }
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'dist/css/[name].css',
+            filename: 'public/css/[name].css',
         }),
         new WebpackAssetsManifest({
             merge: false,
-            output: path.resolve(__dirname, 'dist/manifest.json'),
-            publicPath: path.resolve(__dirname, 'dist/')
+            output: path.resolve(__dirname, 'public/manifest.json'),
+            publicPath: path.resolve(__dirname, 'public/')
         }),
         new WebpackRequireFrom({
             path: "/"
         }),
         new CleanWebpackPlugin({
             dry: false,
-            cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, 'dist/**')],
+            cleanOnceBeforeBuildPatterns: [
+                path.resolve(__dirname, 'public/js'),
+                path.resolve(__dirname, 'public/css')
+                ],
             verbose: true
         }),
         new webpack.ProvidePlugin({
