@@ -166,7 +166,7 @@ jQuery(document).ready(function () {
     showMenu();
 
     jQuery(document).foundation();
-    let offCannvas = $('.off-canvas');
+
     offCannvas.on('opened.zf.offCanvas', function () {
         console.log('opened.zf.offCanvas', this);
 
@@ -174,8 +174,8 @@ jQuery(document).ready(function () {
 
         let options = {
             targets: '.off-c',
-            left: [jQuery(this).width()-20, jQuery(this).width() - 1],
-            backgroundColor: [ '#4f1e61', '#4f1e61'],
+            left: [jQuery(this).width() - 20, jQuery(this).width() - 1],
+            backgroundColor: ['#4f1e61', '#4f1e61'],
             opacity: [0, 1],
             duration: 500,
             loop: 1,
@@ -185,6 +185,13 @@ jQuery(document).ready(function () {
         };
 
         anime(options);
+    });
+
+    let offCannvas = $('.off-canvas');
+    let menu = $('[data-dropdown-menu]');
+
+    menu.on('show.zf.dropdownMenu', function () {
+
     });
 
     offCannvas.on('close.zf.offCanvas', function () {
@@ -251,16 +258,19 @@ jQuery(document).ready(function () {
     let animeObject = false;
 
     jQuery(document).on('scroll', function () {
-        if (!(window.scrollY < 170)) {
+        console.log(window.scrollY);
+        if (!(window.scrollY < 20)) {
             if (animeObject === false) {
                 topMenu.addClass('border-bottom');
                 animateTopmenu(topMenu.height(), 0);
+                animeObject = true;
+                topMenu.css('padding-top', 0)
             }
-            animeObject = true;
         } else {
             animeObject = false;
             topMenu.removeClass('border-bottom');
             animateTopmenu(topMenu.height(), 0);
+            topMenu.css('padding-top', '24px');
         }
     });
 

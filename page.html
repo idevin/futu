@@ -13,6 +13,7 @@
 <div class="fullscreen" style="display: none;">
     <div class="dot"></div>
 </div>
+
 <div style=" position: fixed; left: -20px; top: 30%; height:
                 50vh; width: 15px; background-color: #fcd436; border: 0;
                 border-top-right-radius: 20px 20px; border-bottom-right-radius: 20px 20px;
@@ -29,26 +30,26 @@ z-index: 14; opacity: 0;" type="button"
 
 <div class="off-canvas-wrapper">
     <div class="off-canvas position-left" id="offCanvasLeft1" data-off-canvas>
-            <div style="margin-top: 30%;">
+        <div style="margin-top: 30%;">
             <ul class="vertical menu drilldown"
                 data-drilldown
                 data-auto-height="true"
                 data-animate-height="true"
                 data-back-button="<li class=js-drilldown-back><a tabindex=0> << </a></li>">
-            <li><a href="#">One</a></li>
-            <li>
-                <a href="#">Two</a>
-                <ul class="menu vertical nested">
-                    <li><a href="#">Two A</a></li>
-                    <li><a href="#">Two B</a></li>
-                    <li><a href="#">Two C</a></li>
-                    <li><a href="#">Two D</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Three</a></li>
-            <li><a href="#">Four</a></li>
-        </ul>
-            </div>
+                <li><a href="#">One</a></li>
+                <li>
+                    <a href="#">Two</a>
+                    <ul class="menu vertical nested">
+                        <li><a href="#">Two A</a></li>
+                        <li><a href="#">Two B</a></li>
+                        <li><a href="#">Two C</a></li>
+                        <li><a href="#">Two D</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Three</a></li>
+                <li><a href="#">Four</a></li>
+            </ul>
+        </div>
         <div style="position: absolute; bottom: 0; width: 100%;">
             <div class="cell auto menu-socials" style="text-align: center;">
                 <ul>
@@ -109,76 +110,91 @@ z-index: 14; opacity: 0;" type="button"
                 </div>
             </div>
         </div>
+
+        <!--        <div class="grid-x grid-padding-x align-top">-->
+        <div class="cell small-12 medium-12">
+            <div class="separator-center show-for-large show-for-medium show-for-landscape"
+                 style="background-color: #57215b; height: 2px;margin-top: 20px;">&nbsp;
+            </div>
+
+            <ul class="dropdown menu gray" style="padding-top: 1rem; padding-bottom: 1rem;" data-dropdown-menu>
+                <li>
+                    <a style="color: black; font-weight: bold;" href="#">All projects</a>
+                </li>
+                <li>
+                    <a href="#">Item 2</a>
+                    <ul class="menu">
+                        <li><a href="#">Item 1A</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Item 3</a></li>
+                <li><a href="#">Item 4</a></li>
+            </ul>
+        </div>
+        <!--        </div>-->
     </div>
 </div>
 
-<div class="separator-center show-for-large show-for-medium show-for-landscape">&nbsp;</div>
+<style>
+    .dropdown.menu > li.is-dropdown-submenu-parent > a::after {
+        border-color: #FFFFFF;
+        display: none;
+    }
 
-<div class="grid-x grid-padding-x align-top">
-    <div class="cell small-12 video-container"></div>
-</div>
-
-<div class="separator-center">&nbsp;</div>
-
-<div class="grid-x grid-padding-x align-top">
-    <div class="cell small-12 medium-4">
-        <b>WHO WE ARE</b>
-    </div>
-    <div class="cell small-12 medium-8">
-        <p>As a Design Studio we strongly believe that every concept creation is way beyond beautiful images and
-            catchy
-            phrases.</p>
-
-        <p>Design is science, where every element is carefully planned based on the ideas it has to represent and
-            then
-            implemented into a concept where every single piece is strategically placed to
-            serve a specific function in making your Brand unique.</p>
-
-        <p>We use an intellectual approach and our Creativity is based on experience and qualifications of our team.
-            Our
-            way of Concept Development is technological, scientific and almost mathematical.
-            Therefore reasoning behind every dot and pixel can be explained.</p>
-
-        </p>Nothing is left to chance and nothing is random.<br/>
-        Every single image serves a purpose.<br/>
-        Every pattern is thoroughly planned.<br/>
-        Every color has a meaning.<br/>
-        Every word is a statement.<br/>
-        </p>
-        Our Projects cover <a href="#">Web Design</a>, <a href="#">Graphic Design</a>, <a href="#">Brand
-        Development</a>,
-        <a href="#">Branding and further support</a>.
-    </div>
-</div>
-
-<div class="separator-center">&nbsp;</div>
+    li.is-submenu-item.is-dropdown-submenu-item:first-child a {
+        padding-left: 10px !important;
+    }
+</style>
 
 <div class="grid-x grid-padding-x">
-    <div class="cell small-12 medium-12" style="padding: .7rem 1rem;">
-        <b>ALL PROJECTS</b>
-    </div>
     <div class="cell small-12 medium-12">
-        <ul class="dropdown menu gray flex-dir-row-reverse" data-dropdown-menu>
-            <li>
-                <a href="#0">Branding</a>
-            </li>
-            <li>
-                <a href="#0">Web Design</a>
-            </li>
-            <li>
-                <a href="#0">Logo</a>
-            </li>
-            <li>
-                <a href="#0">Advertising</a>
-            </li>
-            <li>
-                <a href="#0">Packaging</a>
-            </li>
-        </ul>
+        <div class="separator-center">&nbsp;</div>
     </div>
 </div>
 
-<div class="separator-center">&nbsp;</div>
+<div class="grid-x grid-padding-x">
+    <div class="cell small-12 medium-12 text-center">
+        <h1 class="h1">Side Hustle</h1>
+    </div>
+</div>
+
+<div class="grid-x grid-padding-x">
+    <div class="cell small-12 medium-12 text-center">
+        Brewery <br/>
+        Brooklyn USA <br/><br/>
+        <p>
+            Packaging Design + Promo Materials
+        </p>
+    </div>
+</div>
+
+<div class="grid-x grid-padding-x">
+    <div class="cell small-12 medium-12">
+        <div class="separator-center">&nbsp;</div>
+        <div class="separator-center">&nbsp;</div>
+    </div>
+</div>
+
+<div class="grid-x grid-padding-x">
+    <div class="cell small-12 medium-12 text-justify">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor, elit auctor semper ullamcorper,
+        mauris lorem luctus mi, sit amet sodales mauris tortor eget tortor. Suspendisse a lectus et tellus
+        varius porta ac vitae sapien. Phasellus ex enim, elementum nec velit quis, tempus venenatis
+        ipsum. Sed iaculis justo sit amet purus eleifend, ac placerat enim euismod. Nullam non turpis
+        et libero dapibus lobortis eu at sapien. Nullam placerat egestas erat. Vestibulum congue ipsum arcu,
+        id euismod nisi scelerisque nec. Nunc tempus, orci quis placerat fringilla, tortor libero luctus justo,
+        at ultricies felis augue et ex. Etiam faucibus sit amet sapien eu tincidunt. Proin sit amet sapien feugiat,
+        tempus enim ac,
+        tincidunt tortor. Quisque ut odio risus. Curabitur ornare purus a neque fermentum, nec auctor elit mattis.
+    </div>
+</div>
+
+<div class="grid-x grid-padding-x">
+    <div class="cell small-12 medium-12">
+        <div class="separator-center">&nbsp;</div>
+        <div class="separator-center">&nbsp;</div>
+    </div>
+</div>
 
 <div class="grid-x grid-padding-x">
     <div class="cell small-6 in-view-x" data-translate="Y" data-from="600" data-to="0">
