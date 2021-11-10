@@ -1,3 +1,7 @@
+$light-weights: ("lightest": 100, "light": 300)
+
+@use "sass:map"
+
 @import 'node_modules/foundation-sites/scss/foundation'
 @import 'fonts'
 @include foundation-everything
@@ -99,7 +103,7 @@ ul.dropdown.menu.gray li a
 
 
 .gray-link
-  color: #AAAAAA
+  color: #AAAAAA !important
   text-decoration: none
 
 
@@ -306,3 +310,15 @@ ul.footer.email-links li
 
 .footer.email-links li
   text-align: initial
+
+hr
+  max-width: inherit
+
+.button.primary, .button.primary.disabled, .button.primary.disabled:focus, .button.primary.disabled:hover, .button.primary[disabled], .button.primary[disabled]:focus, .button.primary[disabled]:hover
+  background-color: #502160
+
+.button.primary:focus, .button.primary:hover
+  background-color: #160019
+
+[type=color]:focus, [type=date]:focus, [type=datetime-local]:focus, [type=datetime]:focus, [type=email]:focus, [type=month]:focus, [type=number]:focus, [type=password]:focus, [type=search]:focus, [type=tel]:focus, [type=text]:focus, [type=time]:focus, [type=url]:focus, [type=week]:focus, textarea:focus
+  border: 1px solid #502160
