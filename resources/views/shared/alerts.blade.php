@@ -1,20 +1,23 @@
 @if (Session::has('success'))
-    <x-alert type="success" :dismissible="true">
+    <div type="success">
         {{ Session::get('success') }}
-    </x-alert>
+    </div>
 @endif
 
 @if (Session::has('errors'))
-    <x-alert type="danger" :dismissible="true">
+    <div class="grid-x grid-padding-y grid-padding-x">
         @if ($errors->count() > 1)
             {{ trans_choice('validation.errors', $errors->count()) }}
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+
+            @foreach($errors->all() as $error)
+                <div class="cell small-12 red text-center">
+                    {{ $error }}
+                </div>
+            @endforeach
         @else
-            {{ $errors->first() }}
+            <div class="cell small-12 red text-center">
+                <span class="circle">&#9900;</span> &nbsp; {{ $errors->first() }}
+            </div>
         @endif
-    </x-alert>
+    </div>
 @endif

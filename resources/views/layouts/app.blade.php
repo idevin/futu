@@ -37,8 +37,10 @@
 
     @include('shared/home_nav')
 
-    {{--        @include('shared/alerts')--}}
     @yield('content')
+
+    <div class="separator-center">&nbsp;</div>
+    <div class="separator-center">&nbsp;</div>
 
     @include('shared/footer')
 </div>
