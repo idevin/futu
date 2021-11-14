@@ -9,15 +9,15 @@
                 <div class="cell auto small-12 large-6 medium-6">
                     <ul class="footer bold">
                         <li>
-                            <a href="#">Home</a>
+                            <a href="{{routeLink('home')}}">Home</a>
                         </li>
                         <li>
-                            <a href="#">Projects</a></li>
+                            <a href="{{routeLink('projects')}}">Projects</a></li>
                         <li>
-                            <a href="#">Express</a>
+                            <a href="{{routeLink('express')}}">Express</a>
                         </li>
                         <li>
-                            <a href="#">Contacts</a>
+                            <a href="{{routeLink('contacts')}}">Contacts</a>
                         </li>
                     </ul>
                 </div>
@@ -131,7 +131,6 @@
 
     <script src="{{ mix("/js/app.js") }}"></script>
     <script src="{{ mix("/vendor/app-vendor.js") }}"></script>
-    <script src="/js/643.js"></script>
 
     @stack('inline-scripts')
 </footer>

@@ -34,10 +34,10 @@ This will register a route at `/media-library-pro/uploads`.
 
 ### Enabling Vapor support
 
-If you will use React or Vue components to handle uploads you must set the `enable_vapor_uploads` key in the `media-library` config file to `true`. When enabling this option, a route will be registered that will enable
+If use React or Vue components to handle uploads you must set the `enable_vapor_uploads` key in the `media-library` config file to `true`. When enabling this option, a route will be registered that will enable
 the Media Library Pro Vue and React components to move uploaded files in an S3 bucket to their right place.
 
-With the config option enabled, the `Route::mediaLibrary();` will register a route at `/media-library-pro/post-s3
+With the config option enabled, the `Route::mediaLibrary();` will register a route at `/media-library-pro/post-s3`
  instead of `/media-library-pro/uploads`.
 
 ### Customizing the upload URL
@@ -235,7 +235,7 @@ These rules can be used on `validateMultipleMedia`;
 
 If you're [using custom properties](/docs/laravel-medialibrary/v9/handling-uploads-with-media-library-pro/handling-uploads-with-blade#using-custom-properties), you can validate them with the `customProperty` function. The first argument should be the name of the custom property you are validating. The second argument should be a string or an array with rules you'd like to use.
 
-Here's an example where we validate `extra_propery` and `another_extra_property`.
+Here's an example where we validate `extra_property` and `another_extra_property`.
 
 ```php
 use Illuminate\Foundation\Http\FormRequest;

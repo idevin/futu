@@ -19,8 +19,8 @@ class Category extends MaterializedModel
 {
     use HasTranslations, HasFactory;
 
-    public $timestamps = true;
-    public $casts = [
+    public bool $timestamps = true;
+    public array $casts = [
         'title' => 'array',
         'slug' => 'array',
         'meta_title' => 'array',
@@ -28,11 +28,13 @@ class Category extends MaterializedModel
         'meta_description' => 'array',
         'content' => 'array'
     ];
-    public array $translatable = ['title', 'slug', 'meta_title', 'meta_keywords', 'meta_description', 'content'];
+
+    public array $translatable = ['title', 'slug', 'meta_title', 'meta_keywords',
+        'meta_description', 'content', 'path'];
 
     protected $with = ['children'];
 
-    protected $table = 'categories';
+    protected  $table = 'categories';
 
     protected string $parentColumn = 'parent_id';
 

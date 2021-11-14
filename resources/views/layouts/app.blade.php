@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
 <head>
-    <title>{{ config('app.name') }} @yield('title')</title>
+    <title>@yield('title')</title>
 
     @auth
         <meta name="api-token" content="{{ auth()->user()->api_token }}">

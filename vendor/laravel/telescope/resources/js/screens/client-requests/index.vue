@@ -9,7 +9,7 @@
 </script>
 
 <template>
-    <index-screen title="Http Client" resource="client-requests">
+    <index-screen title="HTTP Client" resource="client-requests">
         <tr slot="table-header">
             <th scope="col">Verb</th>
             <th scope="col">URI</th>
@@ -29,8 +29,8 @@
             <td :title="slotProps.entry.content.uri">{{truncate(slotProps.entry.content.uri, 60)}}</td>
 
             <td class="table-fit">
-                <span class="badge font-weight-light" :class="'badge-'+requestStatusClass(slotProps.entry.content.response_status)">
-                    {{slotProps.entry.content.response_status}}
+                <span class="badge font-weight-light" :class="'badge-'+requestStatusClass(slotProps.entry.content.response_status !== undefined ? slotProps.entry.content.response_status : null)">
+                    {{slotProps.entry.content.response_status !== undefined ? slotProps.entry.content.response_status : 'N/A'}}
                 </span>
             </td>
 

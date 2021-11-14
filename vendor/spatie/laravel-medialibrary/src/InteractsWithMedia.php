@@ -152,7 +152,7 @@ trait InteractsWithMedia
         }
 
         $downloader = config('media-library.media_downloader', DefaultDownloader::class);
-        $temporaryFile = (new $downloader)->getTempFile($url);
+        $temporaryFile = (new $downloader())->getTempFile($url);
         $this->guardAgainstInvalidMimeType($temporaryFile, $allowedMimeTypes);
 
         $filename = basename(parse_url($url, PHP_URL_PATH));
@@ -286,9 +286,14 @@ trait InteractsWithMedia
      */
     public function getMedia(string $collectionName = 'default', $filters = []): MediaCollections\Models\Collections\MediaCollection
     {
-        return app(MediaRepository::class)
+        return $this->getMediaRepository()
             ->getCollection($this, $collectionName, $filters)
             ->collectionName($collectionName);
+    }
+
+    public function getMediaRepository(): MediaRepository
+    {
+        return app(MediaRepository::class);
     }
 
     public function getFirstMedia(string $collectionName = 'default', $filters = []): ?Media

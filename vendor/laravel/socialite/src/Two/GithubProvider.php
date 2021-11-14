@@ -15,6 +15,13 @@ class GithubProvider extends AbstractProvider implements ProviderInterface
     protected $scopes = ['user:email'];
 
     /**
+     * The separating character for the requested scopes.
+     *
+     * @var string
+     */
+    protected $scopeSeparator = ' ';
+
+    /**
      * {@inheritdoc}
      */
     public function getAuthUrl($state)
@@ -92,7 +99,7 @@ class GithubProvider extends AbstractProvider implements ProviderInterface
     /**
      * Get the default options for an HTTP request.
      *
-     * @param string $token
+     * @param  string  $token
      * @return array
      */
     protected function getRequestOptions($token)

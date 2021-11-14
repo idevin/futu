@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-translatable` will be documented in this file
 
+## 5.0.3 - 2021-10-04
+
+- solve the string value issue in filterTranslations method (#300)
+
+## 5.0.2 - 2021-09-28
+
+- specify locales in get translations method (#299)
+
 ## 5.0.1 - 2021-07-15
 
 - fix return types of getTranslation (#286)

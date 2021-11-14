@@ -5,7 +5,7 @@ weight: 1
 
 When adding files to the media library it can automatically create derived versions such as thumbnails and banners.
 
-Media conversions will be executed whenever  a `jpg`, `png`, `svg`, `pdf`, `mp4 `, `mov` or `webm` file is added to the media library. By default, the conversions will be saved as a `jpg` files. This can be overwritten using the `format()` or `keepOriginalImageFormat()` methods.
+Media conversions will be executed whenever  a `jpg`, `png`, `svg`, `webp`, `pdf`, `mp4 `, `mov` or `webm` file is added to the media library. By default, the conversions will be saved as a `jpg` files. This can be overwritten using the `format()` or `keepOriginalImageFormat()` methods.
 
 Internally, [spatie/image](https://docs.spatie.be/image/v1/) is used to manipulate the images. You can use [any manipulation function](https://docs.spatie.be/image) from that package.
 
@@ -77,13 +77,16 @@ use Spatie\Image\Manipulations;
         $this->addMediaConversion('old-picture')
               ->sepia()
               ->border(10, 'black', Manipulations::BORDER_OVERLAY);
+              
+        $this->addMediaConversion('thumb-cropped')
+            ->crop('crop-center', 400, 400); // Trim or crop the image to the center for sepecified width and height.
     }
 ```
 
 Use the conversions like this:
 
 ```php
-$media->getUrl('thumb') // the url to the thubmnail
+$media->getUrl('thumb') // the url to the thumbnail
 $media->getUrl('old-picture') // the url to the sepia, bordered version
 ```
 
@@ -95,20 +98,20 @@ This is how that looks like in the model:
 
 ```php
 // in your model
-    public function registerMediaConversions(Media $media = null): void
-    {
-        $this->addMediaConversion('thumb')
-              ->width(368)
-              ->height(232)
-              ->performOnCollections('images', 'downloads');
-    }
+public function registerMediaConversions(Media $media = null): void
+{
+    $this->addMediaConversion('thumb')
+          ->width(368)
+          ->height(232)
+          ->performOnCollections('images', 'downloads');
+}
 ```
 
 
 ```php
 // a thumbnail will be generated for this media item
 $media = $yourModel->addMedia($pathToImage)->toMediaCollection('images');
-$media->getUrl('thumb') // the url to the thubmnail
+$media->getUrl('thumb') // the url to the thumbnail
 
 //but not for this one
 $media = $yourModel->addMedia($pathToImage)->toMediaCollection('other collection');
@@ -150,15 +153,15 @@ true` on your model.
 
 ```php
 // in your model
-    public $registerMediaConversionsUsingModelInstance = true;
+public $registerMediaConversionsUsingModelInstance = true;
 
-    public function registerMediaConversions(Media $media = null): void
-    {
-        $this->addMediaConversion('thumb')
-              ->width($this->width)
-              ->height($this->height)
-              ->performOnCollections('images', 'downloads');
-    }
+public function registerMediaConversions(Media $media = null): void
+{
+    $this->addMediaConversion('thumb')
+          ->width($this->width)
+          ->height($this->height)
+          ->performOnCollections('images', 'downloads');
+}
 ```
 
 Be aware that this can lead to a hit in performance. When processing media the media library has to perform queries to fetch each separate model.

@@ -14,7 +14,9 @@ class DropMediaTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropForeign(['thumbnail_id']);
+            if (DB::getDriverName() !== 'sqlite') {
+                $table->dropForeign(['thumbnail_id']);
+            }
             $table->dropColumn('thumbnail_id');
         });
 
