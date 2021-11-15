@@ -57,6 +57,7 @@ final class Versions
   'guzzlehttp/guzzle' => '7.4.0@868b3571a039f0ebc11ac8f344f4080babe2cb94',
   'guzzlehttp/promises' => '1.5.1@fe752aedc9fd8fcca3fe7ad05d419d32998a06da',
   'guzzlehttp/psr7' => '2.1.0@089edd38f5b8abba6cb01567c2a8aaa47cec4c72',
+  'idevin/medialibrary' => 'dev-main@ec0917af32e1cbe17ec015a72fe8f385644c939e',
   'intervention/image' => '2.7.0@9a8cc99d30415ec0b3f7649e1647d03a55698545',
   'laravel/framework' => 'v8.70.2@dec9524cd0f9fa35a6eb8e25d0b40f8bbc8ec225',
   'laravel/horizon' => 'v5.7.15@7bdc99af890966a683dbbfd8e69c8449d8d491b6',
@@ -102,7 +103,6 @@ final class Versions
   'spatie/image' => '1.10.5@63a963d0200fb26f2564bf7201fc7272d9b22933',
   'spatie/image-optimizer' => '1.5.0@1b3585c3da2cc8872141fce40fbd17e07e6655d1',
   'spatie/laravel-backup' => '6.16.5@332fae80b12cacb9e4161824ba195d984b28c8fb',
-  'spatie/laravel-medialibrary' => '9.8.4@7e0064d0842c216a51d083b73fef9569897dc8e4',
   'spatie/laravel-package-tools' => '1.9.2@f710fe196c126fb9e0aee67eb5af49ad8f13f528',
   'spatie/laravel-tags' => '4.0.5@fe4d3791eeb1a55d1943093c0e025876d68c5b09',
   'spatie/laravel-translatable' => '5.0.3@06aa692efc2eed838ac47a6324dc179167a97b0b',
@@ -179,7 +179,7 @@ final class Versions
   'sebastian/version' => '3.0.2@c6c1022351a901512170118436c764e473f6de8c',
   'symfony/yaml' => 'v5.3.6@4500fe63dc9c6ffc32d3b1cb0448c329f9c814b7',
   'theseer/tokenizer' => '1.2.1@34a41e998c2183e22995f158c581e7b5e755ab9e',
-  'guillaumebriday/laravel-blog' => 'dev-main@35193be7a9fa50c8e9f2cfb5d01fbc7ea73b88d3',
+  'guillaumebriday/laravel-blog' => 'dev-main@b33958ca0a88df8410b85f71c98cbf6b21d756f2',
 );
 
     private function __construct()

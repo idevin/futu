@@ -26,9 +26,9 @@ class Post extends Model
 {
     use HasFactory, Likeable, HasTranslations, HasTags;
 
-    public $timestamps = true;
+    public bool $timestamps = true;
 
-    public $casts = [
+    public array $casts = [
         'title' => 'array',
         'content' => 'array',
         'meta_title' => 'array',

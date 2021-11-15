@@ -46,7 +46,7 @@ return array(
     'Spatie\\Translatable\\' => array($vendorDir . '/spatie/laravel-translatable/src'),
     'Spatie\\TemporaryDirectory\\' => array($vendorDir . '/spatie/temporary-directory/src'),
     'Spatie\\Tags\\' => array($vendorDir . '/spatie/laravel-tags/src'),
-    'Spatie\\MediaLibrary\\' => array($vendorDir . '/spatie/laravel-medialibrary/src'),
+    'Spatie\\MediaLibrary\\' => array($vendorDir . '/idevin/medialibrary/src'),
     'Spatie\\LaravelPackageTools\\Database\\Factories\\' => array($vendorDir . '/spatie/laravel-package-tools/database/factories'),
     'Spatie\\LaravelPackageTools\\' => array($vendorDir . '/spatie/laravel-package-tools/src'),
     'Spatie\\Image\\' => array($vendorDir . '/spatie/image/src'),

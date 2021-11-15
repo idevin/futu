@@ -30,7 +30,7 @@ class InstalledVersions
     'aliases' => 
     array (
     ),
-    'reference' => '35193be7a9fa50c8e9f2cfb5d01fbc7ea73b88d3',
+    'reference' => 'b33958ca0a88df8410b85f71c98cbf6b21d756f2',
     'name' => 'guillaumebriday/laravel-blog',
   ),
   'versions' => 
@@ -263,7 +263,7 @@ class InstalledVersions
       'aliases' => 
       array (
       ),
-      'reference' => '35193be7a9fa50c8e9f2cfb5d01fbc7ea73b88d3',
+      'reference' => 'b33958ca0a88df8410b85f71c98cbf6b21d756f2',
     ),
     'guzzlehttp/guzzle' => 
     array (
@@ -300,6 +300,16 @@ class InstalledVersions
       array (
       ),
       'reference' => '8c3d0a3f6af734494ad8f6fbbee0ba92422859f3',
+    ),
+    'idevin/medialibrary' => 
+    array (
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
+      'aliases' => 
+      array (
+        0 => '9999999-dev',
+      ),
+      'reference' => 'ec0917af32e1cbe17ec015a72fe8f385644c939e',
     ),
     'illuminate/auth' => 
     array (
@@ -1293,15 +1303,6 @@ class InstalledVersions
       array (
       ),
       'reference' => '332fae80b12cacb9e4161824ba195d984b28c8fb',
-    ),
-    'spatie/laravel-medialibrary' => 
-    array (
-      'pretty_version' => '9.8.4',
-      'version' => '9.8.4.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '7e0064d0842c216a51d083b73fef9569897dc8e4',
     ),
     'spatie/laravel-package-tools' => 
     array (

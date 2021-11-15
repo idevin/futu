@@ -40,11 +40,11 @@ class Category extends MaterializedModel
 
     protected string $depthColumn = 'depth';
 
-    protected $appends = ['slug_path'];
+    protected array $appends = ['slug_path'];
 
     protected string $pathColumn = 'path';
     protected string $orderColumn = 'weight';
-    protected $guarded = ['id', 'parent_id', 'depth', 'path', 'weight'];
+    protected array $guarded = ['id', 'parent_id', 'depth', 'path', 'weight'];
     protected $fillable = ['title', 'slug', 'meta_title', 'meta_keywords', 'meta_description'];
 
     public static function boot()
