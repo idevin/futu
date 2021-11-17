@@ -25,10 +25,10 @@ class DatabaseSeeder extends Seeder
         MediaLibrary::firstOrCreate([]);
 
         $user = User::firstOrCreate(
-            ['email' => 'blog@domain'],
+            ['email' => 'root@localhost'],
             [
                 'name' => 'author',
-                'password' => Hash::make('4nak1n'),
+                'password' => Hash::make('46801346rtgedf!'),
                 'email_verified_at' => now()
             ]
         );
