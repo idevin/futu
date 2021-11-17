@@ -25,6 +25,7 @@
         "spatie/laravel-medialibrary": "^9",
         "spatie/laravel-tags": "^4.0",
         "spatie/laravel-translatable": "^5.0",
+        "swiftmailer/swiftmailer": "^6.3",
         "vicklr/materialized-model": "~1.0"
     },
     "require-dev": {

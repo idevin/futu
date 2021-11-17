@@ -1,7 +1,7 @@
 server {
 	listen 80;
 
-	root /home/id/SunnyBlog/public;
+	root /home/id/Futu/public;
 
 	index index.php;
 
