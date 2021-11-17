@@ -221,18 +221,16 @@ jQuery(document).ready(function () {
 
     jQuery(".fullscreen").center().show();
 
-    setTimeout(function () {
-        anime({
-            targets: ".fullscreen",
-            opacity: [1, 0],
-            duration: 500,
-            loop: 1,
-            complete: function () {
-                tl.pause();
-                jQuery(".fullscreen").hide();
-            }
-        });
-    }, 1000);
+    anime({
+        targets: ".fullscreen",
+        opacity: [1, 0],
+        duration: 500,
+        loop: 1,
+        complete: function () {
+            tl.pause();
+            jQuery(".fullscreen").hide();
+        }
+    });
 
     jQuery('ul.dropdown.menu li a').on('mouseover', function () {
 
