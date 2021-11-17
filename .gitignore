@@ -7,3 +7,4 @@ public/js/*.js
 node_modules
 public/vendor
 composer.lock
+.idea
