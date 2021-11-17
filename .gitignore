@@ -6,3 +6,4 @@ public/js/*.js
 .env
 node_modules
 public/vendor
+composer.lock
