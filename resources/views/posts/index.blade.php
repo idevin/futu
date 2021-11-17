@@ -2,9 +2,6 @@
 
 @section('content')
 
-
-
-
     <div class="grid-x grid-padding-x align-top">
         <div class="cell small-12 video-container"></div>
     </div>

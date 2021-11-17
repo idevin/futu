@@ -33,6 +33,10 @@
 </head>
 <body>
 
+<div class="fullscreen">
+    <div class="dot"></div>
+</div>
+
 <div id="app">
 
     @include('shared/home_nav')

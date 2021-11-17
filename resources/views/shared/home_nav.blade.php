@@ -1,8 +1,5 @@
 <div id="top"></div>
 
-<div class="fullscreen" style="display: none;">
-    <div class="dot"></div>
-</div>
 <div style=" position: fixed; left: -20px; top: 30%; height:
                 50vh; width: 15px; background-color: #fcd436; border: 0;
                 border-top-right-radius: 20px 20px; border-bottom-right-radius: 20px 20px;
