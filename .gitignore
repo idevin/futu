@@ -1,4 +1,3 @@
-vendor
 storage
 bootstrap
 public/css
@@ -10,3 +9,4 @@ composer.lock
 .idea
 public/mix-manifest.json
 psd
+/vendor/
