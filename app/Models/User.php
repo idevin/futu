@@ -37,7 +37,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    protected array $dates = [
+    protected $dates = [
         'registered_at'
     ];
 

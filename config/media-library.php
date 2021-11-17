@@ -12,7 +12,7 @@ return [
      * The maximum file size of an item in bytes.
      * Adding a larger file will result in an exception.
      */
-    'max_file_size' => 1024 * 1024 * 1024 * 10 * 10,
+    'max_file_size' => 1024 * 1024 * 1024 * 10,
 
     /*
      * This queue will be used to generate derived and responsive images.
@@ -83,7 +83,7 @@ return [
      * This is the class that is responsible for naming conversion files. By default,
      * it will use the filename of the original and concatenate the conversion name to it.
      */
-    'conversion_file_namer' => Spatie\MediaLibrary\Conversions\Conversion::class,
+    'conversion_file_namer' => Spatie\MediaLibrary\Conversions\DefaultConversionFileNamer::class,
 
     /*
      * The class that contains the strategy for determining a media file's path.
@@ -104,7 +104,7 @@ return [
 
     /*
      * The media library will try to optimize all converted images by removing
-     * metadata and applying a little of compression. These are
+     * metadata and applying a little bit of compression. These are
      * the optimizers that will be used by default.
      */
     'image_optimizers' => [

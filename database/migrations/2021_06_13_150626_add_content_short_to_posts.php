@@ -16,16 +16,6 @@ class AddContentShortToPosts extends Migration
         Schema::table('posts', function (Blueprint $table) {
             $table->json('description')->after('content')->nullable();
         });
-
-        Schema::table('settings', function (Blueprint $table) {
-            $table->boolean('show_comments_count')->default(1);
-            $table->boolean('show_likes_count')->default(1);
-        });
-
-        Schema::table('posts', function (Blueprint $table) {
-            $table->boolean('show_comments_count')->default(1);
-            $table->boolean('show_likes_count')->default(1);
-        });
     }
 
     /**

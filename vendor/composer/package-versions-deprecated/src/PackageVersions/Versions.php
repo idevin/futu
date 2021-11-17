@@ -38,7 +38,6 @@ final class Versions
   'barryvdh/laravel-debugbar' => 'v3.6.4@3c2d678269ba60e178bcd93e36f6a91c36b727f1',
   'brick/math' => '0.9.3@ca57d18f028f84f777b2168cd1911b0dee2343ae',
   'composer/package-versions-deprecated' => '1.11.99.4@b174585d1fe49ceed21928a945138948cb394600',
-  'designcise/manifest-json' => 'v2.0.1@845b3f9ee0ad085cc6f93917a3a7fcf644eebf9e',
   'dflydev/dot-access-data' => 'v3.0.1@0992cc19268b259a39e86f296da5f0677841f42c',
   'dipeshsukhia/laravel-html-minify' => 'v1.1.3@7052758e96b7fdf21483040acb30042f94cf8e5b',
   'doctrine/cache' => '2.1.1@331b4d5dbaeab3827976273e9356b3b453c300ce',
@@ -57,7 +56,6 @@ final class Versions
   'guzzlehttp/guzzle' => '7.4.0@868b3571a039f0ebc11ac8f344f4080babe2cb94',
   'guzzlehttp/promises' => '1.5.1@fe752aedc9fd8fcca3fe7ad05d419d32998a06da',
   'guzzlehttp/psr7' => '2.1.0@089edd38f5b8abba6cb01567c2a8aaa47cec4c72',
-  'idevin/medialibrary' => 'dev-main@ec0917af32e1cbe17ec015a72fe8f385644c939e',
   'intervention/image' => '2.7.0@9a8cc99d30415ec0b3f7649e1647d03a55698545',
   'laravel/framework' => 'v8.70.2@dec9524cd0f9fa35a6eb8e25d0b40f8bbc8ec225',
   'laravel/horizon' => 'v5.7.15@7bdc99af890966a683dbbfd8e69c8449d8d491b6',
@@ -103,6 +101,7 @@ final class Versions
   'spatie/image' => '1.10.5@63a963d0200fb26f2564bf7201fc7272d9b22933',
   'spatie/image-optimizer' => '1.5.0@1b3585c3da2cc8872141fce40fbd17e07e6655d1',
   'spatie/laravel-backup' => '6.16.5@332fae80b12cacb9e4161824ba195d984b28c8fb',
+  'spatie/laravel-medialibrary' => '9.8.4@7e0064d0842c216a51d083b73fef9569897dc8e4',
   'spatie/laravel-package-tools' => '1.9.2@f710fe196c126fb9e0aee67eb5af49ad8f13f528',
   'spatie/laravel-tags' => '4.0.5@fe4d3791eeb1a55d1943093c0e025876d68c5b09',
   'spatie/laravel-translatable' => '5.0.3@06aa692efc2eed838ac47a6324dc179167a97b0b',
@@ -179,7 +178,7 @@ final class Versions
   'sebastian/version' => '3.0.2@c6c1022351a901512170118436c764e473f6de8c',
   'symfony/yaml' => 'v5.3.6@4500fe63dc9c6ffc32d3b1cb0448c329f9c814b7',
   'theseer/tokenizer' => '1.2.1@34a41e998c2183e22995f158c581e7b5e755ab9e',
-  'guillaumebriday/laravel-blog' => 'dev-main@b33958ca0a88df8410b85f71c98cbf6b21d756f2',
+  'guillaumebriday/laravel-blog' => 'dev-master@f31772af29de6005ab119266229d12da906cd763',
 );
 
     private function __construct()

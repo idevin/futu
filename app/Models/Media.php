@@ -11,7 +11,7 @@ class Media extends BaseMedia
      *
      * @var array
      */
-    protected array $dates = [
+    protected $dates = [
         'posted_at'
     ];
 

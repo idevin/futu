@@ -32,7 +32,7 @@ class Comment extends Model
      *
      * @var array
      */
-    protected array $dates = [
+    protected $dates = [
         'posted_at'
     ];
 

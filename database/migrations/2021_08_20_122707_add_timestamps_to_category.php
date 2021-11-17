@@ -14,10 +14,6 @@ class AddTimestampsToCategory extends Migration
      */
     public function up()
     {
-        Schema::table('categories', function (Blueprint $table) {
-            $table->timestamps();
-        });
-
         $categories = Category::all();
         $categories->each(function (Category $category) {
             $category->touch();

@@ -21,7 +21,7 @@ class AddCategories extends Migration
 
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-
+            $table->timestamps();
             $table->materializedFields('parent_id', 'path', 'depth', 'id');
             $table->materializedOrdering('weight');
             $table->json('title')->nullable();

@@ -51,7 +51,7 @@ trait HasAttributes
      *
      * @var array
      */
-    protected array $casts = [];
+    protected $casts = [];
 
     /**
      * The attributes that have been cast using custom classes.
@@ -100,7 +100,7 @@ trait HasAttributes
      *
      * @var array
      */
-    protected array $dates = [];
+    protected $dates = [];
 
     /**
      * The storage format of the model's date columns.
@@ -114,7 +114,7 @@ trait HasAttributes
      *
      * @var array
      */
-    protected array $appends = [];
+    protected $appends = [];
 
     /**
      * Indicates whether attributes are snake cased on arrays.

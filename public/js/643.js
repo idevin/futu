@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfutu_concepts=self.webpackChunkfutu_concepts||[]).push([[643],{643:(u,c,e)=>{e.r(c)}}]);

@@ -25,7 +25,7 @@ class MediaLibrary extends Model implements HasMedia
 
         $manipulations->format(Manipulations::FORMAT_WEBP);
 
-        $this->addMediaConversion('800x600')->width(800)->height(600)->setManipulations($manipulations);
+        $this->addMediaConversion('350x250')->width(350)->height(250)->setManipulations($manipulations);
         $this->addMediaConversion('100x100')->crop(Manipulations::CROP_CENTER, 100, 100)
             ->width(100)->height(100)->setManipulations($manipulations);
     }

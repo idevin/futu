@@ -81,8 +81,8 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-    'default_locale' => 'en',
-    'locale' => 'en',
+    'default_locale' => 'ru',
+    'locale' => 'ru',
 
     /*
     |--------------------------------------------------------------------------
@@ -108,7 +108,7 @@ return [
     |
     */
 
-    'faker_locale' => 'en_EN',
+    'faker_locale' => 'ru_RU',
 
     /*
     |--------------------------------------------------------------------------

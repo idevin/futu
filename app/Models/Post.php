@@ -26,9 +26,9 @@ class Post extends Model
 {
     use HasFactory, Likeable, HasTranslations, HasTags;
 
-    public bool $timestamps = true;
+    public $timestamps = true;
 
-    public array $casts = [
+    public $casts = [
         'title' => 'array',
         'content' => 'array',
         'meta_title' => 'array',
@@ -69,7 +69,7 @@ class Post extends Model
      *
      * @var array
      */
-    protected array $dates = [
+    protected $dates = [
         'posted_at'
     ];
 
