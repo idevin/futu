@@ -8,3 +8,5 @@ node_modules
 public/vendor
 composer.lock
 .idea
+public/mix-manifest.json
+psd
