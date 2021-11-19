@@ -27,48 +27,12 @@ mix.webpackConfig(webpack => {
                 publicPath: false,
                 sortManifest: false
             }),
-            new WebpackRequireFrom({
-                path: "/"
-            }),
-            new CleanWebpackPlugin({
-                dry: false,
-                cleanOnceBeforeBuildPatterns: [
-                    path.resolve(__dirname, 'public/js'),
-                    path.resolve(__dirname, 'public/css')
-                ],
-                verbose: true
-            }),
             new webpack.ProvidePlugin({
                 $: 'jquery',
                 jQuery: 'jquery',
             }),
         ],
         optimization: {
-            splitChunks: {
-                cacheGroups: {
-                    commons: {
-                        test: /[\\/]node_modules[\\/]/,
-                        name: 'vendor/app-vendor',
-                        chunks: 'all'
-                    }
-                }
-            },
-            minimize: true,
-            minimizer: [
-                new TerserPlugin({
-                    terserOptions: {
-                        ecma: 6,
-                        compress: true,
-                        output: {
-                            comments: false,
-                            beautify: false
-                        }
-                    }
-                }),
-                new CssMinimizerPlugin({
-                    test: /\.s[ca]ss$/i
-                })
-            ],
             usedExports: true,
             sideEffects: false
         },
@@ -78,15 +42,15 @@ mix.webpackConfig(webpack => {
 mix.js('resources/js/admin.js', 'public/js')
     .sass('resources/sass/admin.scss', 'public/css')
 
-mix.js('src/js/app.js', 'public/js/app.js')
-mix.sass('src/sass/app.sass', 'public/css/app.css')
+mix.js('resources/js/app.js', 'public/js/app.js')
+mix.sass('resources/sass/app.sass', 'public/css/app.css')
 
 mix.copy('node_modules/flickity/dist/flickity.pkgd.min.js', 'public/js/flickity.min.js')
 mix.copy('node_modules/trumbowyg/dist/ui/icons.svg', 'public/js/ui/icons.svg')
 
-mix.copy('src/img', 'public/images')
-mix.copy('src/fonts', 'public/fonts')
-mix.copy('src/videos', 'public/videos')
+mix.copy('resources/img', 'public/images')
+mix.copy('resources/fonts', 'public/fonts')
+mix.copy('resources/videos', 'public/videos')
 
 if (mix.inProduction()) {
     mix.version()

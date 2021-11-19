@@ -19,7 +19,7 @@
     </script>
 
     <!-- Styles -->
-{{--    <link href="{{ mix('/css/app.css') }}" rel="stylesheet">--}}
+    <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
     <link href="{{ mix('/css/admin.css') }}" rel="stylesheet">
 </head>
 <body class="bg-dark">
@@ -62,7 +62,7 @@
 
 <div id="app" style="height: auto;"></div>
 <!-- Scripts -->
-<script src="{{ mix('/js/app.js') }}"></script>
+
 <script src="{{ mix('/js/admin.js') }}"></script>
 
 @yield('scripts')

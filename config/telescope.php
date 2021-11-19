@@ -6,6 +6,7 @@ use Laravel\Telescope\Watchers;
 return [
 
     'path' => 'telescope',
+    'enabled' => env('TELESCOPE_ENABLED', true),
 
     /*
     |--------------------------------------------------------------------------

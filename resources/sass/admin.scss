@@ -1,4 +1,5 @@
 @import "variables";
+@import "fonts";
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~trumbowyg/dist/ui/trumbowyg.min.css";
 @import "~bootstrap/scss/functions";
@@ -77,4 +78,8 @@ nav {
 .bootstrap-tagsinput .badge {
     margin: 2px 5px;
     padding: 5px 13px;
+}
+
+.btn.btn-secondary, .btn.btn-primary {
+    margin-right: 20px;
 }

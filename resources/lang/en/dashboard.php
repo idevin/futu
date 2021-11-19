@@ -9,5 +9,6 @@ return [
     'users' => 'Users',
     'media' => 'Gallery',
     'categories' => 'Categories',
-    'tags' => 'Tags'
+    'tags' => 'Tags',
+    'settings' => 'Settings'
 ];

@@ -15,6 +15,7 @@
         "laravel/framework": "^8",
         "laravel/horizon": "^5",
         "laravel/socialite": "^6",
+        "laravel/telescope": "^4.6",
         "laravel/tinker": "^2.6",
         "laravel/ui": "^3",
         "laravelcollective/html": "^6",
@@ -33,7 +34,6 @@
         "filp/whoops": "^2",
         "fzaninotto/faker": "^1",
         "laravel/homestead": "^11",
-        "laravel/telescope": "^4",
         "mockery/mockery": "^1",
         "phpunit/phpunit": "^9"
     },
@@ -57,6 +57,7 @@
     "extra": {
         "laravel": {
             "dont-discover": [
+                "laravel/telescope"
             ]
         }
     },
@@ -70,6 +71,9 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
+        ],
+        "post-update-cmd": [
+            "@php artisan telescope:publish --ansi"
         ]
     },
     "config": {

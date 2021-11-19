@@ -1,14 +1,17 @@
-$orange:    hsl(14,  100%, 53%);
-$yellow:    hsl(48,  100%, 67%);
-$green:     hsl(141, 71%,  48%);
+$orange: hsl(14, 100%, 53%);
+$yellow: hsl(48, 100%, 67%);
+$green: hsl(141, 71%, 48%);
 $turquoise: hsl(171, 100%, 41%);
-$cyan:      hsl(204, 86%,  53%);
+$cyan: hsl(204, 86%, 53%);
 $blue: hsl(212, 81%, 37%);
 $blue_hover: #FFA500;
-$purple:    hsl(271, 100%, 71%);
-$red:       hsl(348, 100%, 61%);
+$purple: hsl(271, 100%, 71%);
+$red: hsl(348, 100%, 61%);
 
 // Sidebar
 $sidenav-base-width: 250px;
 $sidenav-collapsed-width: 55px;
 $navbar-base-height: 56px;
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "Noto Sans", "Raleway Regular" !default;
+$font-family-monospace: "Raleway Regular", "Liberation Mono", "Courier New", monospace !default;
+$font-family-base: $font-family-sans-serif !default;

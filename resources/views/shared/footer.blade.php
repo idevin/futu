@@ -130,7 +130,6 @@
     </div>
 
     <script src="{{ mix("/js/app.js") }}"></script>
-    <script src="{{ mix("/vendor/app-vendor.js") }}"></script>
 
     @stack('inline-scripts')
 </footer>

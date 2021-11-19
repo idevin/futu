@@ -1,10 +1,8 @@
 {
-    "/js/admin.js": "/js/admin.js?id=71f6c5743127613b935c",
-    "/js/app.js": "/js/app.js?id=7dc8811b955b715762bb",
-    "/vendor/app-vendor.css": "/vendor/app-vendor.css?id=599520d5c88600bd5c54",
-    "/vendor/app-vendor.js": "/vendor/app-vendor.js?id=0aa206b32f692b5dea9d",
+    "/js/admin.js": "/js/admin.js?id=2355231d62905f17ab5a",
+    "/js/app.js": "/js/app.js?id=86c87e98ddaf3f8f64e9",
     "/css/app.css": "/css/app.css?id=8eee6c2428b9c1c9a75c",
-    "/css/admin.css": "/css/admin.css?id=3673c8a4792950b591bd",
+    "/css/admin.css": "/css/admin.css?id=66366e57991216f86a17",
     "/js/flickity.min.js": "/js/flickity.min.js?id=0a54e842e3e395e6b9fc",
     "/js/ui/icons.svg": "/js/ui/icons.svg?id=f7eb750e8b2366478e31",
     "/images/500.png": "/images/500.png?id=a4ce336b1ed460828b62",
@@ -49,5 +47,11 @@
     "/fonts/Raleway-Thin.ttf": "/fonts/Raleway-Thin.ttf?id=da1c2f2517b5b3a842ca",
     "/fonts/Raleway-ThinItalic.ttf": "/fonts/Raleway-ThinItalic.ttf?id=5bb76d0741bbcdec3217",
     "/fonts/Raleway-VariableFont_wght.ttf": "/fonts/Raleway-VariableFont_wght.ttf?id=614b31e91512b9e741a5",
+    "/fonts/nucleo-license.md": "/fonts/nucleo-license.md?id=6ed8dfabde9724353d13",
+    "/fonts/nucleo-outline.eot": "/fonts/nucleo-outline.eot?id=fd5c5a99800c47facfe4",
+    "/fonts/nucleo-outline.ttf": "/fonts/nucleo-outline.ttf?id=dc03aa5f5a7788b81070",
+    "/fonts/nucleo-outline.woff": "/fonts/nucleo-outline.woff?id=0ae4320c1a6b4b526a21",
+    "/fonts/nucleo-outline.woff2": "/fonts/nucleo-outline.woff2?id=42684bb247da5c249fa4",
+    "/fonts/sunnygeorgia.woff": "/fonts/sunnygeorgia.woff?id=9a1684919e3ea80835b0",
     "/videos/Head_Banner.mp4": "/videos/Head_Banner.mp4?id=887831620af3c0bf04ed"
 }
