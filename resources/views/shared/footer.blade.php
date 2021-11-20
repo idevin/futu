@@ -22,22 +22,7 @@
                     </ul>
                 </div>
                 <div class="cell small-12 large-6 medium-6">
-                    <ul class="footer">
-                        <li>
-                            <a href="#">Branding</a>
-                        </li>
-                        <li>
-                            <a href="#">Web Design</a></li>
-                        <li>
-                            <a href="#">Logo</a>
-                        </li>
-                        <li>
-                            <a href="#">Advertising</a>
-                        </li>
-                        <li>
-                            <a href="#">Packaging</a>
-                        </li>
-                    </ul>
+                    <x-footer_categories />
                 </div>
                 <div class="cell auto">
                     <ul class="footer">

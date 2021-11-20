@@ -23,6 +23,11 @@ let configurations = {
         tagClasses: {
             h1: 'h1'
         },
+        upload: {
+            serverPath: '/tmp',
+            imageWidthModalEdit: true,
+            url: '/test/upload'
+        },
         svgPath: '/js/ui/icons.svg',
         btnsDef: {
             align: {

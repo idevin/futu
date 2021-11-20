@@ -28,7 +28,8 @@ return [
         'parent_id' => 'Parent section',
         'meta_title' => 'Meta title',
         'meta_keywords' => 'Keywords',
-        'meta_description' => 'Meta description'
+        'meta_description' => 'Meta description',
+        'slug' => 'Slug'
     ],
 
     'placeholder' => [

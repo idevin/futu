@@ -42,8 +42,9 @@ class CategoryController extends Controller
      */
     public function create($locale): View
     {
+
         $categories = Category::roots()->get();
-        Category::tree($categories, $treeData, $select);
+        Category::tree($categories, $treeData, $select, $locale);
 
         return view('admin.categories.create', [
             'categories' => [null => __('Select category...', [], $locale)] + ($select ?? [])

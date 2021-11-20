@@ -23,7 +23,7 @@
 <div class="tab-content" id="nav-tabContent">
     <div class="form-group">
         {!! Form::label('parent_id', __('categories.attributes.parent_id', [], $locale)) !!}
-        {!! Form::select("parent_id", $categories ?? [], $category->parent_id ?? null, ['class' => 'form-control' . ($errors->has('title') ? ' is-invalid' : ''), $locale == config('app.default_locale') ? 'required' : null]) !!}
+        {!! Form::select("parent_id", $categories ?? [], $category->parent_id ?? null, ['class' => 'form-control' . ($errors->has('title') ? ' is-invalid' : '')]) !!}
     </div>
 
     @foreach(array_keys(config('locales')) as $index => $locale)

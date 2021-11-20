@@ -6,6 +6,8 @@ use App\Models\Post as PostModel;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 class Post extends Component
 {
@@ -28,6 +30,8 @@ class Post extends Component
      * Get the view / contents that represent the component.
      *
      * @return View|Closure|string
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public function render(): View|string|Closure
     {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Traits\Locale;
@@ -91,10 +92,11 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      * @param $locale
+     * @param Category $category
      * @param $slug
      * @return View|RedirectResponse
      */
-    public function show($locale, $slug): View|RedirectResponse
+    public function show($locale, Category $category, $slug): View|RedirectResponse
     {
         if (!in_array($locale, array_keys(config('locales')))) {
             throw new NotFoundHttpException();

@@ -54,7 +54,7 @@
 
             <div class="form-group">
                 {!! Form::label('description', __('posts.attributes.description', [], $locale)) !!}
-                {!! Form::text("description[$locale]", isset($post) ? $post->getTranslation('description', $locale) : null, ['class' => 'form-control' . ($errors->has('description') ? ' is-invalid' : ''), $locale == config('app.default_locale') ? 'required' : null]) !!}
+                {!! Form::textarea("description[$locale]", isset($post) ? $post->getTranslation('description', $locale) : null, ['class' => 'form-control trumbowyg-form' . ($errors->has('description') ? ' is-invalid' : ''), $locale == config('app.default_locale') ? 'required' : null]) !!}
             </div>
 
             <div class="form-group">

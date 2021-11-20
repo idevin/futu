@@ -5,12 +5,12 @@
   "fonts/vendor/font-awesome/fontawesome-webfont.woff?v=4.7.0": "fonts/vendor/font-awesome/fontawesome-webfont.woff?f691f37e57f04c152e2315ab7dbad881",
   "fonts/vendor/font-awesome/fontawesome-webfont.ttf?v=4.7.0": "fonts/vendor/font-awesome/fontawesome-webfont.ttf?1e59d2330b4c6deb84b340635ed36249",
   "fonts/vendor/font-awesome/fontawesome-webfont.svg?v=4.7.0": "fonts/vendor/font-awesome/fontawesome-webfont.svg?c1e38fd9e0e74ba58f7a2b77ef29fdd3",
+  "fonts/vendor/trumbowyg/plugins/fontsize/ui/icons/fontsize.svg": "fonts/vendor/trumbowyg/plugins/fontsize/ui/icons/fontsize.svg?c6246c94f232bc80948552b5c6027a56",
   "/js/admin.js": "/js/admin.js",
   "/js/app.js": "/js/app.js",
-  "js/643.js": "js/643.js",
-  "vendor/app-vendor.css": "vendor/app-vendor.css",
-  "vendor/app-vendor.js": "vendor/app-vendor.js",
+  "js/79.js": "js/79.js",
   "css/app.css": "css/app.css",
   "css/admin.css": "css/admin.css",
-  "vendor/app-vendor.js.LICENSE.txt": "vendor/app-vendor.js.LICENSE.txt"
+  "/js/admin.js.LICENSE.txt": "/js/admin.js.LICENSE.txt",
+  "/js/app.js.LICENSE.txt": "/js/app.js.LICENSE.txt"
 }

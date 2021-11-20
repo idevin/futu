@@ -6,6 +6,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Cache;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Spatie\Translatable\HasTranslations;
 use Vicklr\MaterializedModel\MaterializedModel;
 
@@ -57,7 +59,6 @@ class Category extends MaterializedModel
 
     public static function tree($categories, &$data = [], &$select = [], $locale = '')
     {
-
         if (!empty($categories)) {
             foreach ($categories as $index => $category) {
                 $data[$index] = $category;
@@ -77,6 +78,10 @@ class Category extends MaterializedModel
         return $this->hasMany(Post::class);
     }
 
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
     public function getSlugPathAttribute(): string
     {
         $key = 's_' . session()->get('locale') . '_' . $this->id;

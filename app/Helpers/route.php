@@ -1,6 +1,10 @@
 <?php
 
 
+/**
+ * @throws \Psr\Container\ContainerExceptionInterface
+ * @throws \Psr\Container\NotFoundExceptionInterface
+ */
 function routeLink(string $routeName, $parameters = [], bool $absolute = false): string
 {
 

@@ -19,7 +19,6 @@
     </script>
 
     <!-- Styles -->
-    <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
     <link href="{{ mix('/css/admin.css') }}" rel="stylesheet">
 </head>
 <body class="bg-dark">
