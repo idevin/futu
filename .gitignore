@@ -9,5 +9,4 @@ composer.lock
 .idea
 public/mix-manifest.json
 psd
-/vendor/
 vendor
