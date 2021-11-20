@@ -1,7 +1,5 @@
 storage
 bootstrap
-public/css
-public/js/*.js
 .env
 node_modules
 public/vendor
