@@ -10,3 +10,4 @@ composer.lock
 public/mix-manifest.json
 psd
 /vendor/
+vendor
