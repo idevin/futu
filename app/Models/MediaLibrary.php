@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Media as MediaModel;
+use App\Overrides\MediaLibrary\HasMedia;
+use App\Overrides\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Image\Exceptions\InvalidManipulation;
 use Spatie\Image\Manipulations;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 /**
@@ -15,6 +17,8 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 class MediaLibrary extends Model implements HasMedia
 {
     use InteractsWithMedia;
+
+    protected $fillable = ['collection_name', 'default'];
 
     /**
      * @throws InvalidManipulation
@@ -29,5 +33,15 @@ class MediaLibrary extends Model implements HasMedia
         $this->addMediaConversion('1200x600')->width(1200)->height(600)->setManipulations($manipulations);
         $this->addMediaConversion('100x100')->crop(Manipulations::CROP_CENTER, 100, 100)
             ->width(100)->height(100)->setManipulations($manipulations);
+    }
+
+    public function medias(): HasMany
+    {
+        return $this->hasMany(MediaModel::class);
+    }
+
+    public function posts(): HasMany
+    {
+        return $this->hasMany(Post::class);
     }
 }

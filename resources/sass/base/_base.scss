@@ -127,32 +127,3 @@ a:hover, .card-small:hover .card-small-body-title a {
 }
 
 /* Header Parallax Element Style*/
-.parallax {
-    min-height: 400px;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: 50% 50%;
-}
-
-.card-small-body {
-    padding-top: 20px;
-}
-
-.pagination {
-    justify-content: center;
-}
-
-.paginator nav {
-    background: none;
-}
-
-.search {
-    width: auto;
-}
-
-@include media-breakpoint-up(sm) {
-    .search {
-        width: 100%;
-        justify-content: center;
-    }
-}

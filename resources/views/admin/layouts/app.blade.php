@@ -28,7 +28,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col">
-                @include('shared/alerts')
+
+                @include('admin/shared/alerts')
 
                 <div class="card">
                     <div class="card-body">

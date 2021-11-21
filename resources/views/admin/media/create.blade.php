@@ -22,7 +22,24 @@
         @enderror
     </div>
 
-    {{--    {{ link_to_route('admin.media.index', __('forms.actions.back'), [], ['class' => 'btn btn-secondary']) }}--}}
+    <div class="form-group">
+        {!! Form::label('sort_order', __('media.attributes.sort_order')) !!}
+        {!! Form::number('order_column', null, ['class' => 'form-control' . ($errors->has('order_column') ? ' is-invalid' : '')]) !!}
+
+        @error('order_column')
+        <span class="invalid-feedback">{{ $message }}</span>
+        @enderror
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('collection', __('media.attributes.collection')) !!}
+        {!! Form::select('collection', $libraries, null, ['class' => 'form-control' . ($errors->has('collection') ? ' is-invalid' : '')]) !!}
+
+        @error('collection')
+        <span class="invalid-feedback">{{ $message }}</span>
+        @enderror
+
+    </div>
 
     <a href="{{routeLink('admin.media.index')}}" class="btn btn-secondary">
         {{__('forms.actions.back')}}

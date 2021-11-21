@@ -109,6 +109,10 @@
 
 </div>
 
+<div class="form-group">
+    {!! Form::label('collection', __('media.attributes.collection_row')) !!}
+    {!! Form::select('media_library_id', $collections, null, ['placeholder' => __('media.attributes.collection_row'), 'class' => 'form-control' . ($errors->has('media_library_id') ? ' is-invalid' : '')]) !!}
+</div>
 
 
 @section('scripts')

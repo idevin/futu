@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    <h1 style="float: left;">@lang('dashboard.media')</h1>
+    <h1 style="float: left;">@lang('dashboard.media_collections')</h1>
 
     <div class="d-flex justify-content-end">
         <a href="{{ routeLink('admin.media.create') }}" class="btn btn-primary btn-sm align-self-center">
@@ -17,5 +17,5 @@
         </a>
     </div>
 
-    @include('admin/media/_list')
+    @include('admin/media/_list_collections')
 @endsection

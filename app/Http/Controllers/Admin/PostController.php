@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Media;
 use App\Models\MediaLibrary;
 use App\Models\Post;
 use App\Models\User;
@@ -34,7 +35,7 @@ class PostController extends Controller
      */
     public function edit($locale, Post $post): View
     {
-         $tags = [];
+        $tags = [];
 
         foreach (array_keys(config('locales')) as $locale) {
             $tags[$locale] = $post->tags->map(function ($tag) use ($locale) {
@@ -50,12 +51,16 @@ class PostController extends Controller
             }
         }
 
+        $collections = [null => 'Select collection...'] +
+            MediaLibrary::query()->orderBy('collection_name')->pluck('collection_name', 'id')->toArray();
+
         return view('admin.posts.edit', [
             'post' => $post,
             'tags' => $tags,
+            'categories' => self::treeSelect(app()->getLocale()),
             'users' => User::authors()->pluck('name', 'id'),
-            'media' => MediaLibrary::first()->media()->get()->pluck('name', 'id'),
-            'categories' => self::treeSelect(app()->getLocale())
+            'collections' => $collections,
+            'media' => Media::query()->defaultCollection()->orderBy('name')->pluck('name', 'id')
         ]);
     }
 
@@ -65,10 +70,14 @@ class PostController extends Controller
     public function create($locale, Request $request): View
     {
 
+        $collections = [null => 'Select collection...'] +
+            MediaLibrary::query()->orderBy('collection_name')->pluck('collection_name', 'id')->toArray();
+
         return view('admin.posts.create', [
             'users' => User::authors()->pluck('name', 'id'),
-            'media' => MediaLibrary::first()->media()->get()->pluck('name', 'id'),
-            'categories' => self::treeSelect($locale)
+            'collections' => $collections,
+            'categories' => self::treeSelect($locale),
+            'media' => Media::query()->defaultCollection()->orderBy('name')->pluck('name', 'id')
         ]);
     }
 
@@ -77,7 +86,7 @@ class PostController extends Controller
      */
     public function store($locale, Request $request): RedirectResponse
     {
-        $attributes = $request->only(['posted_at', 'author_id', 'thumbnail_id', 'category_id']);
+        $attributes = $request->only(['posted_at', 'author_id', 'thumbnail_id', 'category_id', 'media_library_id']);
         $attributes['posted_at'] = Carbon::parse($attributes['posted_at']);
         $post = new Post($attributes);
 
@@ -114,7 +123,7 @@ class PostController extends Controller
     public function update($locale, Request $request, Post $post): RedirectResponse
     {
         $this->postTranslations($post, $request);
-        $post->update($request->only(['posted_at', 'author_id', 'thumbnail_id', 'category_id']));
+        $post->update($request->only(['posted_at', 'author_id', 'thumbnail_id', 'category_id', 'media_library_id']));
 
         $post->saveTags($request);
 

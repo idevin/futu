@@ -17,6 +17,7 @@ use JetBrains\PhpStorm\Pure;
  * @property int id
  * @method static firstOrCreate(string[] $array, array $array1)
  * @method static where(string $string, $null)
+ * @method static authors()
  */
 class User extends Authenticatable implements MustVerifyEmail
 {

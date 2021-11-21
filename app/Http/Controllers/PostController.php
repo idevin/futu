@@ -12,15 +12,21 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\View\View;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PostController extends Controller
 {
     use Locale;
 
-    public function switchLocale($locale): Redirector|RedirectResponse|Application
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function switchLocale($locale): string
     {
-        $defaultRedirect = redirect()->to('/' . (env('APP_ENV') != 'local' ? 'blog/' : '') . app()->getLocale());
+        $defaultRedirect = redirect()->to('/') . app()->getLocale();
         $redirect = redirect()->back();
         $backUrl = $redirect->getTargetUrl();
 
@@ -33,7 +39,7 @@ class PostController extends Controller
             $url = parse_url($backUrl);
             if (preg_match('#/locale(.*)#', $url['path']) == 0) {
 
-                $path = preg_replace('#/blog#', '', $url['path']);
+                $path = $url['path'];
                 $createdRequest = request()->create($path);
 
                 $route = app('router')->getRoutes()->match($createdRequest);

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\MediaLibrary\MediaCollections\Models\Media as BaseMedia;
 
 class Media extends BaseMedia
@@ -15,6 +16,8 @@ class Media extends BaseMedia
         'posted_at'
     ];
 
+    protected $fillable = ['media_library_id'];
+
     public function getImageInfo(string $property): string|int
     {
         $sizes = getimagesize($this->getPath());
@@ -27,5 +30,17 @@ class Media extends BaseMedia
         ];
 
         return $info[$property];
+    }
+
+    public function library(): BelongsTo
+    {
+        return $this->belongsTo(MediaLibrary::class, 'media_library_id');
+    }
+
+    public function scopeDefaultCollection($query)
+    {
+        $query->with(['library' => function($query){
+            $query->where('default', 1);
+        }]);
     }
 }

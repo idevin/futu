@@ -5,7 +5,7 @@ namespace App\Http\Requests\Admin;
 use Illuminate\Foundation\Http\FormRequest;
 use JetBrains\PhpStorm\ArrayShape;
 
-class MediaLibraryRequest extends FormRequest
+class MediaCollectionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -20,14 +20,11 @@ class MediaLibraryRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      */
-
+    #[ArrayShape(['collection_name' => "string"])]
     public function rules(): array
     {
         return [
-            'image' => 'required|image',
-            'name' => 'nullable|string|max:255',
-            'media_library_id' => 'integer',
-            'order_column' => 'integer'
+            'collection_name' => 'required|string|max:255'
         ];
     }
 }

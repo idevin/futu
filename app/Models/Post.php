@@ -53,6 +53,7 @@ class Post extends Model
         'posted_at',
         'slug',
         'thumbnail_id',
+        'media_library_id',
         'meta_title',
         'meta_description',
         'meta_keywords',
@@ -264,6 +265,11 @@ class Post extends Model
         return filled($this->thumbnail_id);
     }
 
+    public function hasCollection(): bool
+    {
+        return filled($this->media_library_id);
+    }
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
@@ -275,5 +281,10 @@ class Post extends Model
     protected function serializeDate(DateTimeInterface $date): string
     {
         return $date->format('Y-m-d H:i:s');
+    }
+
+    public function library(): BelongsTo
+    {
+        return $this->belongsTo(MediaLibrary::class, 'media_library_id');
     }
 }

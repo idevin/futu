@@ -9,11 +9,6 @@
 {{--                        <h1 class="title">{{ $post->title }}</h1>--}}
 {{--                        <div class="text-center">--}}
 
-{{--                            @if ($post->hasThumbnail())--}}
-{{--                                <div class="page-header-image jumbotron parallax"--}}
-{{--                                     style="background-image: url({{$post->thumbnail->getUrl()}}); border-radius: 10px 10px 0 0;"></div>--}}
-{{--                            @endif--}}
-
 {{--                            <div class="card-small text-left">--}}
 {{--                                <div class="section">--}}
 {{--                                    <div class="container post-content">--}}
@@ -68,8 +63,14 @@
 
 
 @section('content')
+
+
     <div class="grid-x grid-padding-x">
         <div class="cell small-12 medium-12">
+            @if ($post->hasThumbnail())
+                <div class="parallax"
+                     style="background-image: url({{$post->thumbnail->getUrl()}}); border-radius: 10px;"></div>
+            @endif
             <div class="separator-center">&nbsp;</div>
         </div>
     </div>

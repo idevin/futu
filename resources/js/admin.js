@@ -12,6 +12,20 @@ import 'trumbowyg/plugins/fontsize/trumbowyg.fontsize'
 import 'trumbowyg/plugins/fontsize/ui/icons/fontsize.svg'
 import 'trumbowyg/plugins/indent/trumbowyg.indent'
 import 'trumbowyg/plugins/table/trumbowyg.table'
+import Vue from 'vue'
+
+Vue.config.productionTip = false
+
+window.Event = new Vue()
+
+new Vue({
+    el: '#app',
+    mounted() {
+        $('[data-confirm]').on('click', (e) => {
+            return confirm($(e.currentTarget).data('confirm'))
+        })
+    }
+})
 
 let configurations = {
     plugins: {

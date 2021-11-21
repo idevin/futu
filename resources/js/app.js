@@ -163,6 +163,36 @@ jQuery(window).on('resize', function () {
 
 jQuery(document).ready(function () {
 
+    $(window).scroll(function () {
+        if (scroll === 'down') {
+            if (typeof $('.parallax') !== undefined) {
+                return anime({
+                    targets: ".parallax",
+                    opacity: [1, 0],
+                    duration: 100,
+                    loop: 1,
+                    translateY: [-200, 200],
+                    backgroundColor: '#FFF',
+                    easing: 'easeInOutQuad',
+                    complete: function () {
+                    }
+                });
+            }
+        } else {
+            return anime({
+                targets: ".parallax",
+                opacity: [0, 1],
+                duration: 100,
+                loop: 1,
+                translateY: [200, 0],
+                backgroundColor: '#FFF',
+                easing: 'easeInOutQuad',
+                complete: function () {
+                }
+            });
+        }
+    });
+
     showMenu();
 
     jQuery(document).foundation();
