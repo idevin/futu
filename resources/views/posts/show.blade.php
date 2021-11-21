@@ -100,6 +100,20 @@
         </div>
     </div>
 
+    <div class="grid-x grid-padding-x">
+
+        @if ($post->hasCollection())
+            @foreach($post->library->medias as $media)
+                <div class="cell small-12 text-center in-view-x" data-translate="X" data-from="{{rand(-50, -500)}}" data-to="0">
+                    <img srcset="{{$media->getSrcSet('1200x600')}}" alt="{{$media->name}}">
+                </div>
+                <div class="separator-center">&nbsp;</div>
+                <div class="separator-center">&nbsp;</div>
+            @endforeach
+        @endif
+        <div class="separator-center">&nbsp;</div>
+    </div>
+
     @if(count($tags) > 0)
         <div class="separator-center">&nbsp;</div>
         <div class="separator-center">&nbsp;</div>

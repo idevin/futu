@@ -44,8 +44,8 @@ inView('.in-view-x').on('enter', function (e) {
 
     let params = {
         targets: e,
-        opacity: [0.5, 1],
-        duration: 800,
+        opacity: [0.2, 1],
+        duration: 500,
         loop: 1,
         backgroundColor: '#FFF',
         easing: 'easeOutExpo',
@@ -163,6 +163,18 @@ jQuery(window).on('resize', function () {
 
 jQuery(document).ready(function () {
 
+    anime({
+        targets: '#Layer_1 path',
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: 'easeInOutSine',
+        duration: 1000,
+        delay: function (el, i) {
+            return i * 250
+        },
+        direction: 'alternate',
+        loop: false
+    });
+
     $(window).scroll(function () {
         if (scroll === 'down') {
             if (typeof $('.parallax') !== undefined) {
@@ -171,8 +183,6 @@ jQuery(document).ready(function () {
                     opacity: [1, 0],
                     duration: 100,
                     loop: 1,
-                    translateY: [-200, 200],
-                    backgroundColor: '#FFF',
                     easing: 'easeInOutQuad',
                     complete: function () {
                     }
@@ -184,8 +194,6 @@ jQuery(document).ready(function () {
                 opacity: [0, 1],
                 duration: 100,
                 loop: 1,
-                translateY: [200, 0],
-                backgroundColor: '#FFF',
                 easing: 'easeInOutQuad',
                 complete: function () {
                 }

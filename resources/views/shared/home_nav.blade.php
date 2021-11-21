@@ -34,7 +34,7 @@
                     <ul class="menu">
                         <li>
                             <a href="{{routeLink('home')}}">
-                                <img src="/images/logo.svg" alt="?" width="100%" height="100%">
+                                <img class="main-logo" src="/images/logo.svg" alt="?" width="100%" height="100%">
                             </a>
                         </li>
                     </ul>

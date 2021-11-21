@@ -5,7 +5,6 @@ namespace App\Overrides\MediaLibrary;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Collection;
 use Spatie\MediaLibrary\Conversions\Conversion;
-use App\Overrides\MediaLibrary\FileAdder;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -36,7 +35,7 @@ interface HasMedia
     /**
      * Get media collection by its collectionName.
      *
-     * @param string         $collectionName
+     * @param string $collectionName
      * @param array|callable $filters
      *
      * @return Collection
@@ -74,7 +73,7 @@ interface HasMedia
 
     public function addMediaConversion(string $name): Conversion;
 
-    public function registerMediaConversions(Media $media = null): void;
+    public function registerMediaConversions(\App\Models\Media $media = null): void;
 
     public function registerMediaCollections(): void;
 
