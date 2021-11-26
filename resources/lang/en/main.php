@@ -27,6 +27,7 @@ return [
     'Header sub text' => 'from Georgian tour operators',
     'Contents' => 'Contents',
     'Travel' => 'Travel',
+    'projects' => 'Projects',
     'login' => [
         'Login' => 'Login',
         'Registration' => 'Registration',

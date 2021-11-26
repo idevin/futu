@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use AaronDDM\XMLBuilder\Exception\XMLArrayException;
 use AaronDDM\XMLBuilder\Exception\XMLBuilderException;
 use AaronDDM\XMLBuilder\Writer\XMLWriterService;
 use AaronDDM\XMLBuilder\XMLBuilder;
@@ -9,9 +10,12 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Traits\Locale;
+use Debugbar;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Response;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 class SitemapController extends Controller
 {
@@ -19,7 +23,11 @@ class SitemapController extends Controller
 
     /**
      * Show the application dashboard.
+     * @return Response|Application|ResponseFactory
      * @throws XMLBuilderException
+     * @throws XMLArrayException
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public function index(): Response|Application|ResponseFactory
     {
@@ -144,7 +152,7 @@ class SitemapController extends Controller
             }
         }
 
-        \Debugbar::disable();
+        Debugbar::disable();
 
         return response($xmlBuilder->getXML())->header('Content-Type', 'application/xml');
     }

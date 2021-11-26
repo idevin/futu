@@ -139,6 +139,24 @@ class PostController extends Controller
         ]);
     }
 
+    public function all($locale): Factory|View|Application
+    {
+        $postsPaginated = Post::usingLocale($locale)->with('author', 'likes')
+            ->withCount(['comments', 'thumbnail', 'likes', 'category'=> function($query){
+                $query->orderBy('title');
+            }])->latest()->paginate(6);
+
+        $posts = $postsPaginated?->split(2);
+
+        $tags = Tag::byLocale(app()->getLocale())->orderBy('slug')->get();
+
+        return view('posts.all', [
+            'posts' => $posts,
+            'tags' => $tags,
+            'postsPaginated' => $postsPaginated
+        ]);
+    }
+
     public function search($locale, Request $request): Factory|\Illuminate\Contracts\View\View|Application
     {
         $q = $request->input('q');

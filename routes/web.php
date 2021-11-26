@@ -27,7 +27,7 @@ Route::get('{locale}/document/{document}', 'DocumentController@index')->name('do
 
 Route::get('/{locale}', 'PostController@index')->name('home');
 
-Route::get('/{locale}/projects', 'PostController@index')->name('projects');
+Route::get('/{locale}/projects', 'PostController@all')->name('projects');
 
 Route::get('/{locale}/contacts', 'PostController@index')->name('contacts');
 
