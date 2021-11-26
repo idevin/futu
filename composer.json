@@ -1,7 +1,7 @@
 {
     "name": "guillaumebriday/laravel-blog",
     "description": "Laravel 8.0 blog.",
-    "keywords": ["framework", "laravel", "blog", "example"],
+    "keywords": ["framework", "laravel", "futu concepts"],
     "license": "MIT",
     "type": "project",
     "require": {
