@@ -86,7 +86,12 @@ class PostController extends Controller
      */
     public function store($locale, Request $request): RedirectResponse
     {
-        $attributes = $request->only(['posted_at', 'author_id', 'thumbnail_id', 'category_id', 'media_library_id']);
+
+        $attributes = $request->only(['author_id', 'category_id', 'title', 'content', 'description', 'posted_at',
+            'slug', 'thumbnail_id', 'media_library_id', 'meta_title', 'meta_description', 'meta_keywords',
+            'show_comments_count', 'show_likes_count', 'show_date', 'show_author', 'allow_comments', 'year'
+        ]);
+
         $attributes['posted_at'] = Carbon::parse($attributes['posted_at']);
         $post = new Post($attributes);
 
@@ -123,7 +128,10 @@ class PostController extends Controller
     public function update($locale, Request $request, Post $post): RedirectResponse
     {
         $this->postTranslations($post, $request);
-        $post->update($request->only(['posted_at', 'author_id', 'thumbnail_id', 'category_id', 'media_library_id']));
+        $post->update($request->only(['author_id', 'category_id', 'title', 'content', 'description', 'posted_at',
+            'slug', 'thumbnail_id', 'media_library_id', 'meta_title', 'meta_description', 'meta_keywords',
+            'show_comments_count', 'show_likes_count', 'show_date', 'show_author', 'allow_comments', 'year'
+        ]));
 
         $post->saveTags($request);
 

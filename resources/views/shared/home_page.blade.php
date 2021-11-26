@@ -17,16 +17,16 @@
                 <div class="top-bar-left">
                     <ul class="dropdown menu" data-dropdown-menu>
                         <li>
-                            <a href="#0">Home</a>
+                            <a href="{{routeLink('home')}}">Home</a>
                         </li>
                         <li>
-                            <a href="#0">Projects</a>
+                            <a href="{{routeLink('projects')}}">Projects</a>
                         </li>
                         <li>
-                            <a href="#0">Express</a>
+                            <a href="{{routeLink('express')}}">Express</a>
                         </li>
                         <li>
-                            <a href="#0">Contacts</a>
+                            <a href="{{routeLink('contacts')}}">Contacts</a>
                         </li>
                     </ul>
                 </div>

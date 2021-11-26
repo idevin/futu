@@ -31,7 +31,8 @@ return [
         'description' => 'description',
         'slug' => 'URI (slug)',
         'category' => 'Category',
-        'tags' => 'Tags'
+        'tags' => 'Tags',
+        'year' => 'Year'
     ],
 
     'placeholder' => [

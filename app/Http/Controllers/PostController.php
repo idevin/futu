@@ -10,7 +10,6 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Redirector;
 use Illuminate\View\View;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -82,16 +81,21 @@ class PostController extends Controller
     public function index($locale): View
     {
         $posts = Post::usingLocale($locale)->with('author', 'likes')
-            ->withCount('comments', 'thumbnail', 'likes')->latest()->take(5)->get();
+            ->withCount('comments', 'thumbnail', 'likes')->latest()->take(3)->get();
 
-        $allPosts = Post::fromCategory();
+        $posts = $posts?->split(2);
 
         $tags = Tag::byLocale(session()->get('locale'))->get();
 
+        $categories = Category::usingLocale($locale)->roots()->orderBy('title')->without('children')
+            ->select('id', 'title')
+            ->get()->toArray();
+
         return view('posts.index', [
             'posts' => $posts,
-            'allPosts' => $allPosts,
-            'tags' => $tags
+            'tags' => $tags,
+            'categories' => $categories,
+            'even' => count($posts) % 2 #четные - 0
         ]);
     }
 
@@ -101,6 +105,8 @@ class PostController extends Controller
      * @param Category $category
      * @param $slug
      * @return View|RedirectResponse
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public function show($locale, Category $category, $slug): View|RedirectResponse
     {
@@ -138,7 +144,7 @@ class PostController extends Controller
     {
         $q = $request->input('q');
 
-        if(empty($q)) {
+        if (empty($q)) {
             return throw new NotFoundHttpException();
         }
 

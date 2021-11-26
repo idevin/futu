@@ -1,11 +1,11 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    <div class="page-header d-flex justify-content-between">
+    <div class="page-header">
         <h1>{{$post->title}}</h1>
         <p>
             @lang('posts.show') :
-            <a href="{{routeLink('posts.show', ['slug' => $post->slug])}}">
+            <a target="_blank" href="{{routeLink('posts.show', ['slug' => $post->slug])}}">
                 {{$post->title}}
             </a>
         </p>

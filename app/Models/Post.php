@@ -20,6 +20,7 @@ use Spatie\Translatable\HasTranslations;
  * @property array slug
  * @property int thumbnail_id
  * @property string content
+ * @property mixed $media_library_id
  * @method static firstOrCreate(array $array, array $array1)
  */
 class Post extends Model
@@ -63,7 +64,8 @@ class Post extends Model
         'show_likes_count',
         'show_date',
         'show_author',
-        'allow_comments'
+        'allow_comments',
+        'year'
     ];
     /**
      * The attributes that should be mutated to dates.

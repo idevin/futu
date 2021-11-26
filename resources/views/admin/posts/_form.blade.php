@@ -54,12 +54,17 @@
 
             <div class="form-group">
                 {!! Form::label('description', __('posts.attributes.description', [], $locale)) !!}
-                {!! Form::textarea("description[$locale]", isset($post) ? $post->getTranslation('description', $locale) : null, ['class' => 'form-control trumbowyg-form' . ($errors->has('description') ? ' is-invalid' : ''), $locale == config('app.default_locale') ? 'required' : null]) !!}
+                {!! Form::textarea("description[$locale]", isset($post) ? $post->getTranslation('description', $locale) : null, ['class' => 'form-control trumbowyg-form' . ($errors->has('description') ? ' is-invalid' : '')]) !!}
             </div>
 
             <div class="form-group">
                 {!! Form::label('content', __('posts.attributes.content', [], $locale)) !!}
-                {!! Form::textarea("content[$locale]", isset($post) ? $post->getTranslation('content', $locale) : null, ['class' => 'form-control trumbowyg-form' . ($errors->has('content') ? ' is-invalid' : ''), $locale == config('app.default_locale') ? 'required' : null]) !!}
+                {!! Form::textarea("content[$locale]", isset($post) ? $post->getTranslation('content', $locale) : null, ['class' => 'form-control trumbowyg-form' . ($errors->has('content') ? ' is-invalid' : '')]) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('year', __('posts.attributes.year', [], $locale)) !!}
+                {!! Form::number("year", $post->year ?? null, ['class' => 'form-control' . ($errors->has('year') ? ' is-invalid' : '')]) !!}
             </div>
 
             <div class="form-group">
