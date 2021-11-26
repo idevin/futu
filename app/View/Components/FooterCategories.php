@@ -5,22 +5,17 @@ namespace App\View\Components;
 use App\Models\Category;
 use Closure;
 use Illuminate\Contracts\View\View;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\View\Component;
 
 class FooterCategories extends Component
 {
-    private Model $categories;
-
     /**
      * Create a new component instance.
      *
-     * @param Model $categories
      */
-    public function __construct(Model $categories)
+    public function __construct()
     {
-        $this->categories = Category::usingLocale(app()->getLocale())->orderBy('weight')
-            ->makeHidden(['weight', 'title', 'slug_path']);
+
     }
 
     /**
@@ -30,6 +25,9 @@ class FooterCategories extends Component
      */
     public function render(): View|string|Closure
     {
-        return view('components.footer_categories', ['categories' => $this->categories]);
+        $categories = Category::usingLocale(app()->getLocale())
+            ->orderBy('weight')->get()->makeHidden(['weight', 'title', 'slug_path']);
+
+        return view('components.footer_categories', ['categories' => $categories]);
     }
 }

@@ -3,7 +3,7 @@
         @foreach($categories as $category)
             <li>
                 <a href="{{routeLink('categories.show', $category['slug_path'], true)}}">
-                    {{$category['title'][app()->getLocale()]}}
+                    {{$category['title']}}
                 </a>
             </li>
         @endforeach
