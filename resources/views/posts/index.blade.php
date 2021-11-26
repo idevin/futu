@@ -75,7 +75,11 @@
                     @endif
 
                     @if($postArray && count($postArray) % 2 == 0 && $loop->last)
-                        <div class="cell small-6 in-view-x" data-from="-400" data-to="0" style="text-align: center;">
+                        <div class="cell small-6 in-view-x"
+                             data-translate="Y"
+                             data-from="{{rand(-600, 600)}}"
+                             data-to="0"
+                             style="text-align: center;">
                             <b><a href="{{routeLink('projects')}}" class="gray-link">More Projects</a></b>
                         </div>
                     @endif

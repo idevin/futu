@@ -1,6 +1,9 @@
 <div class="grid-x grid-padding-x">
     @foreach($postSlice as $post)
-        <div class="cell small-6 in-view-x" data-from="-500" data-top="0">
+        <div class="cell small-6 in-view-x"
+             data-translate="Y"
+             data-from="{{rand(-600, 600)}}"
+             data-to="0">
             @if($post->thumbnail)
                 <a href="{{ routeLink('posts.show', $post) }}" class="grayed">
                     <img srcset="{{$post->thumbnail->getSrcSet('720x480')}}"

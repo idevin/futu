@@ -23,7 +23,6 @@
     <div class="grid-x grid-padding-x">
         <div class="cell small-12 medium-12">
             <div class="separator-center">&nbsp;</div>
-            <div class="separator-center">&nbsp;</div>
         </div>
     </div>
 
@@ -33,18 +32,24 @@
         </div>
     </div>
 
+    <div class="grid-x grid-padding-x">
+        <div class="cell small-12 medium-12">
+            <div class="separator-center">&nbsp;</div>
+        </div>
+    </div>
+
     @if(count($posts) > 0)
 
         @foreach($posts as $postArray)
             @include('posts/_card_category', ['postSlice' => $postArray])
         @endforeach
-    @endif
 
-    <div class="grid-x grid-padding-x">
-        <div class="cell small-12 medium-12 text-center">
-            {{ $postsPaginated->links() }}
+        <div class="grid-x grid-padding-x">
+            <div class="cell small-12 medium-12 text-center">
+                {{ $postsPaginated->links() }}
+            </div>
         </div>
-    </div>
+    @endif
 
 @endsection
 

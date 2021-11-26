@@ -41,7 +41,7 @@ class CategoryController extends Controller
         }
 
         $postsPaginated = $category->posts()->with('author', 'likes')->withCount('comments', 'thumbnail', 'likes')
-            ->latest()->paginate(2);
+            ->latest()->paginate(4);
 
         $posts = array_chunk($postsPaginated->items(), 2);
 
