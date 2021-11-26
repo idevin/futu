@@ -43,8 +43,8 @@ class DevDatabaseSeeder extends Seeder
                         'meta_title' => [app()->getLocale() => $faker->text()],
                         'meta_description' => [app()->getLocale() => $faker->text()],
                         'meta_keywords' => [app()->getLocale() => $faker->text()],
-                        'media_library_id' => MediaLibrary::query()->inRandomOrder()->first(),
-                        'thumbnail_id' => Media::query()->inRandomOrder()->first(),
+                        'media_library_id' => MediaLibrary::query()->inRandomOrder()->first()->id,
+                        'thumbnail_id' => Media::query()->inRandomOrder()->first()->id,
                         'year' => $faker->year
                     ]);
             });

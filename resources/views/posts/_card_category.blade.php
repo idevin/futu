@@ -1,6 +1,6 @@
 <div class="grid-x grid-padding-x">
     @foreach($postSlice as $post)
-        <div class="cell small-6 in-view-x"
+        <div class="cell auto in-view-x"
              data-translate="Y"
              data-from="{{rand(-600, 600)}}"
              data-to="0">

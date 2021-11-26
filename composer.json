@@ -32,7 +32,7 @@
     },
     "require-dev": {
         "filp/whoops": "^2",
-        "fzaninotto/faker": "^1",
+        "fakerphp/faker": "^1.9",
         "laravel/homestead": "^11",
         "mockery/mockery": "^1",
         "phpunit/phpunit": "^9"

@@ -36,7 +36,7 @@ class MediaLibrary extends Model implements HasMedia
             ->setManipulations($manipulations);
 
         $this->addMediaConversion('720x480')->width(720)->height(480)->withResponsiveImages()
-            ->setManipulations($manipulations);
+            ->setManipulations($manipulations->crop(Manipulations::CROP_CENTER, 720, 480));
 
         $this->addMediaConversion('100x100')->crop(Manipulations::CROP_CENTER, 100, 100)
             ->width(100)->height(100)->withResponsiveImages()
