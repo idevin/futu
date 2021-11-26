@@ -15,6 +15,9 @@
                             <a href="{{routeLink('projects')}}">Projects</a>
                         </li>
                         <li>
+                            <a href="{{routeLink('express')}}">Express</a>
+                        </li>
+                        <li>
                             <a href="{{routeLink('contacts')}}">Contacts</a>
                         </li>
                     </ul>
@@ -83,20 +86,7 @@
             Copyright © 2020 FUTU Concepts
         </div>
         <div class="cell auto small-10 large-7 meduim-7 socials text-center">
-            <ul>
-                <li>
-                    <a href="#"><img src="/images/instagram.svg"></a>
-                </li>
-                <li>
-                    <a href="#"> <img src="/images/facebook.svg"></a>
-                </li>
-                <li>
-                    <a href="#"><img src="/images/linkedin.svg"></a>
-                </li>
-                <li>
-                    <a href="#"> <img src="/images/behance.svg"></a>
-                </li>
-            </ul>
+            @include('shared.socials')
         </div>
         <div class="cell auto text-right">
             <div class="dot-footer">

@@ -23,6 +23,9 @@
                             <a href="{{routeLink('projects')}}">Projects</a>
                         </li>
                         <li>
+                            <a href="{{routeLink('express')}}">Express</a>
+                        </li>
+                        <li>
                             <a href="{{routeLink('contacts')}}">Contacts</a>
                         </li>
                     </ul>

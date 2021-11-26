@@ -38,20 +38,7 @@ z-index: 14; opacity: 0;" type="button"
         </div>
         <div style="position: absolute; bottom: 0; width: 100%;">
             <div class="cell auto menu-socials" style="text-align: center;">
-                <ul>
-                    <li>
-                        <a href="#"><img src="/images/menu-instagram.svg"></a>
-                    </li>
-                    <li>
-                        <a href="#"> <img src="/images/menu-facebook.svg"></a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="/images/menu-linkedin.svg"></a>
-                    </li>
-                    <li>
-                        <a href="#"> <img src="/images/menu-behance.svg"></a>
-                    </li>
-                </ul>
+                @include('shared.socials')
             </div>
         </div>
     </div>

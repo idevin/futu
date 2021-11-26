@@ -31,6 +31,8 @@ Route::get('/{locale}/projects', 'PostController@all')->name('projects');
 
 Route::get('/{locale}/contacts', 'PostController@index')->name('contacts');
 
+Route::get('/{locale}/express', 'PostController@index')->name('express');
+
 Route::get('feed', 'PostFeedController@index')->name('posts.feed');
 
 Route::get('{locale}/users/{user}', 'UserController@show')->name('users.show');
