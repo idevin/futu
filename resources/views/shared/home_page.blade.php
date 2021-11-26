@@ -46,20 +46,7 @@
             <div class="separator-center show-for-large show-for-medium show-for-landscape"
                  style="background-color: #57215b; height: 2px;margin-top: 20px;">&nbsp;
             </div>
-
-            <ul class="dropdown menu gray" style="padding-top: 1rem; padding-bottom: 1rem;" data-dropdown-menu>
-                <li>
-                    <a style="color: black; font-weight: bold;" href="#">All projects</a>
-                </li>
-                <li>
-                    <a href="#">Item 2</a>
-                    <ul class="menu">
-                        <li><a href="#">Item 1A</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Item 3</a></li>
-                <li><a href="#">Item 4</a></li>
-            </ul>
+            <x-nav_categories />
         </div>
     </div>
 </div>

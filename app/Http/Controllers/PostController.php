@@ -94,8 +94,7 @@ class PostController extends Controller
         return view('posts.index', [
             'posts' => $posts,
             'tags' => $tags,
-            'categories' => $categories,
-            'even' => count($posts) % 2 #четные - 0
+            'categories' => $categories
         ]);
     }
 

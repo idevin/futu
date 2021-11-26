@@ -36,16 +36,19 @@ class CategoryController extends Controller
 
         $category = Category::usingLocale($locale)->where('slug', 'regexp', parseSlug($lastPath))->first();
 
-
-
         if (!$category || $path . '/' !== $category->slug_path) {
             throw new NotFoundHttpException();
         }
 
+        $postsPaginated = $category->posts()->with('author', 'likes')->withCount('comments', 'thumbnail', 'likes')
+            ->latest()->paginate(2);
+
+        $posts = array_chunk($postsPaginated->items(), 2);
+
         return view('categories.show', [
             'category' => $category,
-            'posts' => $category->posts()->with('author', 'likes')->withCount('comments', 'thumbnail', 'likes')
-                ->latest()->paginate(20)
+            'posts' => $posts,
+            'postsPaginated' => $postsPaginated
         ]);
     }
 }

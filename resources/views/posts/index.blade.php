@@ -27,12 +27,14 @@
                 way of Concept Development is technological, scientific and almost mathematical.
                 Therefore reasoning behind every dot and pixel can be explained.</p>
 
-            </p>Nothing is left to chance and nothing is random.<br/>
-            Every single image serves a purpose.<br/>
-            Every pattern is thoroughly planned.<br/>
-            Every color has a meaning.<br/>
-            Every word is a statement.<br/>
+            <p>
+                Nothing is left to chance and nothing is random.<br/>
+                Every single image serves a purpose.<br/>
+                Every pattern is thoroughly planned.<br/>
+                Every color has a meaning.<br/>
+                Every word is a statement.<br/>
             </p>
+
             Our Projects cover <a href="#">Web Design</a>, <a href="#">Graphic Design</a>, <a href="#">Brand
                 Development</a>,
             <a href="#">Branding and further support</a>.
@@ -67,12 +69,12 @@
         @foreach($posts as $postArray)
             @include('posts/_card', ['postSlice' => $postArray])
 
-            @if(count($postArray) % 2 == 0 && $loop->last)
+            @if($postArray && count($postArray) % 2 == 0 && $loop->last)
                 <div class="grid-x grid-padding-x"
                      style="align-items: center;  justify-content: center; height:90px;">
                     @endif
 
-                    @if(count($postArray) % 2 == 0 && $loop->last)
+                    @if($postArray && count($postArray) % 2 == 0 && $loop->last)
                         <div class="cell small-6 in-view-x" data-from="-400" data-to="0" style="text-align: center;">
                             <b><a href="{{routeLink('projects')}}" class="gray-link">More Projects</a></b>
                         </div>
