@@ -12,9 +12,7 @@
                             <a href="{{routeLink('home')}}">Home</a>
                         </li>
                         <li>
-                            <a href="{{routeLink('projects')}}">Projects</a></li>
-                        <li>
-                            <a href="{{routeLink('express')}}">Express</a>
+                            <a href="{{routeLink('projects')}}">Projects</a>
                         </li>
                         <li>
                             <a href="{{routeLink('contacts')}}">Contacts</a>
@@ -22,7 +20,7 @@
                     </ul>
                 </div>
                 <div class="cell small-12 large-6 medium-6">
-                    <x-footer_categories />
+                    <x-footer_categories/>
                 </div>
                 <div class="cell auto">
                     <ul class="footer">

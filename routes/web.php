@@ -29,8 +29,6 @@ Route::get('/{locale}', 'PostController@index')->name('home');
 
 Route::get('/{locale}/projects', 'PostController@index')->name('projects');
 
-Route::get('/{locale}/express', 'PostController@index')->name('express');
-
 Route::get('/{locale}/contacts', 'PostController@index')->name('contacts');
 
 Route::get('feed', 'PostFeedController@index')->name('posts.feed');
