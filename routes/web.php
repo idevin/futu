@@ -23,15 +23,15 @@ Route::get('{locale}/search', 'PostController@search')->name('posts.search');
 
 Route::get('{locale}/tag/{slug}', 'TagController@show')->name('tags.show');
 
-Route::get('{locale}/document/{document}', 'DocumentController@index')->name('document');
-
 Route::get('/{locale}', 'PostController@index')->name('home');
 
 Route::get('/{locale}/projects', 'PostController@all')->name('projects');
 
-Route::get('/{locale}/contacts', 'PostController@index')->name('contacts');
+Route::get('/{locale}/contacts', 'ContactsController@index')->name('contacts');
 
-Route::get('/{locale}/express', 'PostController@index')->name('express');
+Route::get('/{locale}/docs', 'DocsController@index')->name('docs');
+
+Route::get('{locale}/{alias}', 'DocsController@show')->name('docs.show');
 
 Route::get('feed', 'PostFeedController@index')->name('posts.feed');
 

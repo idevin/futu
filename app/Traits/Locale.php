@@ -10,7 +10,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 trait Locale
 {
-    public static function categoriesShow($route, $locale, $backUrl)
+    public static function categoriesShow($route, $locale, $backUrl): array
     {
         $path = explode('/', $backUrl['path']);
 
@@ -26,12 +26,16 @@ trait Locale
         return array_merge($route->parameters, ['locale' => $locale, 'slug_path' => $category->slug_path]);
     }
 
-    public static function getAction($route)
+    /**
+     * @param $route
+     * @return mixed
+     */
+    public static function getAction($route): mixed
     {
         return $route->getAction()['as'];
     }
 
-    public static function postsShow($route, $locale, $backUrl)
+    public static function postsShow($route, $locale, $backUrl): array
     {
         $slug = last(explode('/', $backUrl['path']));
         $regexp = parseSlug($slug);

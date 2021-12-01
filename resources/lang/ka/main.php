@@ -46,8 +46,8 @@ return [
         'phone_label_description' => '<p>This procedure is necessary to continue booking.<br>Now we will send SMS with the code to your mobile number.</p>',
         'password' => 'Password:',
         'repeat_password' => 'Confirm password:',
-        'terms' => 'I&nbsp;agree with <a href="' . routeLink('document', ['document' => 'terms', 'locale' => 'ka']) . '" target="_blank">&laquoRules и&nbsp;Условия&raquo;</a> пользования сайтом и&nbsp;<a
-                                        href="' . routeLink('document', ['document' => 'rules', 'locale' => 'ka']) . '" target="_blank">&laquo;Договор оферты&raquo;</a>',
+        'terms' => 'I&nbsp;agree with <a href="' . routeLink('docs.show', ['alias' => 'terms']) . '" target="_blank">&laquoRules и&nbsp;Условия&raquo;</a> пользования сайтом и&nbsp;<a
+                                        href="' . routeLink('docs.show', ['alias' => 'rules']) . '" target="_blank">&laquo;Договор оферты&raquo;</a>',
         'I agree with' => 'I&nbsp;agree with',
         'Terms & Conditions' => '&laquoSite Terms & Conditions&raquo;',
         'and' => 'and',

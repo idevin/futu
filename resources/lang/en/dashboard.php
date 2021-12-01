@@ -11,5 +11,6 @@ return [
     'categories' => 'Categories',
     'tags' => 'Tags',
     'settings' => 'Settings',
-    'media_collections' => 'Media Collections'
+    'media_collections' => 'Media Collections',
+    'docs' => 'Documents'
 ];

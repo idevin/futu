@@ -14,6 +14,13 @@
     </li>
 
     <li class="nav-item" role="presentation" data-toggle="tooltip" data-placement="right" title="@lang('dashboard.posts')">
+        <a class="nav-link {{ request()->route()->named('admin.docs.*') ? 'active' : '' }}" href="{{ routeLink('admin.docs.index') }}">
+            <i class="fa fa-file-text" aria-hidden="true"></i>&nbsp;
+            <span class="nav-link-text">@lang('dashboard.docs')</span>
+        </a>
+    </li>
+
+    <li class="nav-item" role="presentation" data-toggle="tooltip" data-placement="right" title="@lang('dashboard.posts')">
         <a class="nav-link {{ request()->route()->named('admin.categories.*') ? 'active' : '' }}" href="{{ routeLink('admin.categories.index') }}">
             <i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;
             <span class="nav-link-text">@lang('dashboard.categories')</span>

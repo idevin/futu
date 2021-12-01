@@ -15,7 +15,7 @@
                             <a href="{{routeLink('projects')}}">Projects</a>
                         </li>
                         <li>
-                            <a href="{{routeLink('express')}}">Express</a>
+                            <a href="{{routeLink('docs.show', ['alias' => 'express'])}}">Express</a>
                         </li>
                         <li>
                             <a href="{{routeLink('contacts')}}">Contacts</a>

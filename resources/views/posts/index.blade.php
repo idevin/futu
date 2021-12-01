@@ -64,7 +64,7 @@
 
     <div class="separator-center">&nbsp;</div>
 
-    @if(count($posts) > 0)
+    @if(isset($posts) && count($posts) > 0)
 
         @foreach($posts as $postArray)
             @include('posts/_card', ['postSlice' => $postArray])
@@ -89,64 +89,27 @@
 
             @endif
 
-            {{--    <div class="grid-x grid-padding-x">--}}
-            {{--        <div class="cell small-6 in-view-x" data-from="-300" data-top="0">--}}
-            {{--            <a href="#" class="grayed">--}}
-            {{--                <img src="/images/projects/Odin_hospitality.png">--}}
-            {{--            </a>--}}
-            {{--            <br/> <br/>--}}
-            {{--            <b>ODIN Hospitality Solutions</b><br/>--}}
-            {{--            <b>Hospitality Solutions Company. Dubai UAE</b><br/>--}}
-            {{--            <span class="annotation">Branding Concept</span> <br/>--}}
-            {{--            <span class="annotation">2019</span>--}}
-            {{--        </div>--}}
-            {{--        <div class="cell small-6 in-view-p in-view-x" data-translate="Y" data-from="400" data-top="0">--}}
-            {{--            <a href="#" class="grayed">--}}
-            {{--                <img src="/images/projects/Chief_de_sucre.png">--}}
-            {{--            </a>--}}
-            {{--            <br/> <br/>--}}
-            {{--            <b>Chef de Sucre</b><br/>--}}
-            {{--            <b> Bakery. KINGDOM OF SAUDI ARABIA</b><br/>--}}
-            {{--            <span class="annotation"> Logo + Promo Materials + Branding Concept</span><br/>--}}
-            {{--            <span class="annotation">2020</span>--}}
-            {{--        </div>--}}
-            {{--    </div>--}}
-
-            {{--    <div class="separator-center">&nbsp;</div>--}}
-
-            {{--    <div class="grid-x grid-padding-x" style="align-items: center;  justify-content: center;">--}}
-            {{--        <div class="cell small-6 in-view-x" data-translate="Y">--}}
-            {{--            <a href="#" class="grayed">--}}
-            {{--                <img src="/images/projects/Die4rocknroll.png">--}}
-            {{--            </a>--}}
-            {{--            <br/> <br/>--}}
-            {{--            <b>die4Rocknroll</b><br/>--}}
-            {{--            <b> Publisher. London UK</b><br/>--}}
-            {{--            <span class="annotation">Book Covers + Book Layouts + Web Design</span> <br/>--}}
-            {{--            <span class="annotation">2015</span>--}}
-            {{--        </div>--}}
-
-            {{--    </div>--}}
 
             <div class="separator-center">&nbsp;</div>
             <div class="separator-center">&nbsp;</div>
-
-            <div class="grid-x grid-padding-x gray-background">
-                <div class="cell medium-7 large-7 hide-for-small-only hide-for-medium-only"
-                     style="overflow: hidden; display: flex;">
-                    <div class="white-line">&nbsp;</div>
-                    <img src="/images/500.png" class="mckinley">
+            <a style="color: black; text-decoration: none;" href="{{routeLink('docs.show', ['alias' => 'express'])}}">
+                <div class="grid-x grid-padding-x gray-background">
+                    <div class="cell medium-7 large-7 hide-for-small-only hide-for-medium-only"
+                         style="overflow: hidden; display: flex;">
+                        <div class="white-line">&nbsp;</div>
+                        <img src="/images/500.png" class="mckinley">
+                    </div>
+                    <div class="cell medium-12 large-5 text-right" style="padding: 25px; padding-bottom: 10px;">
+                        <h1>McKINLEY LOGO EXPRESS</h1>
+                        <br>
+                        <h3>YOU can start by getting <br> a professional LOGO</h3>
+                        <br>
+                        <h3 style="font-weight: bold; font-size: 1.5rem;">1 Logo 1 Week 1 McKINLEY</h3>
+                        <br>
+                        <h3 class="gray">*Small Business and StartUps ONLY</h3>
+                    </div>
                 </div>
-                <div class="cell medium-12 large-5 text-right" style="padding: 25px; padding-bottom: 10px;">
-                    <h1>McKINLEY LOGO EXPRESS</h1>
-                    <br>
-                    <h3>YOU can start by getting <br> a professional LOGO</h3>
-                    <br>
-                    <h3 style="font-weight: bold; font-size: 1.5rem;">1 Logo 1 Week 1 McKINLEY</h3>
-                    <br>
-                    <h3 class="gray">*Small Business and StartUps ONLY</h3>
-                </div>
-            </div>
+            </a>
 
             <div class="separator-center">&nbsp;</div>
             <div class="separator-center">&nbsp;</div>

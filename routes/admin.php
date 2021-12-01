@@ -7,6 +7,8 @@ Route::middleware(['admin'])->group(function () {
 
     Route::resource('{locale}/posts', 'PostController');
 
+    Route::resource('{locale}/docs', 'DocsController');
+
     Route::resource('{locale}/tags', 'TagController');
 
     Route::resource('{locale}/categories', 'CategoryController');
@@ -15,6 +17,9 @@ Route::middleware(['admin'])->group(function () {
 
     Route::delete('{locale}/posts/{post}/thumbnail', 'PostThumbnailController@destroy')
         ->name('posts_thumbnail.destroy');
+
+    Route::delete('{locale}/docs/{doc}/thumbnail', 'DocsThumbnailController@destroy')
+        ->name('docs_thumbnail.destroy');
 
     Route::resource('{locale}/users', 'UserController')->only(['index', 'edit', 'update']);
 

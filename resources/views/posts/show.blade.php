@@ -38,14 +38,14 @@
         </div>
     </div>
 
-    <div class="grid-x grid-padding-x"
-         data-translate="Y"
-         data-from="{{rand(-600, 600)}}"
-         data-to="0">
+    <div class="grid-x grid-padding-x">
 
         @if ($post->hasCollection())
             @foreach($post->library->medias as $media)
-                <div class="cell small-12 text-center in-view-x">
+                <div class="cell small-12 text-center in-view-x gray-image"
+                     data-translate="Y"
+                     data-from="{{rand(-600, 600)}}"
+                     data-to="0">
                     <img srcset="{{$media->getSrcSet('1200x600')}}" alt="{{$media->name}}">
                 </div>
                 <div class="separator-center">&nbsp;</div>

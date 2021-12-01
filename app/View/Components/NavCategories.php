@@ -5,22 +5,20 @@ namespace App\View\Components;
 use App\Models\Category;
 use Closure;
 use Illuminate\Contracts\View\View;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\View\Component;
+use Vicklr\MaterializedModel\HierarchyCollection;
 
 class NavCategories extends Component
 {
-    private Model $categories;
+    private HierarchyCollection $categories;
 
     /**
      * Create a new component instance.
-     *
-     * @param Model $categories
      */
-    public function __construct(Model $categories)
+    public function __construct()
     {
-        $this->categories = Category::roots()->usingLocale(app()->getLocale())->orderBy('weight')
-            ->makeHidden(['weight', 'title', 'slug_path']);
+        $this->categories = Category::usingLocale(app()->getLocale())->roots()
+            ->orderBy('weight')->get(['id', 'meta_title', 'title']);
     }
 
     /**

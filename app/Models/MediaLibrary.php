@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Image\Exceptions\InvalidManipulation;
 use Spatie\Image\Manipulations;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 /**
  * @method static firstOrCreate(array $array)
@@ -51,5 +50,10 @@ class MediaLibrary extends Model implements HasMedia
     public function posts(): HasMany
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function docs(): HasMany
+    {
+        return $this->hasMany(Doc::class);
     }
 }
