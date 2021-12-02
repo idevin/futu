@@ -18,7 +18,7 @@ class NavCategories extends Component
     public function __construct()
     {
         $this->categories = Category::usingLocale(app()->getLocale())->roots()
-            ->orderBy('weight')->get(['id', 'meta_title', 'title']);
+            ->orderBy('weight')->get(['id', 'title']);
     }
 
     /**
