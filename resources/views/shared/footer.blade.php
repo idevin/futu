@@ -28,6 +28,9 @@
                 <div class="cell auto">
                     <ul class="footer">
                         <li>
+                            <a href="{{routeLink('tags')}}">Tags</a>
+                        </li>
+                        <li>
                             <a href="{{routeLink('docs')}}">Documents</a>
                         </li>
                         <li>

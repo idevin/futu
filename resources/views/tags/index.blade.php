@@ -1,10 +1,10 @@
 @extends('layouts.show')
 
-@section('content')
 
+@section('content')
     <div class="grid-x grid-padding-x">
         <div class="cell small-12 medium-12 text-center">
-            <h1 class="h1">{{ $tag->name }}</h1>
+            <h1 class="h1">{{ __('main.tags') }}</h1>
         </div>
     </div>
 
@@ -14,15 +14,10 @@
         </div>
     </div>
 
-
-    @foreach($tagGroups as $groupName => $groups)
-        <div class="grid-x grid-padding-x">
-            @include('tags.objects', ['groups' => $groups, '$groupName' => $groupName])
-        </div>
-    @endforeach
+    @include('shared._tags')
 
 @endsection
 
 @section('title')
-    {{ $tag->name }}
+    {{ __('main.tags') }}
 @endsection

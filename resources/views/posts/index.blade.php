@@ -70,16 +70,13 @@
             @include('posts/_card', ['postSlice' => $postArray])
 
             @if($postArray && count($postArray) % 2 == 0 && $loop->last)
-                <div class="grid-x grid-padding-x align-center-middle"
+                <div class="grid-x grid-padding-x"
                      style="align-items: center;  justify-content: center; height:90px;">
                     @endif
 
                     @if($postArray && count($postArray) % 2 == 0 && $loop->last)
-                        <div class="cell small-6 in-view-x"
-                             data-translate="Y"
-                             data-from="{{rand(-600, 600)}}"
-                             data-to="0"
-                             style="text-align: center;">
+                        <div class="cell small-6 in-view-x" data-translate="Y" data-from="{{rand(-600, 600)}}"
+                             data-to="0" style="text-align: center;">
                             <b><a href="{{routeLink('projects')}}" class="gray-link">More Projects</a></b>
                         </div>
                     @endif
@@ -165,8 +162,7 @@
             <div class="separator-center">&nbsp;</div>
 
             <div class="grid-x grid-margin-x grid-padding-x align-center img-clients in-view-x" data-translate="Y"
-                 data-from="-200"
-                 data-to="0">
+                 data-from="-200" data-to="0">
                 <div class="cell auto">
                     <img src="/images/clients/Aurora.png"/>
                 </div>

@@ -29,6 +29,9 @@ return [
     'Travel' => 'Travel',
     'projects' => 'Projects',
     'docs' => 'Documents',
+    'tags' => 'Tags',
+    'App-Models-Doc' => 'Documents',
+    'App-Models-Post' => 'Projects',
     'login' => [
         'Login' => 'Login',
         'Registration' => 'Registration',

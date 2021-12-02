@@ -21,14 +21,15 @@ use Spatie\Translatable\HasTranslations;
  * @property int thumbnail_id
  * @property string content
  * @property mixed $media_library_id
+ * @property mixed $id
  * @method static firstOrCreate(array $array, array $array1)
  */
 class Post extends Model
 {
     use HasFactory, Likeable, HasTranslations, HasTags;
 
+    public static string $route = 'posts.show';
     public $timestamps = true;
-
     public $casts = [
         'title' => 'array',
         'content' => 'array',
@@ -133,6 +134,11 @@ class Post extends Model
     {
         parent::boot();
         static::addGlobalScope(new PostedScope);
+
+        static::deleting(function (self $post) {
+            Taggable::query()->where('taggable_type', get_class($post))
+                ->where('taggable_id', $post->id)->delete();
+        });
     }
 
     public function saveTags($request): void
@@ -192,8 +198,8 @@ class Post extends Model
     public function scopeSearch(Builder $query, ?string $search): Builder
     {
         if ($search) {
-            return $query->where('title', 'LIKE', "%{$search}%")->orWhere('content' , 'LIKE', "%{$search}%")
-                ->orWhere('description' , 'LIKE', "%{$search}%");
+            return $query->where('title', 'LIKE', "%{$search}%")->orWhere('content', 'LIKE', "%{$search}%")
+                ->orWhere('description', 'LIKE', "%{$search}%");
         }
 
         return $query;
@@ -277,16 +283,16 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function library(): BelongsTo
+    {
+        return $this->belongsTo(MediaLibrary::class, 'media_library_id');
+    }
+
     /**
      * Prepare a date for array / JSON serialization.
      */
     protected function serializeDate(DateTimeInterface $date): string
     {
         return $date->format('Y-m-d H:i:s');
-    }
-
-    public function library(): BelongsTo
-    {
-        return $this->belongsTo(MediaLibrary::class, 'media_library_id');
     }
 }

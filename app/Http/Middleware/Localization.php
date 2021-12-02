@@ -5,6 +5,8 @@ namespace App\Http\Middleware;
 use App;
 use Closure;
 use Illuminate\Http\Request;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Localization
@@ -15,6 +17,8 @@ class Localization
      * @param Request $request
      * @param Closure $next
      * @return mixed
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public function handle(Request $request, Closure $next): mixed
     {

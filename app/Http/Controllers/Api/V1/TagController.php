@@ -56,9 +56,7 @@ class TagController extends Controller
 
         $tag = TagModel::usingLocale($data['locale'])::findOrCreateFromString($data['name'], Post::class, $data['locale']);
 
-        if ($o) {
-            $o->attachTag($tag);
-        }
+        $o?->attachTag($tag);
 
         return $data;
     }
@@ -80,9 +78,7 @@ class TagController extends Controller
 
         $tag = TagModel::usingLocale($data['locale'])->containing(urldecode($tag), $data['locale'])->first();
 
-        if ($tag) {
-            $tag->delete();
-        }
+        $tag?->delete();
 
         return response()->noContent();
     }

@@ -11,4 +11,5 @@ return [
     |
     */
     'default' => env('HTML_MINIFY', true),
+    'replace_new_lines' => env('HTML_MINIFY_NEW_LINES', true)
 ];

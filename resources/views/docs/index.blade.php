@@ -16,7 +16,7 @@
     </div>
 
     @if(count($docs) > 0)
-        <div class="grid-x grid-padding-x align-center-middle">
+        <div class="grid-x grid-padding-x">
             @foreach($docs as $doc)
                 @include('docs._card', ['doc' => $doc])
 

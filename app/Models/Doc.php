@@ -26,8 +26,8 @@ class Doc extends Model
 {
     use HasFactory, Likeable, HasTranslations, HasTags;
 
+    public static string $route = 'docs.show';
     public $timestamps = true;
-
     public $casts = [
         'title' => 'array',
         'content' => 'array',
@@ -116,6 +116,11 @@ class Doc extends Model
     {
         parent::boot();
         static::addGlobalScope(new PostedScope);
+
+        static::deleting(function (self $doc) {
+            Taggable::query()->where('taggable_type', get_class($doc))
+                ->where('taggable_id', $doc->id)->delete();
+        });
     }
 
     public function saveTags($request): void

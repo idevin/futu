@@ -6,9 +6,7 @@
     <div class="grid-x grid-padding-x">
         <div class="cell small-12 medium-12">
             @if ($doc->hasThumbnail())
-                <div class="cell small-12 text-center in-view-x gray-image"
-                     data-translate="Y"
-                     data-from="-600"
+                <div class="cell small-12 text-center in-view-x gray-image" data-translate="Y" data-from="-600"
                      data-to="0">
                     <img srcset="{{$doc->thumbnail->getSrcSet('1200x600')}}" alt="{{$doc->thumbnail->name}}">
                 </div>

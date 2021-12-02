@@ -10,6 +10,7 @@ use App\Http\Middleware\Localization;
 use App\Http\Middleware\PreventRequestsDuringMaintenance;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Middleware\RoleMiddleware;
+use App\Http\Middleware\TrimHtml;
 use App\Http\Middleware\TrimStrings;
 use App\Http\Middleware\TrustProxies;
 use App\Http\Middleware\VerifyCsrfToken;
@@ -44,6 +45,7 @@ class Kernel extends HttpKernel
         ValidatePostSize::class,
         TrimStrings::class,
         ConvertEmptyStringsToNull::class,
+        TrimHtml::class
     ];
 
     /**
@@ -54,6 +56,7 @@ class Kernel extends HttpKernel
     protected $middlewareGroups = [
         'admin' => [Admin::class],
         'web' => [
+            TrimHtml::class,
             EncryptCookies::class,
             AddQueuedCookiesToResponse::class,
             StartSession::class,
@@ -74,7 +77,7 @@ class Kernel extends HttpKernel
     /**
      * The application's route middleware.
      *
-     * These middleware may be assigned to groups or used individually.
+     * This middleware may be assigned to groups or used individually.
      *
      * @var array
      */

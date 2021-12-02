@@ -23,6 +23,8 @@ Route::get('{locale}/search', 'PostController@search')->name('posts.search');
 
 Route::get('{locale}/tag/{slug}', 'TagController@show')->name('tags.show');
 
+Route::get('{locale}/tags', 'TagController@index')->name('tags');
+
 Route::get('/{locale}', 'PostController@index')->name('home');
 
 Route::get('/{locale}/projects', 'PostController@all')->name('projects');

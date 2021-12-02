@@ -1,13 +1,10 @@
-<div class="grid-x grid-padding-x align-center-middle">
+<div class="grid-x grid-padding-x">
     @foreach($postSlice as $post)
         <div class="cell auto in-view-x"
-             data-translate="Y"
-             data-from="{{rand(-600, 600)}}"
-             data-to="0">
+             data-translate="Y" data-from="{{rand(-600, 600)}}" data-to="0">
             @if($post->thumbnail)
                 <a href="{{ routeLink('posts.show', $post) }}" class="grayed">
-                    <img srcset="{{$post->thumbnail->getSrcSet('720x480')}}"
-                         alt="{{$post->thumbnail->name}}">
+                    <img srcset="{{$post->thumbnail->getSrcSet('720x480')}}" alt="{{$post->thumbnail->name}}">
                 </a>
             @endif
 

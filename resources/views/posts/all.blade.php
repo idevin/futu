@@ -26,7 +26,7 @@
             @endif
         @endforeach
 
-        <div class="grid-x grid-padding-x align-center-middle">
+        <div class="grid-x grid-padding-x">
             <div class="cell small-12 medium-12 text-center">
                 {{ $postsPaginated->links() }}
             </div>
