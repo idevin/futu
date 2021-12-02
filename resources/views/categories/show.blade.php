@@ -1,18 +1,5 @@
 @extends('layouts.show')
 
-
-{{--    <div class="mt-5">--}}
-{{--            <div class="section">--}}
-{{--                <div class="section-title">--}}
-{{--                    <h1>--}}
-{{--                        {{$category->title}}--}}
-{{--                    </h1>--}}
-{{--                </div>--}}
-
-{{--                @include('posts._list')--}}
-{{--            </div>--}}
-{{--    </div>--}}
-
 @section('content')
     <div class="grid-x grid-padding-x">
         <div class="cell small-12 medium-12 text-center">
@@ -42,6 +29,10 @@
 
         @foreach($posts as $postArray)
             @include('posts/_card_category', ['postSlice' => $postArray])
+            @if(!$loop->last)
+                <div class="separator-center">&nbsp;</div>
+                <div class="separator-center">&nbsp;</div>
+            @endif
         @endforeach
 
         <div class="grid-x grid-padding-x">

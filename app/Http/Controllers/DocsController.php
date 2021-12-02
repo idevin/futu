@@ -16,9 +16,10 @@ class DocsController extends Controller
     /**
      * Show the application dashboard.
      */
-    public function index(string $locale, string $slug): Factory|View|Application
+    public function index(string $locale): Factory|View|Application
     {
-        return view('posts.index');
+        $docs = Doc::usingLocale($locale)->query()->orderBy('title')->get();
+        return view('docs.index', compact('docs'));
     }
 
     /**

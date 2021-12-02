@@ -26,11 +26,11 @@
 
                         @if($post->description)
                             <description>
-                                <span class="annotation">{!! $post->description !!}</span>
+                                <div class="annotation">{!! $post->description !!}</div>
                             </description>
                         @endif
                         @if(!empty($post->year))
-                            <span class="annotation">{{$post->year}}</span>
+                            <div class="annotation">{{$post->year}}</div>
                         @endif
                     </div>
                 @endforeach

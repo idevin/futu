@@ -31,7 +31,7 @@ Route::get('/{locale}/contacts', 'ContactsController@index')->name('contacts');
 
 Route::get('/{locale}/docs', 'DocsController@index')->name('docs');
 
-Route::get('{locale}/{alias}', 'DocsController@show')->name('docs.show');
+Route::get('{locale}/doc/{alias}', 'DocsController@show')->name('docs.show');
 
 Route::get('feed', 'PostFeedController@index')->name('posts.feed');
 

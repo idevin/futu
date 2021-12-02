@@ -28,10 +28,14 @@
                 <div class="cell auto">
                     <ul class="footer">
                         <li>
-                            <a href="#">Careers</a>
+                            <a href="{{routeLink('docs')}}">Documents</a>
                         </li>
                         <li>
-                            <a href="#">Privacy & Policy</a></li>
+                            <a href="{{routeLink('docs.show', ['alias' => 'careers'])}}">Careers</a>
+                        </li>
+                        <li>
+                            <a href="{{routeLink('docs.show', ['alias' => 'privacy-and-policy'])}}">Privacy & Policy</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -39,35 +43,7 @@
         <div class="cell large-6 small-6">
             <div class="grid-x">
                 <div class="cell auto small-12 large-6 medium-6">
-                    <ul class="footer email-links">
-                        <li>
-                            GENERAL INFO:
-                            <div>
-                                <a href="mailto:info@futuconcepts.com">info@futuconcepts.com</a>
-                            </div>
-                        </li>
-                        <li>
-                            CONSULTATION:
-                            <div>
-                                <a href="mailto:anastasiya@futuconcepts.com">anastasiya@futuconcepts.com</a>
-                            </div>
-                            <div>
-                                <a href="mailto:george@futuconcepts.com">george@futuconcepts.com</a>
-                            </div>
-                        </li>
-                        <li>
-                            CURRENT ACCOUNTS:
-                            <div>
-                                <a href="mailto:michelle@futuconcepts.com">michelle@futuconcepts.com</a>
-                            </div>
-                        </li>
-                        <li>
-                            CRAZY STUFF AND OFFFERS: <br/>
-                            <div>
-                                <a href="mailto:john@futuconcepts.com">john@futuconcepts.com</a>
-                            </div>
-                        </li>
-                    </ul>
+                    @include('shared.footer-email-links')
                 </div>
                 <div class="cell auto small-12 large-6 medium-6 text-right">
                     FUTU Concepts <br>

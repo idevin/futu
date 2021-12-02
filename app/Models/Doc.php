@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
 use JetBrains\PhpStorm\Pure;
 use Spatie\Tags\HasTags;
@@ -186,7 +185,6 @@ class Doc extends Model
     {
         return $this->belongsTo(Media::class);
     }
-
 
     /**
      * return the excerpt of the post content

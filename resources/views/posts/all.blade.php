@@ -17,7 +17,13 @@
     @if(count($posts) > 0)
 
         @foreach($posts as $postArray)
-            @include('posts/_card_category', ['postSlice' => $postArray])
+
+            @include('posts._card_category', ['postSlice' => $postArray])
+
+            @if(!$loop->last)
+                <div class="separator-center">&nbsp;</div>
+                <div class="separator-center">&nbsp;</div>
+            @endif
         @endforeach
 
         <div class="grid-x grid-padding-x">

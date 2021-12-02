@@ -1,5 +1,5 @@
 @php
-    $posted_at = old('posted_at') ?? (isset($doc) ? $doc->created_at->format('Y-m-d\TH:i') : null);
+    $created_at = old('created_at') ?? (isset($doc) ? $doc->created_at->format('Y-m-d\TH:i') : null);
 @endphp
 
 @error('title')
@@ -7,14 +7,6 @@
 @enderror
 
 @error('content')
-<span class="invalid-feedback">{{ $message }}</span>
-@enderror
-
-@error('posted_at')
-<span class="invalid-feedback">{{ $message }}</span>
-@enderror
-
-@error('author_id')
 <span class="invalid-feedback">{{ $message }}</span>
 @enderror
 
@@ -44,7 +36,7 @@
 
             <div class="form-group">
                 {!! Form::label('alias', __('docs.attributes.alias', [], $locale)) !!}
-                {!! Form::text("alias[$locale]", isset($doc) ? $doc->getTranslation('alias', $locale) : null, ['class' => 'form-control' . ($errors->has('slug') ? ' is-invalid' : ''), $locale == config('app.default_locale') ? 'required' : null]) !!}
+                {!! Form::text("alias[$locale]", isset($doc) ? $doc->getTranslation('alias', $locale) : null, ['class' => 'form-control' . ($errors->has('alias') ? ' is-invalid' : ''), $locale == config('app.default_locale') ? 'required' : null]) !!}
             </div>
 
             <div class="form-group">
@@ -85,7 +77,6 @@
     {!! Form::select('thumbnail_id', $media, null, ['placeholder' => __('docs.placeholder.thumbnail'), 'class' => 'form-control' . ($errors->has('thumbnail_id') ? ' is-invalid' : '')]) !!}
 
 </div>
-
 
 @section('scripts')
 @endsection

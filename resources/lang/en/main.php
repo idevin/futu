@@ -28,6 +28,7 @@ return [
     'Contents' => 'Contents',
     'Travel' => 'Travel',
     'projects' => 'Projects',
+    'docs' => 'Documents',
     'login' => [
         'Login' => 'Login',
         'Registration' => 'Registration',
