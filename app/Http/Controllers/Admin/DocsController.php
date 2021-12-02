@@ -5,13 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Doc;
 use App\Models\Media;
-use App\Models\MediaLibrary;
 use App\Models\Post;
-use App\Models\User;
-use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class DocsController extends Controller
@@ -91,7 +87,7 @@ class DocsController extends Controller
             if (empty($alias)) {
                 $alias = $request->input('title')[$locale];
             }
-            $aliases[$locale] = Str::slug($alias, '-', $locale);
+            $aliases[$locale] = slugify($alias);
         }
 
         $doc->setTranslations('title', $request->input('title'));
@@ -106,17 +102,14 @@ class DocsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update($locale, Request $request, Post $post): RedirectResponse
+    public function update($locale, Request $request, Doc $doc): RedirectResponse
     {
-        $this->docsTranslations($post, $request);
-        $post->update($request->only(['author_id', 'category_id', 'title', 'content', 'description', 'posted_at',
-            'slug', 'thumbnail_id', 'media_library_id', 'meta_title', 'meta_description', 'meta_keywords',
-            'show_comments_count', 'show_likes_count', 'show_date', 'show_author', 'allow_comments', 'year'
-        ]));
+        $this->docsTranslations($doc, $request);
+        $doc->update();
 
-        $post->saveTags($request);
+        $doc->saveTags($request);
 
-        return redirect()->to(routeLink('admin.docs.edit', $post))->withSuccess(__('docs.updated', [], $locale));
+        return redirect()->to(routeLink('admin.docs.edit', $doc))->withSuccess(__('docs.updated', [], $locale));
     }
 
     /**

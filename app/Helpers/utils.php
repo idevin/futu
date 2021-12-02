@@ -1,9 +1,11 @@
 <?php
 
 
+use Cocur\Slugify\Slugify;
+
 function parseSlug($slug): string
 {
-    $v = \DB::select("SELECT VERSION()");
+    $v = DB::select("SELECT VERSION()");
     $v = (int)array_values((array)$v[0])[0];
 
     if ($v >= 8) {
@@ -92,4 +94,24 @@ function blogPrefix($js = true): string
         return $js == true ? '"/blog";' : '/blog';
     }
     return $js == true ? '"";' : '';
+}
+
+function slugify($string = '', $uniqueId = true, $replacement = '-'): string
+{
+    $slugifyer = new Slugify();
+
+    $options = [
+        'lowercase' => false
+    ];
+
+    $string = $slugifyer->slugify($string, $options);
+
+    $string = preg_replace('/[^\d\w\-\_]+/i', $replacement, $string);
+    $string = strip_tags(trim($string, $replacement));
+
+    if (empty($string) && $uniqueId == true) {
+        $string = uniqid();
+    }
+
+    return $string;
 }

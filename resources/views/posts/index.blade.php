@@ -70,7 +70,7 @@
             @include('posts/_card', ['postSlice' => $postArray])
 
             @if($postArray && count($postArray) % 2 == 0 && $loop->last)
-                <div class="grid-x grid-padding-x"
+                <div class="grid-x grid-padding-x align-center-middle"
                      style="align-items: center;  justify-content: center; height:90px;">
                     @endif
 

@@ -1,4 +1,4 @@
-<div class="grid-x grid-padding-x">
+<div class="grid-x grid-padding-x align-center-middle">
     @foreach($postSlice as $post)
         <div class="cell auto in-view-x"
              data-translate="Y"

@@ -11,7 +11,6 @@ use App\Traits\Category;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class PostController extends Controller
@@ -105,12 +104,13 @@ class PostController extends Controller
 
     public function postTranslations($post, Request $request)
     {
+
         $slugs = [];
         foreach ($request->input('slug') as $locale => $slug) {
             if (empty($slug)) {
                 $slug = $request->input('title')[$locale];
             }
-            $slugs[$locale] = Str::slug($slug, '-', $locale);
+            $slugs[$locale] = slugify($slug);
         }
 
         $post->setTranslations('title', $request->input('title'));
@@ -128,10 +128,8 @@ class PostController extends Controller
     public function update($locale, Request $request, Post $post): RedirectResponse
     {
         $this->postTranslations($post, $request);
-        $post->update($request->only(['author_id', 'category_id', 'title', 'content', 'description', 'posted_at',
-            'slug', 'thumbnail_id', 'media_library_id', 'meta_title', 'meta_description', 'meta_keywords',
-            'show_comments_count', 'show_likes_count', 'show_date', 'show_author', 'allow_comments', 'year'
-        ]));
+
+        $post->update();
 
         $post->saveTags($request);
 
