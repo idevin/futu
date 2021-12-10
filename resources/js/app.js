@@ -101,6 +101,10 @@ let tl = anime.timeline().add({
     targets: '.dot',
     keyframes: [
         {
+            opacity: [0, 1],
+            duration: 100,
+        },
+        {
             scale: [0.7, 1],
             easing: 'easeInOutQuad',
             duration: 500,
