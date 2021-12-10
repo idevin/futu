@@ -49,10 +49,20 @@
                     @include('shared.footer-email-links')
                 </div>
                 <div class="cell auto small-12 large-6 medium-6 text-right">
-                    FUTU Concepts <br>
-                    Dubai Design District - Dubai - United Arab Emirates
-                    <br/><br/>
-                    <img src="/images/Whatsup.svg" style="width: 8em;">
+                    @if($settings->title)
+                        {{$settings->title}}
+                        <br>
+                    @endif
+                    @if($settings->address)
+                        {{$settings->address}}
+                        <br/>
+                    @endif
+                    @if($settings->phone)
+                        <br/>
+                        <a target="_blank" href="{{$settings->phone}}">
+                            <img src="/images/Whatsup.svg" style="width: 8em;">
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>
@@ -62,7 +72,12 @@
 
     <div class="grid-x align-center-middle">
         <div class="cell auto small-10 large-3 meduim-3 copyright">
-            Copyright © 2020 FUTU Concepts
+            Copyright © 2020
+
+            @if($settings->title)
+                {{$settings->title}}
+            @endif
+
         </div>
         <div class="cell auto small-10 large-7 meduim-7 socials text-center">
             @include('shared.socials')

@@ -24,21 +24,6 @@ class ContactsController extends Controller
      */
     public function index($locale): View
     {
-        $posts = Post::usingLocale($locale)->with('author', 'likes')
-            ->withCount('comments', 'thumbnail', 'likes')->latest()->take(3)->get();
-
-        $posts = $posts?->split(2);
-
-        $tags = Tag::byLocale(app()->getLocale())->get();
-
-        $categories = Category::usingLocale($locale)->roots()->orderBy('title')->without('children')
-            ->select('id', 'title')
-            ->get()->toArray();
-
-        return view('posts.index', [
-            'posts' => $posts,
-            'tags' => $tags,
-            'categories' => $categories
-        ]);
+        return view('contacts.show');
     }
 }

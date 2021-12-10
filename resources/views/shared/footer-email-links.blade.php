@@ -1,10 +1,17 @@
 <ul class="footer email-links">
-    <li>
-        GENERAL INFO:
-        <div>
-            <a href="mailto:info@futuconcepts.com">info@futuconcepts.com</a>
-        </div>
-    </li>
+
+    @if($settings->email)
+        <li>
+
+            GENERAL INFO:
+            <div>
+                <a href="mailto:{{$settings->email}}">
+                   {{$settings->email}}
+                </a>
+            </div>
+        </li>
+    @endif
+
     <li>
         CONSULTATION:
         <div>
