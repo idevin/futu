@@ -50,9 +50,7 @@ inView('.in-view-x').on('enter', function (e) {
         backgroundColor: '#FFF',
         easing: 'easeOutExpo',
         complete: function () {
-            this.animatables.forEach(
-                e => console.log(jQuery(e.target).addClass('gray-image'))
-            );
+
         }
     };
 
@@ -127,7 +125,6 @@ function showMenu() {
     resize = true;
 
     let wWidth = jQuery(window).width();
-    console.log(wWidth);
 
     let params2 = {
         targets: '.off-c',
@@ -212,10 +209,7 @@ jQuery(document).ready(function () {
     let offCannvas = $('.off-canvas');
     let menu = $('[data-dropdown-menu]');
 
-    console.log(menu, offCannvas, '------------------------');
-
     offCannvas.on('opened.zf.offCanvas', function () {
-        console.log('opened.zf.offCanvas', this);
 
         jQuery(this).addClass();
 
@@ -240,7 +234,6 @@ jQuery(document).ready(function () {
     });
 
     offCannvas.on('close.zf.offCanvas', function () {
-        console.log('close.zf.offCanvas', this);
 
         let options = {
             targets: '.off-c',
@@ -258,7 +251,7 @@ jQuery(document).ready(function () {
     });
 
     offCannvas.on('openedEnd.zf.offCanvas', function () {
-        console.log('openedEnd.zf.offCanvas');
+
     });
 
     jQuery(".fullscreen").center().show();
@@ -301,7 +294,7 @@ jQuery(document).ready(function () {
     let animeObject = false;
 
     jQuery(document).on('scroll', function () {
-        console.log(window.scrollY);
+
         if (!(window.scrollY < 20)) {
             if (animeObject === false) {
                 topMenu.addClass('border-bottom');

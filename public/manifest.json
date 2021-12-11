@@ -8,9 +8,7 @@
   "fonts/vendor/trumbowyg/plugins/fontsize/ui/icons/fontsize.svg": "fonts/vendor/trumbowyg/plugins/fontsize/ui/icons/fontsize.svg?c6246c94f232bc80948552b5c6027a56",
   "/js/admin.js": "/js/admin.js",
   "/js/app.js": "/js/app.js",
-  "js/79.js": "js/79.js",
+  "js/resources_sass_app_sass.js": "js/resources_sass_app_sass.js",
   "css/app.css": "css/app.css",
-  "css/admin.css": "css/admin.css",
-  "/js/admin.js.LICENSE.txt": "/js/admin.js.LICENSE.txt",
-  "/js/app.js.LICENSE.txt": "/js/app.js.LICENSE.txt"
+  "css/admin.css": "css/admin.css"
 }
