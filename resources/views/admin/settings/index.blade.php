@@ -19,6 +19,10 @@
                data-toggle="tab" href="#nav-seo" role="tab"
                aria-controls="seo">Seo
             </a>
+            <a style="font-weight: bold;" class="nav-link" id="nav-socials-tab"
+               data-toggle="tab" href="#nav-socials" role="tab"
+               aria-controls="socials">Socials
+            </a>
         </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
@@ -145,6 +149,35 @@
             <div class="form-group">
                 {!! Form::label('google_analytics', __('settings.google_analytics')) !!}
                 {!! Form::text("google_analytics", $settings->google_analytics, ['class' => 'form-control']) !!}
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="nav-socials"
+             role="tabpanel" aria-labelledby="nav-socials-tab">
+
+            <div class="form-group">
+                {!! Form::label('facebook', __('settings.facebook')) !!}
+                {!! Form::text("facebook", $settings->facebook, ['class' => 'form-control']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('instagram', __('settings.instagram')) !!}
+                {!! Form::text("instagram", $settings->instagram, ['class' => 'form-control']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('linkedin', __('settings.linkedin')) !!}
+                {!! Form::text("linkedin", $settings->linkedin, ['class' => 'form-control']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('twitter', __('settings.twitter')) !!}
+                {!! Form::text("twitter", $settings->twitter, ['class' => 'form-control']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('behance', __('settings.behance')) !!}
+                {!! Form::text("behance", $settings->behance, ['class' => 'form-control']) !!}
             </div>
         </div>
     </div>

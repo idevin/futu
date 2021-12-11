@@ -52,7 +52,12 @@ class SettingController extends Controller
             'email' => $data['email'],
             'google_tag' => $data['google_tag'],
             'google_analytics' => $data['google_analytics'],
-            'google_map' => $data['google_map']
+            'google_map' => $data['google_map'],
+            'twitter' => $data['twitter'],
+            'facebook' => $data['facebook'],
+            'instagram' => $data['instagram'],
+            'behance' => $data['behance'],
+            'linkedin' => $data['linkedin']
         ]);
 
         return redirect()->to(routeLink('admin.settings.index'))->withSuccess(__('settings.updated'));
