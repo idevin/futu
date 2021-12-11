@@ -108,6 +108,11 @@
             </div>
 
             <div class="form-group">
+                {!! Form::label('google_map', __('settings.google_map')) !!}
+                {!! Form::text("google_map", $settings->google_map, ['class' => 'form-control']) !!}
+            </div>
+
+            <div class="form-group">
                 {!! Form::label('content', __('settings.content')) !!}
                 {!! Form::textarea("content", $settings->content, ['class' => 'form-control trumbowyg-form']) !!}
             </div>

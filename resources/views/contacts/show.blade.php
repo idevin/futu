@@ -12,13 +12,11 @@
         </div>
     </div>
     <div class="separator-center">&nbsp;</div>
+
     <div class="grid-x grid-padding-x">
-        <div class="cell small-12 medium-6 large-6 in-view-x hide-for-small-only" data-translate="Y"
+        <div class="cell small-12 medium-12 large-12 in-view-x" data-translate="Y"
              data-from="{{rand(-600, 600)}}"
              data-to="0">
-
-        </div>
-        <div class="cell small-12 medium-6 large-6" data-translate="Y" data-from="{{rand(-600, 600)}}" data-to="0">
 
         </div>
     </div>

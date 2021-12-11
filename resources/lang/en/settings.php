@@ -29,5 +29,6 @@ return [
     'meta_description' => 'Meta description',
     'meta_keywords' => 'Meta keywords',
     'google_tag' => 'Google tag ID',
-    'google_analytics' => 'Google analytics ID'
+    'google_analytics' => 'Google analytics ID',
+    'google_map' => 'Google maps API key'
 ];

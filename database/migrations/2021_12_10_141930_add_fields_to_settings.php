@@ -22,6 +22,7 @@ class AddFieldsToSettings extends Migration
             $table->string('email')->nullable()->after('show_likes_count');
             $table->string('google_tag')->nullable()->after('show_likes_count');
             $table->string('google_analytics')->nullable()->after('show_likes_count');
+            $table->string('google_map')->nullable()->after('show_likes_count');
             $table->string('address')->nullable()->after('show_likes_count');
             $table->string('title')->nullable()->after('show_likes_count');
         });
@@ -45,6 +46,7 @@ class AddFieldsToSettings extends Migration
             $table->dropColumn('google_tag');
             $table->dropColumn('google_analytics');
             $table->dropColumn('address');
+            $table->dropColumn('google_map');
         });
     }
 }
