@@ -42,7 +42,7 @@
 
             <div class="form-group">
                 {!! Form::label('slug', __('categories.attributes.slug', [], $locale)) !!}
-                {!! Form::text("slug[$locale]", isset($category) ? $category->getTranslation('slug', $locale) : null, ['class' => 'form-control' . ($errors->has('slug') ? ' is-invalid' : ''), $locale == config('app.default_locale') ? 'required' : null]) !!}
+                {!! Form::text("slug[$locale]", isset($category) ? $category->getTranslation('slug', $locale) : null, ['class' => 'form-control' . ($errors->has('slug') ? ' is-invalid' : '')]) !!}
             </div>
 
             <div class="form-group">
