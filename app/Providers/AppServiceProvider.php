@@ -20,6 +20,10 @@ class AppServiceProvider extends ServiceProvider
         if (Schema::hasTable('settings')) {
             View::share('settings', Setting::query()->first());
         }
+
+        if($this->app->environment('production')) {
+            \URL::forceScheme(config('app.scheme'));
+        }
     }
 
     /**

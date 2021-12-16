@@ -17,6 +17,8 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'scheme' => env('HTTP_SCHEME', 'https'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -237,7 +239,5 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-
     ],
-
 ];
