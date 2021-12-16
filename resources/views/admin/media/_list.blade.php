@@ -5,6 +5,7 @@
         <th>@lang('media.attributes.image')</th>
         <th>@lang('media.attributes.name')</th>
         <th>@lang('media.attributes.url')</th>
+        <th>@lang('media.attributes.sort_order')</th>
         <th>@lang('media.attributes.collection_row')</th>
         <th>@lang('media.attributes.posted_at')</th>
         <th></th>
@@ -28,6 +29,9 @@
                         </button>
                     </div>
                 </div>
+            </td>
+            <td>
+                {{$medium->order_column}}
             </td>
             <td>
                 {{$medium->library?->collection_name}}

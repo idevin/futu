@@ -8,7 +8,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media as BaseMedia;
 class Media extends BaseMedia
 {
     /**
-     * The attributes that should be mutated to dates.
+     * The attributes that should be mutated to date.
      *
      * @var array
      */
