@@ -20,7 +20,7 @@ class MediaLibraryController extends Controller
     public function index(): View
     {
         return view('admin.media.index', [
-            'media' => Media::query()->with('library')->orderBy('posted_at', 'desc')->get()
+            'media' => Media::query()->with('library')->orderBy('order_column')->get()
         ]);
     }
 
