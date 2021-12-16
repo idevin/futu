@@ -43,7 +43,7 @@
     @if ($post->hasCollection())
 
         @php
-            $medias = $post->library->medias->split(2);
+            $medias = $post->library->medias->chunk(3);
         @endphp
 
         @foreach($medias as $mediaArray)
