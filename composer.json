@@ -9,7 +9,6 @@
         "aaronddm/xml-builder": "^2.0",
         "barryvdh/laravel-debugbar": "^3",
         "cocur/slugify": "^4.0",
-        "dipeshsukhia/laravel-html-minify": "^1.1",
         "doctrine/dbal": "^3.1",
         "fideloper/proxy": "^4",
         "fruitcake/laravel-cors": "^2",

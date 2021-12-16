@@ -4,11 +4,11 @@ namespace App\Http\Middleware;
 
 use App;
 use Closure;
-use DipeshSukhia\LaravelHtmlMinify\Middleware\LaravelMinifyHtml;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Config;
 
-class TrimHtml extends LaravelMinifyHtml
+class TrimHtml
 {
     /**
      * Handle an incoming request.
@@ -17,7 +17,7 @@ class TrimHtml extends LaravelMinifyHtml
      * @param Closure $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next): mixed
     {
         $response = $next($request);
 
@@ -40,7 +40,7 @@ class TrimHtml extends LaravelMinifyHtml
             ];
 
             if (Config::get('htmlminify.replace_new_lines')) {
-                $replace += ['/\r*]/' => '',
+                $replace += ['/\r]+/' => ' ',
                     '/[\n]+/' => ' '
                 ];
             }
@@ -49,5 +49,15 @@ class TrimHtml extends LaravelMinifyHtml
         }
 
         return $response;
+    }
+
+    protected function isResponseObject($response): bool
+    {
+        return $response instanceof Response;
+    }
+
+    protected function isHtmlResponse(Response $response): bool
+    {
+        return strtolower(strtok($response->headers->get('Content-Type'), ';')) === 'text/html';
     }
 }

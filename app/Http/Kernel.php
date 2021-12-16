@@ -7,6 +7,7 @@ use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\Categories;
 use App\Http\Middleware\EncryptCookies;
 use App\Http\Middleware\Localization;
+use App\Http\Middleware\MinifyHtml;
 use App\Http\Middleware\PreventRequestsDuringMaintenance;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Middleware\RoleMiddleware;
@@ -65,7 +66,6 @@ class Kernel extends HttpKernel
             SubstituteBindings::class,
             Localization::class,
             Categories::class
-
         ],
 
         'api' => [
