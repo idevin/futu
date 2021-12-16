@@ -129,6 +129,7 @@ class PostController extends Controller
     {
         $this->postTranslations($post, $request);
 
+        $post->media_library_id = $request->input('media_library_id');
         $post->update();
 
         $post->saveTags($request);

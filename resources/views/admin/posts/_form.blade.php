@@ -115,6 +115,7 @@
 </div>
 
 <div class="form-group">
+{{--{{dd($post->toArray()['media_library_id'])}}--}}
     {!! Form::label('collection', __('media.attributes.collection_row')) !!}
     {!! Form::select('media_library_id', $collections, null, ['placeholder' => __('media.attributes.collection_row'), 'class' => 'form-control' . ($errors->has('media_library_id') ? ' is-invalid' : '')]) !!}
 </div>

@@ -38,20 +38,29 @@
         </div>
     </div>
 
-    <div class="grid-x grid-padding-x">
 
-        @if ($post->hasCollection())
-            @foreach($post->library->medias as $media)
-                <div class="cell auto text-center in-view-x gray-image" data-translate="Y"
-                     data-from="{{rand(-600, 600)}}" data-to="0">
-                    <img srcset="{{$media->getSrcSet('1200x600')}}" alt="{{$media->name}}">
-                </div>
-                <div class="separator-center">&nbsp;</div>
-                <div class="separator-center">&nbsp;</div>
-            @endforeach
-        @endif
-        <div class="separator-center">&nbsp;</div>
-    </div>
+
+    @if ($post->hasCollection())
+
+        @php
+            $medias = $post->library->medias->split(2);
+        @endphp
+
+        @foreach($medias as $mediaArray)
+            <div class="grid-x grid-padding-x flex-column-reverse">
+                @foreach($mediaArray as $media)
+                    <div class="cell small-4 text-center in-view-x gray-image" data-translate="Y"
+                         data-from="{{rand(-600, 600)}}" data-to="0">
+                        <img srcset="{{$media->getSrcSet('1200x600')}}" alt="{{$media->name}}">
+                    </div>
+                @endforeach
+            </div>
+            <div class="separator-center">&nbsp;</div>
+            <div class="separator-center">&nbsp;</div>
+        @endforeach
+    @endif
+    <div class="separator-center">&nbsp;</div>
+
 
     @if(count($tags) > 0)
         <div class="separator-center">&nbsp;</div>
