@@ -11,8 +11,8 @@
 
     @yield('content')
 
-    <div class="separator-center">&nbsp;</div>
-    <div class="separator-center">&nbsp;</div>
+    <div class="separator-center hide-for-small-only">&nbsp;</div>
+    <div class="separator-center hide-for-small-only">&nbsp;</div>
 
     @include('shared.footer')
 </div>

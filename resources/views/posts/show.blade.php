@@ -55,15 +55,14 @@
                     </div>
                 @endforeach
             </div>
-            <div class="separator-center">&nbsp;</div>
-            <div class="separator-center">&nbsp;</div>
+            @if($loop->last)
+                <div class="separator-center">&nbsp;</div>
+                <div class="separator-center">&nbsp;</div>
+            @endif
         @endforeach
     @endif
-    <div class="separator-center">&nbsp;</div>
-
 
     @if(count($tags) > 0)
-        <div class="separator-center">&nbsp;</div>
         <div class="separator-center">&nbsp;</div>
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 medium-12 text-center">
