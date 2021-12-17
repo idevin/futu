@@ -12,7 +12,7 @@
     <meta name="robots" content="index, follow">
     <meta name="rating" content="general">
     <link rel="canonical" href="{{request()->url()}}"/>
-    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon"/>
+    <link rel="icon" href="{{ asset('/images/favicon.png') }}" type="image/x-icon"/>
 
 
     @yield('meta.common')
