@@ -26,8 +26,7 @@ class MediaLibraryRequest extends FormRequest
         return [
             'image' => 'required|image',
             'name' => 'nullable|string|max:255',
-            'media_library_id' => 'integer',
-            'order_column' => 'integer'
+            'media_library_id' => 'integer'
         ];
     }
 }
