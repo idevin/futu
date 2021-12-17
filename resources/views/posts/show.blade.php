@@ -47,15 +47,25 @@
         @endphp
 
         @foreach($medias as $mediaArray)
+            @php
+                $cell = 4;
+                if(count($mediaArray) == 1){
+    $cell = 12;
+    }
+                if(count($mediaArray) == 2) {
+                    $cell = 6;
+                }
+            @endphp
+
             <div class="grid-x grid-padding-x flex-column-reverse">
                 @foreach($mediaArray as $media)
-                    <div class="cell small-4 text-center in-view-x gray-image" data-translate="Y"
+                    <div class="cell small-{{$cell}} text-center in-view-x gray-image" data-translate="Y"
                          data-from="{{rand(-600, 600)}}" data-to="0">
-                        <img srcset="{{$media->getSrcSet('1200x600')}}" alt="{{$media->name}}">
+                        <img srcset="{{$media->getSrcSet('1200x800')}}" alt="{{$media->name}}">
                     </div>
                 @endforeach
             </div>
-            @if($loop->last)
+            @if(!$loop->last)
                 <div class="separator-center">&nbsp;</div>
                 <div class="separator-center">&nbsp;</div>
             @endif

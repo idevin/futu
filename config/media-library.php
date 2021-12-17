@@ -77,7 +77,7 @@ return [
      *
      * More info: https://css-tricks.com/native-lazy-loading/
      */
-    'default_loading_attribute_value' => 'auto',
+    'default_loading_attribute_value' => 'lazy',
 
     /*
      * This is the class that is responsible for naming conversion files. By default,
